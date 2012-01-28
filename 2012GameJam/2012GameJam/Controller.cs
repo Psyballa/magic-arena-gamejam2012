@@ -10,15 +10,20 @@ public class Controller
     GamePadState playerTwo = GamePad.GetState(PlayerIndex.Two);
     GamePadState playerThree = GamePad.GetState(PlayerIndex.Three);
     GamePadState playerFour = GamePad.GetState(PlayerIndex.Four);
-
-
     /// <summary>
     /// Constructor for controller class. 
     /// Each controller takes in a Player
     /// </summary>
-	public Controller(GamePadState gamePadState, Button button)
-	{
-        this.gamePadState = gamePadState;
-        this.button = button;
-	}
+
+    public Controller(GamePadState gamePadState, Button button)
+    {
+        if (gamePadState.IsConnected)
+        {
+            this.gamePadState = gamePadState;
+            if (button == ButtonState.Pressed)
+            {
+                this.button = button;
+            }
+        }
+    }
 }
