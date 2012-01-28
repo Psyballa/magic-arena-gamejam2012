@@ -19,14 +19,20 @@ namespace _2012Gamejam
         Vector2 velocity;
         Vector2 acceleration;
         Vector2 position;
-        float transparency;
+        float transparency = 1.0f;
         float transparencyDelta;
         float rotation;
         float rotationSpeed;
-        float lifetime;
-        float time;
+        public float lifetime;
+        public float time = 0;
 
-        public Particle(Texture2D sprite, Vector2 position, Vector2 velocity, Vector2 acceleration, float transparencyDelta, float rotationSpeed)
+        public Particle(Texture2D sprite, 
+            Vector2 position, 
+            Vector2 velocity, 
+            Vector2 acceleration, 
+            float transparencyDelta, 
+            float rotationSpeed, 
+            float lifetime)
         {
             this.sprite = sprite;
             this.position = position;
@@ -34,6 +40,8 @@ namespace _2012Gamejam
             this.acceleration = acceleration;
             this.transparencyDelta = transparencyDelta;
             this.rotationSpeed = rotationSpeed;
+            this.time = 0;
+            this.lifetime = lifetime;
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -42,6 +50,8 @@ namespace _2012Gamejam
             rotation += rotationSpeed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             position += velocity * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             transparency += transparencyDelta * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+
+            time += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
             spriteBatch.Draw(
                 sprite,
@@ -60,7 +70,72 @@ namespace _2012Gamejam
         Random random;
         float maxRot;
         float minRot;
-        List<Particle> particles;
 
+        Vector2 position;
+
+        Vector2 initVelocity;
+        Vector2 initAccel;
+
+        public List<Particle> particles = new List<Particle>();
+        int add;
+        Texture2D sprite;
+        float transDelta;
+        int minlife;
+        int maxlife;
+        public bool destroyFlag = false;
+        public void destroy()
+        {
+            add = 0;
+            destroyFlag = true;
+        }
+
+        public ParticleSystem(float minRot, 
+            float maxRot, 
+            Vector2 position, 
+            Vector2 initVelocity, 
+            Vector2 initAccel, 
+            int add, 
+            Texture2D sprite, 
+            float transDelta, 
+            int minlife,
+            int maxlife)
+        {
+            this.minRot = minRot;
+            this.maxRot = maxRot;
+            this.position = position;
+            this.initVelocity = initVelocity;
+            this.initAccel = initAccel;
+            this.add = add;
+            this.sprite  = sprite;
+            this.transDelta = transDelta;
+            this.minlife = minlife;
+            this.maxlife = maxlife;
+            this.random = new Random();
+        }
+        public void draw(GameTime gameTime, SpriteBatch spriteBatch)
+        {
+            foreach (Particle i in particles)
+            {
+                i.Draw(gameTime, spriteBatch);
+            }
+            for (int i = 0; i < particles.Count; ++i)
+            {
+                if (particles[i].time > particles[i].lifetime)
+                {
+                    particles.RemoveAt(i);
+                    --i;
+                }
+            }
+            for (int i = 0; i < add; ++i)
+            {
+                float rotspeed =  (float)random.NextDouble() * (maxRot - minRot) + minRot;
+                int lifetime = (int)(random.NextDouble() * (maxlife - minlife) + minlife);
+                float angle = (float)random.NextDouble() * (maxRot - minRot) + minRot;
+                Vector2 velocity = Vector2.Transform(initVelocity, Matrix.CreateRotationZ(angle));
+                Vector2 acceleration = Vector2.Transform(initAccel, Matrix.CreateRotationZ(angle));
+
+                particles.Add(new Particle(sprite, position, velocity, acceleration, transDelta,0, lifetime));
+            }
+        }
     }
 }

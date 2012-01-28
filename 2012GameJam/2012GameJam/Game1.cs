@@ -21,6 +21,7 @@ namespace _2012Gamejam
         World world;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        List<ParticleSystem> particleSystems = new List<ParticleSystem>();
 
         public Game1()
         {
@@ -37,6 +38,7 @@ namespace _2012Gamejam
         protected override void Initialize()
         {
             world = new World(Vector2.UnitY);
+            particleSystems.Add(new ParticleSystem(0, 2 * (float)Math.PI, new Vector2(Window.ClientBounds.Width/2, Window.ClientBounds.Height/2), new Vector2(0.5f, 0), new Vector2(), 5, Content.Load<Texture2D>("1"), -0.001f, 500, 600));
             base.Initialize();
         }
 
@@ -72,6 +74,15 @@ namespace _2012Gamejam
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+            for (int i = 0; i < particleSystems.Count; ++i)
+            {
+                if (particleSystems[i].particles.Count == 0 && particleSystems[i].destroyFlag)
+                {
+                    particleSystems.RemoveAt(i);
+                }
+            }
+
+
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -84,8 +95,13 @@ namespace _2012Gamejam
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            spriteBatch.Begin();
+            foreach (ParticleSystem i in particleSystems)
+            {
+                i.draw(gameTime, spriteBatch);
+            }
 
-            // TODO: Add your drawing code here
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
