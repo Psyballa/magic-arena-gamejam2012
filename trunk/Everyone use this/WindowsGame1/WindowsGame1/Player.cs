@@ -67,8 +67,6 @@ namespace WindowsGame1
         private const float MetersInPx = 64f;
         private const float playerAccel = 0.4f;
 
-        public CollisionFilterDelegate ContactFilter;
-
         public Player(World gameWorld, int playerNum, Game game) : base(gameWorld)
         {
             //Merged this with loadContent for simplicity
@@ -78,18 +76,22 @@ namespace WindowsGame1
                 //Positions will likely need to be changed based on world size
                 case 1:
                     playerController = new Controller(PlayerIndex.One);
+                    playerTex = game.Content.Load<Texture2D>("Player1");
                     Position = new Vector2(10, 10);
                     break;
                 case 2:
                     playerController = new Controller(PlayerIndex.Two);
+                    playerTex = game.Content.Load<Texture2D>("Player2");
                     Position = new Vector2(40, 10);
                     break;
                 case 3:
                     playerController = new Controller(PlayerIndex.Three);
+                    playerTex = game.Content.Load<Texture2D>("Player3");
                     Position = new Vector2(10, 40);
                     break;
                 case 4:
                     playerController = new Controller(PlayerIndex.Four);
+                    playerTex = game.Content.Load<Texture2D>("Player4");
                     Position = new Vector2(40, 40);
                     break;
             }

@@ -25,3 +25,7 @@ C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use t
 C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Start.xnb
 C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\FloorTile.xnb
 C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\WallTile.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Player1.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Player2.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Player3.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Player4.xnb

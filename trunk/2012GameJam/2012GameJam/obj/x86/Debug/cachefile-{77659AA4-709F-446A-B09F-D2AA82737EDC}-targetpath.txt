@@ -1,0 +1,6 @@
+Content\1.xnb
+Content\avatar-floating-hills.xnb
+Content\BgOuru.xnb
+Content\KingsOfAlchemy.xnb
+Content\Exit.xnb
+Content\Start.xnb
