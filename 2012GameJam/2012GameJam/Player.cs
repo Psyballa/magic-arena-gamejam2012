@@ -28,12 +28,32 @@ namespace _2012Gamejam
 
         public Player(int playerNum, World gameWorld)
         {
+            GamePadState gamePadState;
             health = 100;
             playerBody.BodyType = BodyType.Dynamic;
             playerBodyShape = new CircleShape(1.0f, 1.0f);
             playerFix = playerBody.CreateFixture(playerBodyShape);
             gameWorld.AddBody(playerBody);
             playerNumber = playerNum;
+
+            switch(playerNum){
+            
+                case 1:
+                    gamePadState = GamePad.GetState(PlayerIndex.One);
+                    break;
+                case 2:
+                    gamePadState = GamePad.GetState(PlayerIndex.Two);
+                    break;
+                case 3:
+                    gamePadState = GamePad.GetState(PlayerIndex.Three);
+                    break;
+                case 4:
+                    gamePadState = GamePad.GetState(PlayerIndex.Four);
+                    break;
+                default:
+                    gamePadState = GamePad.GetState(PlayerIndex.One);
+                    break;
+            }
             ////////////////////////////////////////////////////////// playerTex = ? also starting coords all based off player #
         }
 
