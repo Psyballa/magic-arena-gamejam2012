@@ -24,7 +24,7 @@ namespace _2012Gamejam
         CircleShape playerBodyShape;
         Texture2D playerTex;
         int playerNumber;
-
+        int controllerScheme;
 
         public Player(int playerNum, World gameWorld)
         {
@@ -36,7 +36,15 @@ namespace _2012Gamejam
             gameWorld.AddBody(playerBody);
             playerNumber = playerNum;
 
-            switch(playerNum){
+           
+            ////////////////////////////////////////////////////////// playerTex = ? also starting coords all based off player #
+        }
+
+
+
+        public void update(){
+             Player player = new Player(int playerNum, World gameWorld);
+             switch(playerNum){
             
                 case 1:
                     gamePadState = GamePad.GetState(PlayerIndex.One);
@@ -54,12 +62,6 @@ namespace _2012Gamejam
                     gamePadState = GamePad.GetState(PlayerIndex.One);
                     break;
             }
-            ////////////////////////////////////////////////////////// playerTex = ? also starting coords all based off player #
-        }
-
-        public void update(){
-
-
 
         
     }
