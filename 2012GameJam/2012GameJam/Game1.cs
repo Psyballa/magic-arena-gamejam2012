@@ -13,15 +13,19 @@ using FarseerPhysics.Factories;
 
 namespace _2012Gamejam
 {
-    /// <summary>
-    /// This is the main type for your game
-    /// </summary>
+    enum GameState{
+        fight,
+        mainMenu
+    };
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         World world;
+        GameState gameState = GameState.mainMenu;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         List<ParticleSystem> particleSystems = new List<ParticleSystem>();
+        List<ParticleSystem> menuParticleSystems = new List<ParticleSystem>();
+        
 
         public Game1()
         {
@@ -96,10 +100,21 @@ namespace _2012Gamejam
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            foreach (ParticleSystem i in particleSystems)
+            if (gameState == GameState.fight)
             {
-                i.draw(gameTime, spriteBatch);
+                foreach (ParticleSystem i in particleSystems)
+                {
+                    i.draw(gameTime, spriteBatch);
+                }
             }
+            else
+            {
+                foreach (ParticleSystem i in menuParticleSystems)
+                {
+                    i.draw(gameTime, spriteBatch);
+                }
+            }
+
 
             spriteBatch.End();
 
