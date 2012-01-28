@@ -8,14 +8,17 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using FarseerPhysics.Dynamics;
+using FarseerPhysics.Factories;
 
-namespace _2012GameJam
+namespace _2012Gamejam
 {
     /// <summary>
     /// This is the main type for your game
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        World world;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -33,8 +36,7 @@ namespace _2012GameJam
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
+            world = new World(Vector2.UnitY);
             base.Initialize();
         }
 
