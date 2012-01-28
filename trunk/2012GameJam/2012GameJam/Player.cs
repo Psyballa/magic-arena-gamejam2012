@@ -14,7 +14,8 @@ using FarseerPhysics.Factories;
 using FarseerPhysics.Collision.Shapes;
 using FarseerPhysics.Collision;
 
-namespace _2012Gamejam
+
+namespace Gamejam
 {
     class Player
     {
@@ -26,10 +27,12 @@ namespace _2012Gamejam
         int playerNumber;
         int controllerScheme;
         float rotationAngle;
+        float velocityX, velocityY;
+        GamePadState gamePad;
 
         public Player(int playerNum, World gameWorld)
         {
-            GamePadState gamePadState;
+            GamePadState gamePadState = gamePad;
             health = 100;
             playerBody.BodyType = BodyType.Dynamic;
             playerBodyShape = new CircleShape(1.0f, 1.0f);
@@ -37,34 +40,43 @@ namespace _2012Gamejam
             gameWorld.AddBody(playerBody);
             playerNumber = playerNum;
             float rotAngle = rotationAngle;
+            float velX = velocityX;
+            float velY = velocityY;
             ////////////////////////////////////////////////////////// playerTex = ? also starting coords all based off player #
         }
 
         public void update()
         {
-
+            GamePadState gamePad;
             float rotation;
+            float velX, velY;
+            Vector2 velocity;
             switch (playerNumber)
             {
 
                 case 1:
-                    gamePadState = GamePad.GetState(PlayerIndex.One);
+                    gamePad = GamePad.GetState(PlayerIndex.One);
                     break;
                 case 2:
-                    gamePadState = GamePad.GetState(PlayerIndex.Two);
+                    gamePad = GamePad.GetState(PlayerIndex.Two);
                     break;
                 case 3:
-                    gamePadState = GamePad.GetState(PlayerIndex.Three);
+                    gamePad = GamePad.GetState(PlayerIndex.Three);
                     break;
                 case 4:
-                    gamePadState = GamePad.GetState(PlayerIndex.Four);
+                    gamePad = GamePad.GetState(PlayerIndex.Four);
                     break;
                 default:
-                    gamePadState = GamePad.GetState(PlayerIndex.One);
+                    gamePad = GamePad.GetState(PlayerIndex.One);
                     break;
             }
-            rotation = Math.atan2(gamePadState.ThumbSticks.Right.Y / gamePadState.ThumbSticks.Right.X);
+            rotation = (float)Math.Atan2((double)gamePad.ThumbSticks.Right.Y, (double)gamePad.ThumbSticks.Right.X);
+            
+            velX = (float)1.33 * gamePad.ThumbSticks.Left.X;
+            velY = (float)1.33 * gamePad.ThumbSticks.Left.Y;
 
+            velocity.X = (float)Math.Atan2((double)velY , (double)velX);
+            velocity.Y = (float)Math.Atan2((double)velY, (double)velX);
         }
     }
 }
