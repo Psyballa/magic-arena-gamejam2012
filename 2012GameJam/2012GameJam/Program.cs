@@ -1,6 +1,6 @@
 using System;
 
-namespace _2012GameJam
+namespace _2012Gamejam
 {
 #if WINDOWS || XBOX
     static class Program

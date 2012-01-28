@@ -13,19 +13,28 @@ using FarseerPhysics.Factories;
 
 namespace _2012Gamejam
 {
-    enum GameState{
+    public enum GameState{
         fight,
         mainMenu
     };
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         World world;
-        GameState gameState = GameState.mainMenu;
+        public GameState gameState = GameState.mainMenu;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         List<ParticleSystem> particleSystems = new List<ParticleSystem>();
+
+        //Menu stuff
         List<ParticleSystem> menuParticleSystems = new List<ParticleSystem>();
-        
+        Texture2D ouru;
+        float ouruAngle = 0;
+        Texture2D name;
+        Texture2D bg;
+        Vector2 ouruPos;
+
+        List<Button> buttons = new List<Button>();
+        public int selected = 0;
 
         public Game1()
         {
@@ -44,6 +53,7 @@ namespace _2012Gamejam
             world = new World(Vector2.UnitY);
             particleSystems.Add(new ParticleSystem(0, 2 * (float)Math.PI, new Vector2(Window.ClientBounds.Width/2, Window.ClientBounds.Height/2), new Vector2(0.5f, 0), new Vector2(), 5, Content.Load<Texture2D>("1"), -0.001f, 500, 600));
             base.Initialize();
+
         }
 
         /// <summary>
@@ -53,7 +63,14 @@ namespace _2012Gamejam
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
+            ouruPos = new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height/4);
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            ouru = Content.Load<Texture2D>("BgOuru");
+            bg = Content.Load<Texture2D>("avatar-floating-hills");
+            name = Content.Load<Texture2D>("KingsOfAlchemy");
+            buttons.Add(new startGameButton(this, 0, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height * 5 / 8)));
+            buttons.Add(new exitButton(this, 0, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height*7 / 8)));
+
 
             // TODO: use this.Content to load your game content here
         }
@@ -78,15 +95,22 @@ namespace _2012Gamejam
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            for (int i = 0; i < particleSystems.Count; ++i)
+            if (gameState == GameState.fight)
             {
-                if (particleSystems[i].particles.Count == 0 && particleSystems[i].destroyFlag)
+                for (int i = 0; i < particleSystems.Count; ++i)
                 {
-                    particleSystems.RemoveAt(i);
+                    if (particleSystems[i].particles.Count == 0 && particleSystems[i].destroyFlag)
+                    {
+                        particleSystems.RemoveAt(i);
+                    }
                 }
             }
-
-
+            if (gameState == GameState.mainMenu)
+            {
+                foreach(Button b in buttons){
+                    b.step(gameTime);
+                }
+            }
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -107,11 +131,19 @@ namespace _2012Gamejam
                     i.draw(gameTime, spriteBatch);
                 }
             }
-            else
+            if (gameState == GameState.mainMenu)
             {
                 foreach (ParticleSystem i in menuParticleSystems)
                 {
                     i.draw(gameTime, spriteBatch);
+                }
+                ouruAngle += 0.01f;
+                spriteBatch.Draw(bg, new Rectangle(0, 0, Window.ClientBounds.Width, Window.ClientBounds.Height), Color.White);
+                spriteBatch.Draw(ouru, ouruPos, ouru.Bounds, Color.White, ouruAngle, new Vector2(ouru.Bounds.Center.X, ouru.Bounds.Center.Y), new Vector2(0.3f, 0.3f), SpriteEffects.FlipHorizontally, 0.5f);
+                spriteBatch.Draw(name, ouruPos, name.Bounds, Color.White, 0, new Vector2(name.Bounds.Center.X, name.Bounds.Center.Y), new Vector2(1, 1), SpriteEffects.None, 0.5f);
+                foreach (Button b in buttons)
+                {
+                    b.draw(gameTime, spriteBatch);
                 }
             }
 
