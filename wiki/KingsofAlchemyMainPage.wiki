@@ -1,0 +1,16 @@
+#summary Kings of Alchemy is an arcade-style action game written in the XNA language for the Xbox 360 gaming console.
+
+= Introduction =
+
+In Kings Of Alchemy, you play as one of four Royal Alchemists
+
+
+= Characters =
+
+*Azoth* -
+
+*Anima* -
+
+*Spiritus* -
+
+*Corpus* - 
