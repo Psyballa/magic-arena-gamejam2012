@@ -35,17 +35,14 @@ namespace _2012Gamejam
             playerFix = playerBody.CreateFixture(playerBodyShape);
             gameWorld.AddBody(playerBody);
             playerNumber = playerNum;
-
-           
             ////////////////////////////////////////////////////////// playerTex = ? also starting coords all based off player #
         }
 
+        public void update()
+        {
+            switch (playerNumber)
+            {
 
-
-        public void update(){
-             Player player = new Player(int playerNum, World gameWorld);
-             switch(playerNum){
-            
                 case 1:
                     gamePadState = GamePad.GetState(PlayerIndex.One);
                     break;
@@ -62,7 +59,6 @@ namespace _2012Gamejam
                     gamePadState = GamePad.GetState(PlayerIndex.One);
                     break;
             }
-
-        
+        }
     }
 }
