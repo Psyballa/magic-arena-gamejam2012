@@ -61,8 +61,21 @@ namespace WindowsGame1
             }
             foreach (Tile t in tiles)
             {
-                if(t != null)
+                if (t != null)
                     t.draw(gameTime, spriteBatch);
+            }
+
+        }
+        public void update(GameTime gameTime)
+        {
+            foreach (Wall w in walls)
+            {
+                w.Update();
+            }
+            foreach (Tile t in tiles)
+            {
+                if (t != null)
+                    t.Update();
             }
 
         }

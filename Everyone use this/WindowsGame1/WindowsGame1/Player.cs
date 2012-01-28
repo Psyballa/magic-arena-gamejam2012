@@ -67,6 +67,9 @@ namespace WindowsGame1
         private const float MetersInPx = 64f;
         private const float playerAccel = 0.4f;
 
+
+        bool fallingFlag = false;
+
         public Player(World gameWorld, int playerNum, Game game) : base(gameWorld)
         {
             //Merged this with loadContent for simplicity
@@ -77,25 +80,24 @@ namespace WindowsGame1
                 case 1:
                     playerController = new Controller(PlayerIndex.One);
                     playerTex = game.Content.Load<Texture2D>("Player1");
-                    Position = new Vector2(10, 10);
+                    Position = new Vector2(60, 60);
                     break;
                 case 2:
                     playerController = new Controller(PlayerIndex.Two);
                     playerTex = game.Content.Load<Texture2D>("Player2");
-                    Position = new Vector2(40, 10);
+                    Position = new Vector2(400, 60);
                     break;
                 case 3:
                     playerController = new Controller(PlayerIndex.Three);
                     playerTex = game.Content.Load<Texture2D>("Player3");
-                    Position = new Vector2(10, 40);
+                    Position = new Vector2(60, 400);
                     break;
                 case 4:
                     playerController = new Controller(PlayerIndex.Four);
                     playerTex = game.Content.Load<Texture2D>("Player4");
-                    Position = new Vector2(40, 40);
+                    Position = new Vector2(400, 400);
                     break;
             }
-            
             damage = 0;
 
             // load player sprite
@@ -104,7 +106,7 @@ namespace WindowsGame1
             playerFixture.Body.BodyType = BodyType.Dynamic;
 
             playerFixture.CollisionCategories = Category.Cat3;
-            playerFixture.CollidesWith = Category.Cat4 | Category.Cat5 | Category.Cat6 | Category.Cat8;
+            playerFixture.CollidesWith = Category.Cat4 | Category.Cat1 | Category.Cat5 | Category.Cat6 | Category.Cat8;
 
             playerFixture.OnCollision += playerOnCollision;
 
@@ -114,30 +116,46 @@ namespace WindowsGame1
         }
 
         public bool playerOnCollision(Fixture fix1, Fixture fix2, Contact con)
-
-     /*      Collides with 4 to take constant damage
-     *      Collides with 5 to take damage and stop the beam & knockback
-     *      collides with 6 to take immediate damage (floor destroys it) & knockback
-     *      collides with 8 to take constant damage & tornado accel
-      */
         {
-            if (fix2.CollisionCategories == Category.Cat4)
-            {
-                damage += 0.05f;
+            switch(fix2.CollisionCategories){
+                case Category.Cat1:                         //Wall
+                    return true;
+                case Category.Cat2:                         //Floor
+                    fallingFlag = false;
+                    return false;
+                case Category.Cat4:                         //Fire spray
+                    damage += 0.05f;
+                    return false;
+                case Category.Cat5:                         //Water beam
+                    damage += 0.01f;
+                    return true;
+                case Category.Cat6:                         //Rock
+                    damage += 0.05f;
+                    LinearVelocity = LinearVelocity + Vector2.Normalize(fix1.Body.Position - Position) * 2 * (1 + damage);
+                    return false;
+                case Category.Cat8:
+                    LinearVelocity = 
+                        Vector2.Transform(
+                        LinearVelocity,
+                        Matrix.CreateRotationZ((float)Math.Max(0, 30 - Vector2.Distance(fix1.Body.Position, fix2.Body.Position)) * 1 + damage));
+                    return false;
+                default:
+                    return false;
+
             }
-            if (fix2.CollisionCategories == Category.Cat5)
-            {
-                damage += 0.01f;
-                LinearVelocity = LinearVelocity + Vector2.Normalize(fix1.Body.Position - Position);         //Ghetto Knockback
-            }
-            //FINISH ME
-            return true; 
         }
 
         public void UpdatePlayer()
         {
             // Call methods to get info from controller
             // Do Stuff (this will include methods to shoot attacks)
+
+            //This is set to false in the collision detection if the player is safely standing on a tile, and set to false after each update
+            if (fallingFlag)
+            {
+
+            }
+            fallingFlag = true;
 
         }
         public void draw(GameTime gameTime, SpriteBatch spriteBatch)

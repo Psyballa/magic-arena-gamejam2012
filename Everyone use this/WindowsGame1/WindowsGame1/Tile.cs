@@ -32,6 +32,7 @@ namespace WindowsGame1
      *      Collides with 6 to take instantaneous damage and destroy it
      *      Collides with 8 to take constant damage
      * Category 3: Player
+     *      Collides with 2 to not die
      *      Collides with 4 to take constant damage
      *      Collides with 5 to take damage and stop the beam
      *      collides with 6 to take immediate damage (floor destroys it)
@@ -48,15 +49,30 @@ namespace WindowsGame1
     class Tile : Body
     {
         int health;
+        int prevhealth;
+        float maxhealth;
         Fixture tileFixture;
         Texture2D tileTex;
         Vector2 location;
+
+        float breakstages = 7;
+
+        SoundEffect breakSound;
+
+        KingsOfAlchemy game;
+
 
         public Tile(World gameWorld, Vector2 location, KingsOfAlchemy game) : base(gameWorld)
         {
             //Loading content in the constructor for simplicity's sake because the content manager is initialized by the time the stage is created
             health = 100;
-            tileTex = game.Content.Load<Texture2D>("FloorTile");
+            prevhealth = health;
+            maxhealth = health;
+
+            this.game = game;
+
+            tileTex = game.Content.Load<Texture2D>("Tiles/MarbleTilesBreak0");
+            breakSound = game.Content.Load<SoundEffect>("Tiles/FloorBreaking");
             location.X *= tileTex.Width;
             location.Y *= tileTex.Height;
             Position = location;
@@ -81,9 +97,26 @@ namespace WindowsGame1
 
         public void Update()
         {
+            int currstage = (int)((maxhealth - health) / (maxhealth / breakstages));
+            if (currstage < 0)
+            {
+                currstage = 0;
+            }
+            if (currstage > breakstages - 1)
+            {
+                currstage = (int)breakstages - 1;
+            }
+            if (currstage > prevhealth)
+            {
+                tileTex = game.Content.Load<Texture2D>("Tiles/MarbleTilesBreak" + currstage.ToString());
+            }
+
+            prevhealth = currstage;
+
+            //Makes the tile inactive if it is destroyed
             if (health <= 0)
             {
-                //destroy self, I forget how to do that right now, im tired
+                tileFixture.CollisionCategories = Category.None;
             }
         }
         public void draw(GameTime gameTime, SpriteBatch spriteBatch)

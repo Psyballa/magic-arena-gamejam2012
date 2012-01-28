@@ -112,7 +112,7 @@ namespace WindowsGame1
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-
+            world.Step(1);
             if (gameState == GameState.fight)
             {
                 for (int i = 0; i < particleSystems.Count; ++i)
@@ -122,6 +122,7 @@ namespace WindowsGame1
                         particleSystems.RemoveAt(i);
                     }
                 }
+                stage.update(gameTime);
             }
             if (gameState == GameState.mainMenu)
             {
