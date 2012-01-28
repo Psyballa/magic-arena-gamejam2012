@@ -1,0 +1,12 @@
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\2012GameJam\2012GameJam\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\2012GameJam\2012GameJam\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\2012GameJam\2012GameJam\bin\x86\Debug\2012GameJam.exe
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\2012GameJam\2012GameJam\bin\x86\Debug\2012GameJam.pdb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\2012GameJam\2012GameJam\obj\x86\Debug\2012GameJam.exe
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\2012GameJam\2012GameJam\obj\x86\Debug\2012GameJam.pdb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\2012GameJam\2012GameJam\bin\x86\Debug\Content\1.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\2012GameJam\2012GameJam\bin\x86\Debug\Content\avatar-floating-hills.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\2012GameJam\2012GameJam\bin\x86\Debug\Content\BgOuru.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\2012GameJam\2012GameJam\bin\x86\Debug\Content\KingsOfAlchemy.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\2012GameJam\2012GameJam\bin\x86\Debug\Content\Exit.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\2012GameJam\2012GameJam\bin\x86\Debug\Content\Start.xnb

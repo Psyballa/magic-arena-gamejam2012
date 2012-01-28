@@ -86,13 +86,11 @@ namespace WindowsGame1
             stage = new Stage(30, 30, this);
 
             //Initialize players
+            players = new List<Player>();
             for (int i = 0; i < 4; ++i)
             {
                 players.Add(new Player(world, i + 1, this));
             }
-
-
-            // TODO: use this.Content to load your game content here
         }
 
         /// <summary>
