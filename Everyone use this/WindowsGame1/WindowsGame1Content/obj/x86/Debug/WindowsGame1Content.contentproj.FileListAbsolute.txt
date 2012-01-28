@@ -1,3 +1,0 @@
-C:\Users\Ultimatemuffin\Documents\Visual Studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1Content\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this I changed a bunch of stuff and made skeleton code for just about everything\WindowsGame1\WindowsGame1Content\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1Content\obj\x86\Debug\ResolveAssemblyReference.cache

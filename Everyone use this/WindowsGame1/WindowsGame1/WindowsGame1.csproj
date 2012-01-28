@@ -130,10 +130,10 @@
       <Project>{0A850700-1ABB-4288-A391-6726B90EBEB9}</Project>
       <Name>Farseer Physics XNA</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WindowsGame1\WindowsGame1Content\WindowsGame1Content.contentproj">
-      <Name>WindowsGame1Content %28Content%29</Name>
+    <ProjectReference Include="..\2012GameJamContent\2012GameJamContent.contentproj">
+      <Project>{77659AA4-709F-446A-B09F-D2AA82737EDC}</Project>
+      <Name>2012GameJamContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
-      <Project>{084C1155-99AC-45E8-8372-043E3A50BE4F}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
