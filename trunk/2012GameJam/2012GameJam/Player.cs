@@ -25,6 +25,7 @@ namespace _2012Gamejam
         Texture2D playerTex;
         int playerNumber;
         int controllerScheme;
+        float rotationAngle;
 
         public Player(int playerNum, World gameWorld)
         {
@@ -35,11 +36,14 @@ namespace _2012Gamejam
             playerFix = playerBody.CreateFixture(playerBodyShape);
             gameWorld.AddBody(playerBody);
             playerNumber = playerNum;
+            float rotAngle = rotationAngle;
             ////////////////////////////////////////////////////////// playerTex = ? also starting coords all based off player #
         }
 
         public void update()
         {
+
+            float rotation;
             switch (playerNumber)
             {
 
@@ -59,6 +63,8 @@ namespace _2012Gamejam
                     gamePadState = GamePad.GetState(PlayerIndex.One);
                     break;
             }
+            rotation = Math.atan2(gamePadState.ThumbSticks.Right.Y / gamePadState.ThumbSticks.Right.X);
+
         }
     }
 }
