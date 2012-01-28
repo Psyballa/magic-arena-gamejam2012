@@ -49,32 +49,24 @@ namespace WindowsGame1
     {
         int health;
         Fixture tileFixture;
-        World tileWorld;
         Texture2D tileTex;
         Vector2 location;
 
-        public Tile(World gameWorld, Vector2 location) : base(gameWorld)
+        public Tile(World gameWorld, Vector2 location, KingsOfAlchemy game) : base(gameWorld)
         {
-            this.location = location;
-            tileWorld = gameWorld;
+            //Loading content in the constructor for simplicity's sake because the content manager is initialized by the time the stage is created
             health = 100;
-        }
-
-        public void loadContent(KingsOfAlchemy game)
-        {
-            //Make walltex a thing
-
-            //initialize the fixture to some rectangle that fits the texture dimensions
             tileTex = game.Content.Load<Texture2D>("FloorTile");
-
-            //Translate from tile coordinates to pixel coordinates
             location.X *= tileTex.Width;
             location.Y *= tileTex.Height;
+            Position = location;
 
-            tileFixture.OnCollision += OnCollision;
+            tileFixture = FixtureFactory.AttachRectangle(tileTex.Width, tileTex.Height, 1, new Vector2(), this);
+            tileFixture.CollisionCategories = Category.Cat2;
+            tileFixture.OnCollision += _OnCollision;
         }
 
-        public bool OnCollision(Fixture fix1, Fixture fix2, Contact con)
+        public bool _OnCollision(Fixture fix1, Fixture fix2, Contact con)
         {
             if (fix2.CollisionCategories == Category.Cat1)
             {
