@@ -13,6 +13,11 @@ using FarseerPhysics.Factories;
 using FarseerPhysics.Collision;
 using FarseerPhysics.Common;
 
+
+
+
+
+
 namespace WindowsGame1
 {
     public enum GameState{
@@ -21,7 +26,7 @@ namespace WindowsGame1
     };
     public class KingsOfAlchemy : Microsoft.Xna.Framework.Game
     {
-        World world;
+        public World world;
         public GameState gameState = GameState.mainMenu;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -34,6 +39,8 @@ namespace WindowsGame1
         Texture2D name;
         Texture2D bg;
         Vector2 ouruPos;
+
+        Stage stage;
 
         List<Button> buttons = new List<Button>();
         public int selected = 0;
@@ -53,7 +60,7 @@ namespace WindowsGame1
         protected override void Initialize()
         {
             world = new World(Vector2.UnitY);
-            particleSystems.Add(new ParticleSystem(0, 2 * (float)Math.PI, new Vector2(Window.ClientBounds.Width/2, Window.ClientBounds.Height/2), new Vector2(0.5f, 0), new Vector2(), 5, Content.Load<Texture2D>("1"), -0.001f, 500, 600));
+            //particleSystems.Add(new ParticleSystem(0, 2 * (float)Math.PI, new Vector2(Window.ClientBounds.Width/2, Window.ClientBounds.Height/2), new Vector2(0.5f, 0), new Vector2(), 5, Content.Load<Texture2D>("1"), -0.001f, 500, 600));
             base.Initialize();
 
         }

@@ -28,9 +28,11 @@ namespace WindowsGame1
     class Controller
     {
         controls theControls;
+        PlayerIndex controller;
 
-        public Controller(int playerNum)
+        public Controller(PlayerIndex playerNum)
         {
+            this.controller = playerNum;
             // Assign the correct gamepad to the given player
         }
 

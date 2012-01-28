@@ -20,6 +20,13 @@ namespace WindowsGame1
 {
     class Wall
     {
+        /*Note on collision categories (Arbitrarily defined based on what was already in the code):
+         * Category 1: Wall
+         * Category 2: Floor
+         * Category 3: Player
+         * Category 4: Projectile
+         * -C
+         */
         int health;
         Fixture wallFixture;
         World wallWorld;
@@ -59,6 +66,12 @@ namespace WindowsGame1
             {
                 //destroy self, I forget how to do that right now, im tired
             }
+        }
+
+        public void draw(GameTime gameTime, SpriteBatch spriteBatch)
+        {
+            if (health > 0)
+                spriteBatch.Draw(tileTex, new Rectangle((int)Position.X, (int)Position.Y, tileTex.Width, tileTex.Height), Color.White);
         }
     }
 }

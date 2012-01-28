@@ -17,3 +17,9 @@ C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use t
 C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\FarseerPhysicsXNA.dll
 C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\FarseerPhysicsXNA.pdb
 C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\FarseerPhysicsXNA.xml
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\1.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\avatar-floating-hills.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\BgOuru.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\KingsOfAlchemy.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Exit.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Start.xnb
