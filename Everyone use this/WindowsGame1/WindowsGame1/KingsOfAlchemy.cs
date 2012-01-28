@@ -61,7 +61,7 @@ namespace WindowsGame1
         /// </summary>
         protected override void Initialize()
         {
-            world = new World(Vector2.UnitY);
+            world = new World(Vector2.Zero);
             //particleSystems.Add(new ParticleSystem(0, 2 * (float)Math.PI, new Vector2(Window.ClientBounds.Width/2, Window.ClientBounds.Height/2), new Vector2(0.5f, 0), new Vector2(), 5, Content.Load<Texture2D>("1"), -0.001f, 500, 600));
             base.Initialize();
 
@@ -130,7 +130,6 @@ namespace WindowsGame1
                     b.step(gameTime);
                 }
             }
-            // TODO: Add your update logic here
 
             base.Update(gameTime);
         }

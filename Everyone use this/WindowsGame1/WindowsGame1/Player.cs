@@ -25,28 +25,12 @@ namespace WindowsGame1
 
     /*Note on collision categories (Arbitrarily defined based on what was already in the code):
      * Category 1: Wall 
-     *      Collides with 3 with 3 bouncing off
-     *      collides with 4 to take constant damage and stop the cone
-     *      collides with 5 to take constant damage and stop the beam
-     *      collides with 6&7 to take instantaneous damage, destroy the rock, and create a dust effect
-     *      collides with 8 to disperse it and take instantaneous damage
      * Category 2: Floor
-     *      Collides with 4 to take constant damage
-     *      Collides with 5 to take much less constant damage
-     *      Collides with 6 to take instantaneous damage and destroy it
-     *      Collides with 8 to take constant damage
      * Category 3: Player
-     *      Collides with 4 to take constant damage
-     *      Collides with 5 to take damage and stop the beam
-     *      collides with 6 to take immediate damage (floor destroys it)
-     *      collides with 8 to take constant damage
      * Category 4: Fire Cone
-     *      Collision handled elsewhere
      * Category 5: Water Beam
-     *      Collision handled elsewhere
      * Category 6: Rock
      * Category 7: Midair Rock
-     *      Collides with 8 to accelerate clockwise
      * Category 8: Tornado
      */
 
@@ -57,9 +41,12 @@ namespace WindowsGame1
         float playerSize = 5;
         Texture2D playerTex;
         Controller playerController;
-        public Fixture playerFixture {get; set;}
-        Element currentEquip;
+        public Fixture playerFixture;
 
+        //Attack stuff
+        Element currentEquip;
+        float leftcharge = 0;
+        float rightcharge = 0;
 
         //Player Stats
         private const float playerMass = 10f;
@@ -67,7 +54,8 @@ namespace WindowsGame1
         private const float MetersInPx = 64f;
         private const float playerAccel = 0.4f;
 
-
+        //Flags
+        public bool dead = false;
         bool fallingFlag = false;
 
         public Player(World gameWorld, int playerNum, Game game) : base(gameWorld)
@@ -133,7 +121,7 @@ namespace WindowsGame1
                     damage += 0.05f;
                     LinearVelocity = LinearVelocity + Vector2.Normalize(fix1.Body.Position - Position) * 2 * (1 + damage);
                     return false;
-                case Category.Cat8:
+                case Category.Cat8:                         //Tornado
                     LinearVelocity = 
                         Vector2.Transform(
                         LinearVelocity,
@@ -147,13 +135,15 @@ namespace WindowsGame1
 
         public void UpdatePlayer()
         {
+            goDoThis elementChange = playerController.getEquipChange();
+            //if(elementChange = goDoThis.equipAir && 
             // Call methods to get info from controller
             // Do Stuff (this will include methods to shoot attacks)
 
             //This is set to false in the collision detection if the player is safely standing on a tile, and set to false after each update
             if (fallingFlag)
             {
-
+                dead = true;
             }
             fallingFlag = true;
 
