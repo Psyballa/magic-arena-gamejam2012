@@ -27,10 +27,11 @@ namespace WindowsGame1
     public class KingsOfAlchemy : Microsoft.Xna.Framework.Game
     {
         public World world;
-        public GameState gameState = GameState.mainMenu;
+        public GameState gameState = GameState.fight;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         List<ParticleSystem> particleSystems = new List<ParticleSystem>();
+        Stage stage;
 
         //Menu stuff
         List<ParticleSystem> menuParticleSystems = new List<ParticleSystem>();
@@ -40,7 +41,8 @@ namespace WindowsGame1
         Texture2D bg;
         Vector2 ouruPos;
 
-        Stage stage;
+        List<Player> players;
+        
 
         List<Button> buttons = new List<Button>();
         public int selected = 0;
@@ -79,6 +81,15 @@ namespace WindowsGame1
             name = Content.Load<Texture2D>("KingsOfAlchemy");
             buttons.Add(new startGameButton(this, 0, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height * 5 / 8)));
             buttons.Add(new exitButton(this, 0, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height*7 / 8)));
+
+            //Initialize stage
+            stage = new Stage(30, 30, this);
+
+            //Initialize players
+            for (int i = 0; i < 4; ++i)
+            {
+                players.Add(new Player(world, i + 1, this));
+            }
 
 
             // TODO: use this.Content to load your game content here
@@ -135,9 +146,14 @@ namespace WindowsGame1
             spriteBatch.Begin();
             if (gameState == GameState.fight)
             {
+                stage.draw(gameTime, spriteBatch);
                 foreach (ParticleSystem i in particleSystems)
                 {
                     i.draw(gameTime, spriteBatch);
+                }
+                foreach (Player p in players)
+                {
+                    p.draw(gameTime, spriteBatch);
                 }
             }
             if (gameState == GameState.mainMenu)

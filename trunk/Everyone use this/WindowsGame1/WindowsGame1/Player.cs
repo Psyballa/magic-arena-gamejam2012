@@ -53,8 +53,7 @@ namespace WindowsGame1
 
     class Player : Body
     {
-        private World playerWorld;
-        int damage;
+        public float damage;
         float playerSize = 5;
         Texture2D playerTex;
         Controller playerController;
@@ -70,48 +69,40 @@ namespace WindowsGame1
 
         public CollisionFilterDelegate ContactFilter;
 
-        public Player(World gameWorld, int playerNum) : base(gameWorld)
+        public Player(World gameWorld, int playerNum, Game game) : base(gameWorld)
         {
-            
-            playerWorld = gameWorld;
+            //Merged this with loadContent for simplicity
 
             switch (playerNum)
             {
-
+                //Positions will likely need to be changed based on world size
                 case 1:
-                    //Set controller to player 1 and starting position to player 1 starting position
                     playerController = new Controller(PlayerIndex.One);
                     Position = new Vector2(10, 10);
                     break;
                 case 2:
-                    //Set controller to player 2 and starting position to player 2 starting position
                     playerController = new Controller(PlayerIndex.Two);
-                    Position = new Vector2(10, 10);
+                    Position = new Vector2(40, 10);
                     break;
                 case 3:
-                    //Set controller to player 3 and starting position to player 3 starting position
                     playerController = new Controller(PlayerIndex.Three);
-                    Position = new Vector2(10, 10);
+                    Position = new Vector2(10, 40);
                     break;
                 case 4:
-                    //Set controller to player 4 and starting position to player 4 starting position
                     playerController = new Controller(PlayerIndex.Four);
-                    Position = new Vector2(10, 10);
+                    Position = new Vector2(40, 40);
                     break;
             }
             
             damage = 0;
-        }
 
-        public void loadContent(Game myGame)
-        {
             // load player sprite
 
             playerFixture = FixtureFactory.AttachCircle(playerSize, 1, this);
             playerFixture.Body.BodyType = BodyType.Dynamic;
 
             playerFixture.CollisionCategories = Category.Cat3;
-            playerFixture.CollidesWith = Category.Cat2 & ~Category.Cat3 & ~Category.Cat4 & ~Category.Cat5; //or whatever categories it will end up colliding with
+            playerFixture.CollidesWith = Category.Cat4 | Category.Cat5 | Category.Cat6 | Category.Cat8;
 
             playerFixture.OnCollision += playerOnCollision;
 
@@ -121,25 +112,36 @@ namespace WindowsGame1
         }
 
         public bool playerOnCollision(Fixture fix1, Fixture fix2, Contact con)
+
+     /*      Collides with 4 to take constant damage
+     *      Collides with 5 to take damage and stop the beam & knockback
+     *      collides with 6 to take immediate damage (floor destroys it) & knockback
+     *      collides with 8 to take constant damage & tornado accel
+      */
         {
-            if (fix2.CollisionCategories == Category.Cat1)
+            if (fix2.CollisionCategories == Category.Cat4)
             {
-                //Do thing that happens when player hits cat1
+                damage += 0.05f;
             }
-            if (fix2.CollisionCategories == Category.Cat2)
+            if (fix2.CollisionCategories == Category.Cat5)
             {
-                //repeat this for every unique case
+                damage += 0.01f;
+                LinearVelocity = LinearVelocity + Vector2.Normalize(fix1.Body.Position - Position);         //Ghetto Knockback
             }
+            //FINISH ME
             return true; 
         }
 
         public void UpdatePlayer()
         {
             // Call methods to get info from controller
-            // Do Stuff (this will include methods to shoot attacks
+            // Do Stuff (this will include methods to shoot attacks)
 
         }
-
+        public void draw(GameTime gameTime, SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(playerTex, new Rectangle((int)Position.X - playerTex.Width / 2, (int)Position.Y - playerTex.Height / 2, playerTex.Width, playerTex.Height), Color.White);
+        }
 
 
             

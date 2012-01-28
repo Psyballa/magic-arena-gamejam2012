@@ -18,7 +18,7 @@ namespace WindowsGame1
     class Stage
     {
         Tile[,] tiles;
-        Wall[] walls;
+        List<Wall> walls;
 
         public int height
         {
@@ -41,14 +41,14 @@ namespace WindowsGame1
 
             //Populate arrays
             tiles = new Tile[width,height];
-            walls = new Wall[width * 2 + height * 2];
+            walls = new List<Wall>();
             for(int i = 0; i < width; ++i){
                 for(int j = 0; j < height; ++j){
                     if(i == 0 || j == 0 || i == width - 1 || j == height-1){
-                        walls[i*width + j] = new Wall(game.world, new Microsoft.Xna.Framework.Vector2(i, j);
+                        walls.Add(new Wall(game.world, new Microsoft.Xna.Framework.Vector2(i, j), game));
                     }
                     else{
-                        tiles[i,j] = new Tile(game.world, new Microsoft.Xna.Framework.Vector2(i, j));
+                        tiles[i,j] = new Tile(game.world, new Microsoft.Xna.Framework.Vector2(i, j), game);
                     }
                 }
             }
@@ -61,7 +61,8 @@ namespace WindowsGame1
             }
             foreach (Tile t in tiles)
             {
-                t.draw(gameTime, spriteBatch);
+                if(t != null)
+                    t.draw(gameTime, spriteBatch);
             }
 
         }
