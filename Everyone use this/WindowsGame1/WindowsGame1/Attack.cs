@@ -49,7 +49,7 @@ namespace WindowsGame1
                 p.position = Position;
             }
         }
-        public void draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public virtual void draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             foreach (var p in particleSystem)
             {

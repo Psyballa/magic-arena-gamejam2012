@@ -16,3 +16,9 @@ C:\Users\Logan\Desktop\Magic Arena\Everyone use this\Farseer Physics Engine 3.3 
 C:\Users\Logan\Desktop\Magic Arena\Everyone use this\Farseer Physics Engine 3.3 XNA\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Logan\Desktop\Magic Arena\Everyone use this\Farseer Physics Engine 3.3 XNA\obj\x86\Debug\FarseerPhysicsXNA.dll
 C:\Users\Logan\Desktop\Magic Arena\Everyone use this\Farseer Physics Engine 3.3 XNA\obj\x86\Debug\FarseerPhysicsXNA.pdb
+C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\Farseer Physics Engine 3.3 XNA\bin\x86\Debug\FarseerPhysicsXNA.dll
+C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\Farseer Physics Engine 3.3 XNA\bin\x86\Debug\FarseerPhysicsXNA.pdb
+C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\Farseer Physics Engine 3.3 XNA\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\Farseer Physics Engine 3.3 XNA\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\Farseer Physics Engine 3.3 XNA\obj\x86\Debug\FarseerPhysicsXNA.dll
+C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\Farseer Physics Engine 3.3 XNA\obj\x86\Debug\FarseerPhysicsXNA.pdb
