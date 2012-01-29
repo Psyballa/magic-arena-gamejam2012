@@ -230,9 +230,10 @@ namespace WindowsGame1
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            SoundManager.s.update();
+            
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
+            SoundManager.s.update(gameTime, spriteBatch);
             if (gameState == GameState.fight || gameState == GameState.victoryScreen)
             {
 
