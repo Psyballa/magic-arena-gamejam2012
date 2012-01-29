@@ -15,7 +15,7 @@ using FarseerPhysics.Common;
 
 namespace WindowsGame1
 {
-    class Stage
+    public class Stage
     {
         Tile[,] tiles;
         List<Wall> walls;
