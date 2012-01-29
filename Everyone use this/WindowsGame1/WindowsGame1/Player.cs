@@ -52,6 +52,8 @@ namespace WindowsGame1
         Texture2D playerTex;
         Controller playerController;
         public Fixture playerFixture;
+
+        Player lastTouched;
         
 
         //Attack stuff
@@ -73,13 +75,30 @@ namespace WindowsGame1
         //Flags
         public bool dead = false;
         bool fallingFlag = true;
+        int index;
 
         KingsOfAlchemy game;
+
+        SpriteFont font;
+        SpriteFont font2;
+
+        //HUD
+        Texture2D manaBarFire;
+        Texture2D manaBarWater;
+        Texture2D manaBarEarth;
+        Texture2D manaBarAir;
 
         public Player(World gameWorld, int playerNum, KingsOfAlchemy game, Vector2 offset) : base(gameWorld)
         {
             //Merged this with loadContent for simplicity
             this.game = game;
+            this.index = playerNum;
+            manaBarFire = game.Content.Load<Texture2D>("HealthBars/Yellow");
+            manaBarWater = game.Content.Load<Texture2D>("HealthBars/Blue");
+            manaBarEarth = game.Content.Load<Texture2D>("HealthBars/Green");
+            manaBarAir = game.Content.Load<Texture2D>("HealthBars/Teal");
+            font = game.Content.Load<SpriteFont>("Font");
+            font2 = game.Content.Load<SpriteFont>("Font2");
             switch (playerNum)
             {
                 //Positions will likely need to be changed based on world size
@@ -121,6 +140,8 @@ namespace WindowsGame1
             playerFixture.Restitution = 0.9f;   //Energy Retained from bouncing
             playerFixture.Friction = 0.01f;      //friction with other objects
 
+            lastTouched = this;
+
         }
 
         public bool playerOnCollision(Fixture fix1, Fixture fix2, Contact con)
@@ -135,20 +156,28 @@ namespace WindowsGame1
                 case Category.Cat3:                         //Player
                     return true;
                 case Category.Cat4:                         //Fire spray
-                    damage += 0.05f;
+                    otherAttack = (Attack)fix2.Body;
+                    if (otherAttack.owner != this)
+                    {
+                        damage += 0.05f;
+                        lastTouched = otherAttack.owner;
+                    }
                     return false;
                 case Category.Cat5:                         //Water beam
                     otherAttack = (Attack)fix2.Body;
                     if (otherAttack.owner != this)
                     {
-                        damage += otherAttack.damage;
+                        damage += otherAttack.damage/100;
                         ApplyLinearImpulse(Vector2.Normalize(otherAttack.LinearVelocity) * otherAttack.impulse * damage);
+                        lastTouched = otherAttack.owner;
                         return true;
                     }
                     return false;
                 case Category.Cat6:                         //Rock
+                    otherAttack = (Attack)fix2.Body;
                     damage += 0.05f;
                     LinearVelocity = LinearVelocity + Vector2.Normalize(fix1.Body.Position - Position) * 2 * (damage);
+                    lastTouched = otherAttack.owner;
                     return false;
                 case Category.Cat8:                         //Tornado
                     otherAttack = (Attack)fix2.Body;
@@ -161,6 +190,7 @@ namespace WindowsGame1
                         acceleration.Normalize();
                         LinearVelocity += acceleration;
                     }
+                    lastTouched = otherAttack.owner;
                     return false;
                 default:
                     return false;
@@ -230,31 +260,34 @@ namespace WindowsGame1
                 switch (currentEquip)
                 {
                     case Element.fire:
-                        attackFire((int)rightcharge);
+                        if (rightcharge > 60)
+                        {
+                            attackFire((int)rightcharge);
+                        }
                         rightcharge = 0;
 
                         break;
                     case Element.water:
                         game.attacks.Add(new Water(playerController.getRotation2(), Position + new Vector2(10, 10), game, this, rightcharge));
-                        rightcharge -= 10;
+                        rightcharge -= 20;
                         break;
                     case Element.earth:
                         game.attacks.Add(new Water(playerController.getRotation2(), Position, game, this, rightcharge));
                         rightcharge = 0;
                         break;
                     case Element.air:
-                        if (rightcharge > 100)
+                        if (rightcharge > 60)
                         {
                             game.attacks.Add(new Air(playerController.getRotation2(), Position, game, this, rightcharge));
-                            rightcharge = 0;
                         }
+                        rightcharge = 0;
                         break;
                 }
                 cooldown += 10;
             }
             float rotation = playerController.getRotation();
             newv = playerController.getMovement();
-            ApplyLinearImpulse(newv*100);
+            ApplyLinearImpulse(newv*250);
             //This is set to false in the collision detection if the player is safely standing on a tile, and set to false after each update
             if (fallingFlag)
             {
@@ -266,6 +299,33 @@ namespace WindowsGame1
         public void draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             if (dead) return;
+            //Draw health bars
+            Vector2 offset;
+            if (index == 1)
+                offset = new Vector2(75, 30);
+            else if (index == 2)
+                offset = new Vector2(game.Window.ClientBounds.Width - 75, 30);
+            else if(index == 3)
+                offset = new Vector2(75, game.Window.ClientBounds.Height - 90);
+            else
+                offset = new Vector2(game.Window.ClientBounds.Width - 75, game.Window.ClientBounds.Height - 90);
+
+            Texture2D manaBar;
+            if (currentEquip == Element.fire)
+                manaBar = manaBarFire;
+            else if (currentEquip == Element.water)
+                manaBar = manaBarWater;
+            else if (currentEquip == Element.earth)
+                manaBar = manaBarEarth;
+            else
+                manaBar = manaBarAir;
+
+            spriteBatch.Draw(manaBar, new Rectangle((int)offset.X - (int)rightcharge/2, (int)offset.Y + 50, (int)rightcharge, manaBar.Height), Color.White);
+
+            spriteBatch.DrawString(font, Math.Round(damage * 100 - 100).ToString() + "%", offset + new Vector2(-font.MeasureString(Math.Round(damage * 100).ToString() + "%").X / 2, -20), Color.White);
+            spriteBatch.DrawString(font2, "Charge", offset + new Vector2(-font.MeasureString("Charge").X/2, font.MeasureString("Charge").Y), Color.White);
+
+            //Draw player
             Vector2 playerOrigin;
             playerOrigin.X = playerTex.Width/2;
             playerOrigin.Y = playerTex.Height/2;

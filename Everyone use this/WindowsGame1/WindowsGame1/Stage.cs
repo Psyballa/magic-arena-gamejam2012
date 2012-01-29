@@ -39,7 +39,7 @@ namespace WindowsGame1
         // have arrays work with stuff, just need to handle creating and updating the arrays of them.
 
         public Stage(int width, int height, KingsOfAlchemy game, Vector2 offset){
-
+            Random random = new Random();
             //Populate arrays
             tiles = new Tile[width,height];
             walls = new List<Wall>();
@@ -53,17 +53,53 @@ namespace WindowsGame1
                     }
                 }
             }
+            if (random.NextDouble() > 0.4)
+            {
+                for (int i = height / 4; i < height * 3 / 4; ++i)
+                    walls.Add(new Wall(game.world, new Vector2(width / 2, i), game, offset));
+                for (int i = width / 4; i < width * 3 / 4; ++i)
+                    walls.Add(new Wall(game.world, new Vector2(i, height / 2), game, offset));
+            }
+            if (random.NextDouble() > 0.3)
+            {
+                for (int i = height/4; i < height*3/4; ++i)
+                    walls.Add(new Wall(game.world, new Vector2(i, i), game, offset));
+                for (int i = width/4; i < width*3/4; ++i)
+                    walls.Add(new Wall(game.world, new Vector2(i, height - i - 1), game, offset));
+            }
+            if (random.NextDouble() > 0.6)
+            {
+                for (int i = 0; i < walls.Count; i += 2)
+                {
+                    walls.RemoveAt(i);
+                }
+            }
+            if (random.NextDouble() > 0.3)
+            {
+                for (int i = height * 3 / 8 - 3; i < height * 5 / 8 + 3; ++i)
+                {
+                    for (int j = width * 3 / 8 - 3; j < width * 5 / 8 + 3; ++j)
+                    {
+                        tiles[i, j] = null;
+                    }
+                }
+            }
+
+
+
+
+
         }
         public void draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            foreach (Wall w in walls)
-            {
-                w.draw(gameTime, spriteBatch);
-            }
             foreach (Tile t in tiles)
             {
                 if (t != null)
                     t.draw(gameTime, spriteBatch);
+            }
+            foreach (Wall w in walls)
+            {
+                w.draw(gameTime, spriteBatch);
             }
 
         }

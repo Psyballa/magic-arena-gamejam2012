@@ -65,13 +65,14 @@ namespace WindowsGame1
 
         public bool _OnCollision(Fixture fix1, Fixture fix2, Contact con)
         {
+
             if (fix2.CollisionCategories == Category.Cat4)
             {
-                health -= 1;
+                health -= 10;
             }
             if (fix2.CollisionCategories == Category.Cat5)
             {
-                health -= 0.5f;
+                health -= 5f;
             }
             if (fix2.CollisionCategories == Category.Cat6)
             {
@@ -79,8 +80,9 @@ namespace WindowsGame1
             }
             if (fix2.CollisionCategories == Category.Cat8)
             {
-                health -= 0.5f;
+                health -= 5f;
             }
+
             return false;
         }
 
