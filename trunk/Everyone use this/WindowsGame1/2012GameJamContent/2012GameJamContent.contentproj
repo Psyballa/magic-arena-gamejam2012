@@ -205,8 +205,45 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="rock.png">
-      <Name>rock</Name>
+    <Compile Include="ButtonHighlight.png">
+      <Name>ButtonHighlight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tiles\MarbleTiles1Break0.png">
+      <Name>MarbleTiles1Break0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\MarbleTiles1Break1.png">
+      <Name>MarbleTiles1Break1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\MarbleTiles1Break2.png">
+      <Name>MarbleTiles1Break2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\MarbleTiles1Break3.png">
+      <Name>MarbleTiles1Break3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\MarbleTiles1Break4.png">
+      <Name>MarbleTiles1Break4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\MarbleTiles1Break5.png">
+      <Name>MarbleTiles1Break5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\MarbleTiles1Break6.png">
+      <Name>MarbleTiles1Break6</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
