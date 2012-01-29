@@ -25,26 +25,31 @@ namespace WindowsGame1
         public const int MIN_FIRE_RANGE = 50;
         public const int MAX_FIRE_RANGE = 100;
         public const float MIN_FIRE_SPREAD = (float) Math.PI / 2;
-        public const float MAX_FIRE_SPREAD = (float) Math.PI * 2;
-        public const int MIN_FIRE_SHOTS = 3;
+        public const float MAX_FIRE_SPREAD = (float) Math.PI;// * 2;
+        public const int MIN_FIRE_SHOTS = 2;
         public const int MAX_FIRE_SHOTS = 36;
 
-        float lifetime = 140;
-        float life = 0;
+        int lifetime;
+        int life;
 
 
-        public Fire(KingsOfAlchemy gameWorld, float rot, float speed, Vector2 p, Player owner)
-            :base(gameWorld, rot, 2 , 4, speed, p, owner)
+        public Fire(KingsOfAlchemy gameWorld, float rot, float speed, int inLife, Vector2 p, Player owner)
+            :base(gameWorld, rot, 2 , 50, speed, p, owner)
         {
             // init. width, init thickness, density
-            attackFixture = FixtureFactory.AttachRectangle(10, 3.0f, 4, new Vector2(0,0), this);
-            damage = 1;
+            //attackFixture = FixtureFactory.AttachRectangle(10, 3.0f, 4, new Vector2(0,0), this);
+            damage = 0.05f;
+            attackFixture.Body.Rotation = rot;
 
-            attackFixture.CollisionCategories = Category.Cat5;
-            attackFixture.CollidesWith = Category.Cat1 | Category.Cat2 | Category.Cat3 | Category.Cat4 | Category.Cat6 | Category.Cat8;
+            attackFixture.CollisionCategories = Category.Cat4;
+            attackFixture.CollidesWith = Category.Cat1 | Category.Cat2 | Category.Cat3 | Category.Cat5 | Category.Cat6 | Category.Cat8;
             particleSystem.Add(new ParticleSystem(0, (float)Math.PI * 2, Position, new Vector2(0.01f, 0), new Vector2(-0.003f, 0), 6, game.Content.Load<Texture2D>("Basicparticle"), -0.001f, 50, 80, Color.Orange));
             attackFixture.OnCollision += fireOnCollision;
 
+            lifetime = inLife;
+            life = 0;
+
+            AngularVelocity = .25f;
         }
 
 
