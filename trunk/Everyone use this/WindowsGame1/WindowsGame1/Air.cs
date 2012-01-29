@@ -13,7 +13,7 @@ using FarseerPhysics.Factories;
 
 namespace WindowsGame1
 {
-    class Air : Attack
+    class Air
     {
 
     }

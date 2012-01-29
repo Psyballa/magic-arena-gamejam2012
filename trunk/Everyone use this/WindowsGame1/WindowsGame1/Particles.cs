@@ -15,10 +15,10 @@ namespace WindowsGame1
 {
     class Particle
     {
-        Texture2D sprite;
-        Vector2 velocity;
-        Vector2 acceleration;
-        Vector2 position;
+        public Texture2D sprite;
+        public Vector2 velocity;
+        public Vector2 acceleration;
+        public Vector2 position;
         float transparency = 1.0f;
         float transparencyDelta;
         float rotation;
@@ -71,7 +71,7 @@ namespace WindowsGame1
         float maxRot;
         float minRot;
 
-        Vector2 position;
+        public Vector2 position;
 
         Vector2 initVelocity;
         Vector2 initAccel;

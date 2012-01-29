@@ -5,7 +5,6 @@ Content\KingsOfAlchemy.xnb
 Content\Exit.xnb
 Content\Start.xnb
 Content\FloorTile.xnb
-Content\WallTile.xnb
 Content\Player1.xnb
 Content\Player2.xnb
 Content\Player3.xnb
@@ -19,3 +18,4 @@ Content\Tiles\MarbleTilesBreak6.xnb
 Content\Tiles\MarbleTilesBreak7.xnb
 Content\Tiles\FloorBreaking.xnb
 Content\Tiles\MarbleTilesBreak0.xnb
+Content\Walls\WallTileBreak0.xnb
