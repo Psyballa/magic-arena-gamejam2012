@@ -1,4 +1,8 @@
-﻿using System;
+﻿
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +19,10 @@ using FarseerPhysics.Factories;
 using FarseerPhysics.Collision;
 using FarseerPhysics.Collision.Shapes;
 using FarseerPhysics.Common;
+
+
+
+
 
 namespace WindowsGame1
 {
@@ -35,6 +43,8 @@ namespace WindowsGame1
      */
 
 
+
+
     public class Player : Body
     {
         public float damage = 1;
@@ -50,6 +60,9 @@ namespace WindowsGame1
         float rightcharge = 0;
 
         float cooldown = 0;
+
+        const int minCharge = 10;
+        const int maxCharge = 150;
 
         //Player Stats
         private const float playerMass = 10f;
@@ -254,6 +267,25 @@ namespace WindowsGame1
                 playerOrigin, 
                 SpriteEffects.None,
                 0f);
+        }
+
+
+        public void attackFire(int chargeAmount)
+        {
+            // min charge = 10, max = 150
+            float chargeFraction = chargeAmount / (float)(maxCharge - minCharge);
+            
+            int totalShots        = (int)( Fire.MIN_FIRE_SHOTS  + (Fire.MAX_FIRE_SHOTS  - Fire.MIN_FIRE_SHOTS ) * chargeFraction);
+            float totalFireSpread =        Fire.MIN_FIRE_SPREAD + (Fire.MAX_FIRE_SPREAD - Fire.MIN_FIRE_SPREAD) * chargeFraction ;
+            int totalLife         = (int)( Fire.MIN_FIRE_RANGE  + (Fire.MAX_FIRE_RANGE  - Fire.MIN_FIRE_RANGE ) * chargeFraction);
+            float anglePerShot = totalFireSpread / totalShots;
+
+            float currentAngle = 0 - totalFireSpread / 2;
+            for (int i = 0; i < totalShots; i++)
+            {
+                currentAngle += anglePerShot;
+                //make a fire shot
+            }
         }
 
 
