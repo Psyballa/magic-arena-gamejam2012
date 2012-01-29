@@ -35,6 +35,7 @@ namespace WindowsGame1
             this.owner = owner;
             this.speed = speed;
             this.angle = d;
+            this.impulse = i;
             IsStatic = false;
             attackFixture = FixtureFactory.AttachCircle(radius, i, this);
             LinearVelocity = new Vector2((float)(speed * Math.Sin(angle)), (float)(speed * Math.Cos(angle)));

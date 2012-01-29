@@ -49,6 +49,8 @@ namespace WindowsGame1
         float leftcharge = 0;
         float rightcharge = 0;
 
+        float cooldown = 0;
+
         //Player Stats
         private const float playerMass = 10f;
         private const float playerRotate = 0.15f;
@@ -127,7 +129,7 @@ namespace WindowsGame1
                     if (otherAttack.owner != this)
                     {
                         damage += otherAttack.damage;
-                        LinearVelocity = Vector2.Normalize(Position - otherAttack.Position) * otherAttack.impulse * damage;
+                        ApplyLinearImpulse(Vector2.Normalize(Position - otherAttack.Position) * otherAttack.impulse * damage);
                         return true;
                     }
                     return false;
@@ -136,10 +138,6 @@ namespace WindowsGame1
                     LinearVelocity = LinearVelocity + Vector2.Normalize(fix1.Body.Position - Position) * 2 * (1 + damage);
                     return false;
                 case Category.Cat8:                         //Tornado
-                    LinearVelocity = 
-                        Vector2.Transform(
-                        LinearVelocity,
-                        Matrix.CreateRotationZ((float)Math.Max(0, 30 - Vector2.Distance(fix1.Body.Position, fix2.Body.Position)) * 1 + damage));
                     return false;
                 default:
                     fallingFlag = true;
@@ -150,31 +148,86 @@ namespace WindowsGame1
 
         public void Update()
         {
+            AngularVelocity = 0;
             if (dead) return;
             goDoThis elementChange = playerController.getEquipChange();
+            switch (elementChange)
+            {
+                case goDoThis.equipAir:
+                    currentEquip = Element.air;
+                    break;
+                case goDoThis.equipEarth:
+                    currentEquip = Element.earth;
+                    break;
+                case goDoThis.equipFire:
+                    currentEquip = Element.fire;
+                    break;
+                case goDoThis.equipWater:
+                    currentEquip = Element.water;
+                    break;
+                case goDoThis.rotateEquipLeft:
+                    if (currentEquip == Element.air)
+                        currentEquip = Element.fire;
+                    else if (currentEquip == Element.fire)
+                        currentEquip = Element.water;
+                    else if (currentEquip == Element.water)
+                        currentEquip = Element.earth;
+                    else
+                        currentEquip = Element.air;
+                    break;
+                case goDoThis.rotateEquipRight:
+                    if (currentEquip == Element.air)
+                        currentEquip = Element.earth;
+                    else if (currentEquip == Element.fire)
+                        currentEquip = Element.air;
+                    else if (currentEquip == Element.water)
+                        currentEquip = Element.fire;
+                    else
+                        currentEquip = Element.water;
+                    break;
+
+            }
             //if(elementChange = goDoThis.equipAir && 
             // Call methods to get info from controller
             // Do Stuff (this will include methods to shoot attacks)
             Vector2 newv = new Vector2();
             if (playerController.getRightCharge())
             {
-                rightcharge += 1;
+                if(rightcharge < 150)
+                    rightcharge += 1;
             }
             if (playerController.getLeftCharge())
             {
-                leftcharge += 1;
+                if(leftcharge < 150)
+                    leftcharge += 1;
             }
-            if (!playerController.getRightCharge() && rightcharge > 0)
+            if (cooldown > 0) cooldown -= 2;
+            if (!playerController.getRightCharge() && rightcharge > 10 && cooldown == 0)
             {
-                rightcharge += 1;
+                switch (currentEquip)
+                {
+                    case Element.fire:
+                        rightcharge = 0;
+                        for (int i = 0; i < rightcharge / 10 + 1; ++i)
+                            game.attacks.Add(new Water(playerController.getRotation2(), Position, game, this, rightcharge));
+                        break;
+                    case Element.water:
+                        game.attacks.Add(new Water(playerController.getRotation2(), Position, game, this, rightcharge));
+                        rightcharge -= 10;
+                        break;
+                    case Element.earth:
+                        rightcharge = 0;
+                        for (int i = 0; i < rightcharge / 10; ++i)
+                            game.attacks.Add(new Water(playerController.getRotation(), Position, game, this, rightcharge));
+                        break;
+                    case Element.air:
+                        rightcharge = 0;
+                        for (int i = 0; i < rightcharge / 10; ++i)
+                            game.attacks.Add(new Water(playerController.getRotation(), Position, game, this, rightcharge));
+                        break;
+                }
+                cooldown += 10;
             }
-            if (!playerController.getLeftCharge() && leftcharge > 0)
-            {
-                leftcharge += 1;
-            }
-
-
-            game.attacks.Add(new Water(playerController.getRotation(), Position, game, this));
             float rotation = playerController.getRotation();
             newv = playerController.getMovement();
             LinearVelocity = newv;
@@ -183,7 +236,6 @@ namespace WindowsGame1
             {
                 dead = true;
             }
-           
         }
         public void draw(GameTime gameTime, SpriteBatch spriteBatch)
         {

@@ -25,6 +25,7 @@ namespace WindowsGame1
         float rotationSpeed;
         public float lifetime;
         public float time = 0;
+        Color color;
 
         public Particle(Texture2D sprite, 
             Vector2 position, 
@@ -32,7 +33,8 @@ namespace WindowsGame1
             Vector2 acceleration, 
             float transparencyDelta, 
             float rotationSpeed, 
-            float lifetime)
+            float lifetime,
+            Color color)
         {
             this.sprite = sprite;
             this.position = position;
@@ -42,6 +44,7 @@ namespace WindowsGame1
             this.rotationSpeed = rotationSpeed;
             this.time = 0;
             this.lifetime = lifetime;
+            this.color = color;
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -57,7 +60,7 @@ namespace WindowsGame1
                 sprite,
                 new Rectangle((int)position.X - sprite.Width / 2, (int)position.Y - sprite.Height / 2, sprite.Width, sprite.Height),
                 new Rectangle(0, 0, sprite.Width, sprite.Height),
-                Color.White * transparency,
+                color * transparency,
                 rotation,
                 new Vector2(sprite.Width / 2, sprite.Height / 2),
                 SpriteEffects.None,
@@ -83,20 +86,21 @@ namespace WindowsGame1
         int minlife;
         int maxlife;
         public bool destroyFlag = false;
+        Color color;
         public void destroy()
         {
             add = 0;
             destroyFlag = true;
         }
 
-        public ParticleSystem(float minRot, 
-            float maxRot, 
-            Vector2 position, 
-            Vector2 initVelocity, 
-            Vector2 initAccel, 
-            int add, 
-            Texture2D sprite, 
-            float transDelta, 
+        public ParticleSystem(float minRot,
+            float maxRot,
+            Vector2 position,
+            Vector2 initVelocity,
+            Vector2 initAccel,
+            int add,
+            Texture2D sprite,
+            float transDelta,
             int minlife,
             int maxlife)
         {
@@ -106,11 +110,37 @@ namespace WindowsGame1
             this.initVelocity = initVelocity;
             this.initAccel = initAccel;
             this.add = add;
-            this.sprite  = sprite;
+            this.sprite = sprite;
             this.transDelta = transDelta;
             this.minlife = minlife;
             this.maxlife = maxlife;
             this.random = new Random();
+            this.color = Color.White;
+        }
+        public ParticleSystem(float minRot,
+            float maxRot,
+            Vector2 position,
+            Vector2 initVelocity,
+            Vector2 initAccel,
+            int add,
+            Texture2D sprite,
+            float transDelta,
+            int minlife,
+            int maxlife, 
+            Color color)
+        {
+            this.minRot = minRot;
+            this.maxRot = maxRot;
+            this.position = position;
+            this.initVelocity = initVelocity;
+            this.initAccel = initAccel;
+            this.add = add;
+            this.sprite = sprite;
+            this.transDelta = transDelta;
+            this.minlife = minlife;
+            this.maxlife = maxlife;
+            this.random = new Random();
+            this.color = color;
         }
         public void draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -134,7 +164,7 @@ namespace WindowsGame1
                 Vector2 velocity = Vector2.Transform(initVelocity, Matrix.CreateRotationZ(angle));
                 Vector2 acceleration = Vector2.Transform(initAccel, Matrix.CreateRotationZ(angle));
 
-                particles.Add(new Particle(sprite, position, velocity, acceleration, transDelta,0, lifetime));
+                particles.Add(new Particle(sprite, position, velocity, acceleration, transDelta,0, lifetime, color));
             }
         }
     }

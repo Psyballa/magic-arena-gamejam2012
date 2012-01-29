@@ -15,5 +15,6 @@ namespace WindowsGame1
 {
     class Fire
     {
+
     }
 }
