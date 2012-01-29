@@ -17,10 +17,16 @@ namespace WindowsGame1
 {
     public enum GameState{
         fight,
-        mainMenu
+        mainMenu,
+        victoryScreen
     };
     public class KingsOfAlchemy : Microsoft.Xna.Framework.Game
     {
+        int victoryScreenCounter = 0;
+        int victoryScreenMaxCounter = 600;
+        Player winner;
+
+
         public World world;
         public GameState gameState = GameState.mainMenu;
         public GraphicsDeviceManager graphics;
@@ -37,12 +43,14 @@ namespace WindowsGame1
         public float ouruAngle = 0;
         public Texture2D name;
         public Texture2D bg;
+        public Texture2D shield;
         public Vector2 ouruPos;
 
         public Texture2D stars;
 
         public List<Player> players;
 
+        SpriteFont font;
 
         public List<Button> buttons = new List<Button>();
         public int selected = 0;
@@ -82,12 +90,15 @@ namespace WindowsGame1
             bg = Content.Load<Texture2D>("avatar-floating-hills");
             name = Content.Load<Texture2D>("KingsOfAlchemy");
             stars = Content.Load<Texture2D>("StarsBG");
+            shield = Content.Load<Texture2D>("Shield");
+            font = Content.Load<SpriteFont>("SpriteFont1");
             buttons.Add(new startGameButton(this, 0, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height * 5 / 8)));
             buttons.Add(new exitButton(this, 1, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height*7 / 8)));
-            restartGame();
+            //restartGame();
         }
         public void restartGame()
         {
+            winner = null;
             world = new World(Vector2.Zero);
             particleSystems = new List<ParticleSystem>();
             attacks = new List<Attack>();
@@ -150,6 +161,25 @@ namespace WindowsGame1
                     a.update(gameTime);
                 }
                 stage.update(gameTime);
+                Player alivePlayer = null;
+                bool gameOver = true;
+                foreach (Player i in players)
+                {
+                    if (!i.dead)
+                    {
+                        if (alivePlayer == null)
+                            alivePlayer = i;
+                        else
+                            gameOver = false;
+                    }
+                }
+                if (gameOver)
+                {
+                    gameState = GameState.victoryScreen;
+                    winner = alivePlayer;
+                    victoryScreenCounter = 0;
+                }
+                
             }
             if (gameState == GameState.mainMenu)
             {
@@ -161,7 +191,6 @@ namespace WindowsGame1
             if (GamePad.GetState(PlayerIndex.One).Buttons.Start == ButtonState.Pressed)
             {
                 gameState = GameState.mainMenu;
-                restartGame();
             }
 
             base.Update(gameTime);
@@ -175,7 +204,7 @@ namespace WindowsGame1
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            if (gameState == GameState.fight)
+            if (gameState == GameState.fight || gameState == GameState.victoryScreen)
             {
                 for (int i = 0; i < Window.ClientBounds.Width; i += stars.Width)
                 {
@@ -198,6 +227,20 @@ namespace WindowsGame1
                     a.draw(gameTime, spriteBatch);
                 }
             }
+            if (gameState == GameState.victoryScreen)
+            {
+                victoryScreenCounter += 1;
+                if (victoryScreenCounter > victoryScreenMaxCounter)
+                    gameState = GameState.mainMenu;
+                else
+                {
+                    spriteBatch.Draw(shield, new Rectangle((Window.ClientBounds.Width - shield.Width) / 2, (Window.ClientBounds.Height - shield.Height) / 2, shield.Width, shield.Height), Color.White);
+                    spriteBatch.DrawString(font, "Player " + winner.index.ToString() + " Wins!", new Vector2(
+                        Window.ClientBounds.Width/2- font.MeasureString("Player " + winner.index.ToString() + " Wins!").X/2,
+                        Window.ClientBounds.Height/2- font.MeasureString("Player " + winner.index.ToString() + " Wins!").Y/2), Color.White);
+                }
+
+            }
             if (gameState == GameState.mainMenu)
             {
                 foreach (ParticleSystem i in menuParticleSystems)
@@ -213,22 +256,14 @@ namespace WindowsGame1
                     b.draw(gameTime, spriteBatch);
                 }
                GamePadState state = GamePad.GetState(PlayerIndex.One);
-               if (state.DPad.Down == ButtonState.Pressed || state.DPad.Up == ButtonState.Pressed)
+               if (state.DPad.Down == ButtonState.Pressed || state.DPad.Up == ButtonState.Pressed || state.ThumbSticks.Left.Y != 0 || state.ThumbSticks.Right.Y != 0)
                {
-                   if (!lastPressed && state.DPad.Down == ButtonState.Pressed)
+                   if (!lastPressed)
                    {
                        selected += 1;
                        if (selected > 1)
                        {
                            selected = 0;
-                       }
-                   }
-                   if (!lastPressed && state.DPad.Up == ButtonState.Pressed)
-                   {
-                       selected -= 1;
-                       if (selected < 0)
-                       {
-                           selected = 1;
                        }
                    }
 

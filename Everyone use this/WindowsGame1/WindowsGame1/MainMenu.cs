@@ -75,6 +75,7 @@ namespace WindowsGame1
         public override void click()
         {
             game.gameState = GameState.fight;
+            game.restartGame();
         }
     }
     public class exitButton : Button
