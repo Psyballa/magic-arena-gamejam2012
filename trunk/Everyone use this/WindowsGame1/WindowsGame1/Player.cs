@@ -44,7 +44,7 @@ namespace WindowsGame1
         public Fixture playerFixture;
 
         //Attack stuff
-        Element currentEquip;
+        Element currentEquip = Element.fire;
         float leftcharge = 0;
         float rightcharge = 0;
 

@@ -56,6 +56,8 @@ namespace WindowsGame1
 
         float breakstages = 7;
 
+        bool dead = false;
+
         SoundEffect breakSound;
 
         KingsOfAlchemy game;
@@ -111,9 +113,11 @@ namespace WindowsGame1
             prevhealth = currstage;
 
             //Makes the tile inactive if it is destroyed
-            if (health <= 0)
+            if (health <= 0 && !dead)
             {
+                dead = true;
                 tileFixture.CollisionCategories = Category.None;
+                breakSound.Play();
             }
         }
         public void draw(GameTime gameTime, SpriteBatch spriteBatch)
