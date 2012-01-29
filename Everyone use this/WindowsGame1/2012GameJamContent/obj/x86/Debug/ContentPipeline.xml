@@ -1129,7 +1129,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\play1.0.xnb</Output>
-      <Time>2012-01-29T07:49:06-08:00</Time>
+      <Time>2012-01-29T12:03:58-08:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\play1.1.png</Source>
@@ -1138,7 +1138,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\play1.1.xnb</Output>
-      <Time>2012-01-29T07:48:50-08:00</Time>
+      <Time>2012-01-29T12:05:04-08:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\play1.2.png</Source>
@@ -1147,7 +1147,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\play1.2.xnb</Output>
-      <Time>2012-01-29T07:48:36-08:00</Time>
+      <Time>2012-01-29T12:05:56-08:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\play1.fail.png</Source>
@@ -1156,7 +1156,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\play1.fail.xnb</Output>
-      <Time>2012-01-29T07:51:34-08:00</Time>
+      <Time>2012-01-29T12:07:06-08:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\play2.0.png</Source>
@@ -1165,7 +1165,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\play2.0.xnb</Output>
-      <Time>2012-01-28T07:48:14-08:00</Time>
+      <Time>2012-01-29T12:09:34-08:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\play2.1.png</Source>
@@ -1174,7 +1174,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\play2.1.xnb</Output>
-      <Time>2012-01-28T08:02:06-08:00</Time>
+      <Time>2012-01-29T12:11:18-08:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\play2.2.png</Source>
@@ -1183,7 +1183,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\play2.2.xnb</Output>
-      <Time>2012-01-29T08:39:20-08:00</Time>
+      <Time>2012-01-29T12:13:36-08:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\play2.fail.png</Source>
@@ -1192,7 +1192,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\play2.fail.xnb</Output>
-      <Time>2012-01-28T23:59:54-08:00</Time>
+      <Time>2012-01-29T12:15:16-08:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\play4.0.png</Source>
@@ -1201,7 +1201,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\play4.0.xnb</Output>
-      <Time>2012-01-29T02:05:36-08:00</Time>
+      <Time>2012-01-29T12:18:04-08:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\play4.1.png</Source>
@@ -1210,7 +1210,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\play4.1.xnb</Output>
-      <Time>2012-01-29T02:15:02-08:00</Time>
+      <Time>2012-01-29T12:19:26-08:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\play4.2.png</Source>
@@ -1219,7 +1219,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\play4.2.xnb</Output>
-      <Time>2012-01-29T09:52:24-08:00</Time>
+      <Time>2012-01-29T12:21:12-08:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\play4.fail.png</Source>
@@ -1228,7 +1228,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\play4.fail.xnb</Output>
-      <Time>2012-01-29T03:12:24-08:00</Time>
+      <Time>2012-01-29T12:22:06-08:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\play5.0.png</Source>
@@ -1237,7 +1237,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\play5.0.xnb</Output>
-      <Time>2012-01-29T07:44:16-08:00</Time>
+      <Time>2012-01-29T12:23:28-08:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\play5.1.png</Source>
@@ -1246,7 +1246,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\play5.1.xnb</Output>
-      <Time>2012-01-29T09:21:44-08:00</Time>
+      <Time>2012-01-29T12:25:06-08:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\play5.2.png</Source>
@@ -1255,7 +1255,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\play5.2.xnb</Output>
-      <Time>2012-01-29T09:16:10-08:00</Time>
+      <Time>2012-01-29T12:26:20-08:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\play5.fail.png</Source>
@@ -1264,7 +1264,64 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\play5.fail.xnb</Output>
-      <Time>2012-01-29T10:23:50-08:00</Time>
+      <Time>2012-01-29T12:27:36-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P2\damaged1.wav</Source>
+      <Name>sounds\P2\damaged1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\damaged1.xnb</Output>
+      <Time>2012-01-29T09:06:40.9456401-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P2\damaged2.wav</Source>
+      <Name>sounds\P2\damaged2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\damaged2.xnb</Output>
+      <Time>2012-01-29T09:06:40.9626411-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P2\damaged3.wav</Source>
+      <Name>sounds\P2\damaged3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\damaged3.xnb</Output>
+      <Time>2012-01-29T09:06:40.9986432-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\fireball.mp3</Source>
+      <Name>sounds\fireball</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\fireball.xnb</Output>
+      <Extra>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\fireball.wma</Extra>
+      <Time>2012-01-29T10:41:29.4980067-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\rock.mp3</Source>
+      <Name>sounds\rock</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\rock.xnb</Output>
+      <Extra>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\rock.wma</Extra>
+      <Time>2012-01-29T10:41:29.485006-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\thunder.mp3</Source>
+      <Name>sounds\thunder</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\thunder.xnb</Output>
+      <Extra>C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\thunder.wma</Extra>
+      <Time>2012-01-29T10:41:29.468005-08:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
