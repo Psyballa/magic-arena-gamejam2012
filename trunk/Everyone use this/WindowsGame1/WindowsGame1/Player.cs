@@ -158,8 +158,23 @@ namespace WindowsGame1
             Vector2 newv = new Vector2();
             if (playerController.getRightCharge())
             {
-                game.attacks.Add(new Water(playerController.getRotation(), Position, game, this));
+                rightcharge += 1;
             }
+            if (playerController.getLeftCharge())
+            {
+                leftcharge += 1;
+            }
+            if (!playerController.getRightCharge() && rightcharge > 0)
+            {
+                rightcharge += 1;
+            }
+            if (!playerController.getLeftCharge() && leftcharge > 0)
+            {
+                leftcharge += 1;
+            }
+
+
+            game.attacks.Add(new Water(playerController.getRotation(), Position, game, this));
             float rotation = playerController.getRotation();
             newv = playerController.getMovement();
             LinearVelocity = newv;
