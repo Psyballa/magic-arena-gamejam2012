@@ -24,10 +24,10 @@ namespace WindowsGame1
     {
         public const int MIN_FIRE_RANGE = 50;
         public const int MAX_FIRE_RANGE = 100;
-        public const float MIN_FIRE_SPREAD = (float) Math.PI / 4;
+        public const float MIN_FIRE_SPREAD = (float) Math.PI / 6;
         public const float MAX_FIRE_SPREAD = (float) Math.PI;// * 2;
         public const int MIN_FIRE_SHOTS = 2;
-        public const int MAX_FIRE_SHOTS = 12;
+        public const int MAX_FIRE_SHOTS = 15;
 
         int lifetime;
         int life;

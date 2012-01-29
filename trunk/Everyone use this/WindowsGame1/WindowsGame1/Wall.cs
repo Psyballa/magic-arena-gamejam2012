@@ -68,11 +68,11 @@ namespace WindowsGame1
 
             if (fix2.CollisionCategories == Category.Cat4)
             {
-                health -= 10;
+                health -= 25;
             }
             if (fix2.CollisionCategories == Category.Cat5)
             {
-                health -= 5f;
+                health -= 10f;
             }
             if (fix2.CollisionCategories == Category.Cat6)
             {

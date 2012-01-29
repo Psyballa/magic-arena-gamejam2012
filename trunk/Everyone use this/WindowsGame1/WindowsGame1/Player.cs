@@ -351,7 +351,7 @@ namespace WindowsGame1
                         game.attacks.Add(new Water(playerController.getRotation2(), Position + new Vector2(10, 10), game, this, rightcharge));
                         rightcharge -= 20;
                         SoundManager.s.playWater(index);
-                        water.Play();
+                        water.Play(.5f, 1, 1);
                         attackTimer = 10;
                         break;
                     case Element.earth:
