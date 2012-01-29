@@ -13,11 +13,6 @@ using FarseerPhysics.Factories;
 using FarseerPhysics.Collision;
 using FarseerPhysics.Common;
 
-
-
-
-
-
 namespace WindowsGame1
 {
     public enum GameState{
@@ -27,11 +22,12 @@ namespace WindowsGame1
     public class KingsOfAlchemy : Microsoft.Xna.Framework.Game
     {
         public World world;
-        public GameState gameState = GameState.fight;
+        public GameState gameState = GameState.mainMenu;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         List<ParticleSystem> particleSystems = new List<ParticleSystem>();
         Stage stage;
+        
 
         //Menu stuff
         List<ParticleSystem> menuParticleSystems = new List<ParticleSystem>();
@@ -80,7 +76,7 @@ namespace WindowsGame1
             bg = Content.Load<Texture2D>("avatar-floating-hills");
             name = Content.Load<Texture2D>("KingsOfAlchemy");
             buttons.Add(new startGameButton(this, 0, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height * 5 / 8)));
-            buttons.Add(new exitButton(this, 0, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height*7 / 8)));
+            buttons.Add(new exitButton(this, 1, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height*7 / 8)));
 
             //Initialize stage
             stage = new Stage(30, 30, this);
@@ -110,11 +106,17 @@ namespace WindowsGame1
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
-            world.Step(1);
+            if (gameState == GameState.mainMenu){
+                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                {
+                    this.Exit();
+                }
+            }
+            
+           
             if (gameState == GameState.fight)
             {
+                world.Step(1);
                 for (int i = 0; i < particleSystems.Count; ++i)
                 {
                     if (particleSystems[i].particles.Count == 0 && particleSystems[i].destroyFlag)
@@ -124,15 +126,20 @@ namespace WindowsGame1
                 }
                 foreach (Player p in players)
                 {
-                    p.Update(Keyboard.GetState());
+                    p.Update();
                 }
                 stage.update(gameTime);
             }
             if (gameState == GameState.mainMenu)
             {
-                foreach(Button b in buttons){
+                foreach (Button b in buttons)
+                {
                     b.step(gameTime);
                 }
+            }
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Start == ButtonState.Pressed)
+            {
+                gameState = GameState.mainMenu;
             }
 
             base.Update(gameTime);
