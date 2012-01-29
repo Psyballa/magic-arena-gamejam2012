@@ -37,7 +37,7 @@ namespace WindowsGame1
 
     public class Player : Body
     {
-        public float damage;
+        public float damage = 1;
         float playerSize = 5;
         Texture2D playerTex;
         Controller playerController;
@@ -105,7 +105,7 @@ namespace WindowsGame1
             playerFixture.OnCollision += playerOnCollision;
 
             playerFixture.Restitution = 0.9f;   //Energy Retained from bouncing
-            playerFixture.Friction = 0.1f;      //friction with other objects
+            playerFixture.Friction = 0.5f;      //friction with other objects
 
         }
 
@@ -123,8 +123,14 @@ namespace WindowsGame1
                     damage += 0.05f;
                     return false;
                 case Category.Cat5:                         //Water beam
-                    damage += 0.01f;
-                    return true;
+                    Attack otherAttack = (Attack)fix2.Body;
+                    if (otherAttack.owner != this)
+                    {
+                        damage += otherAttack.damage;
+                        LinearVelocity = Vector2.Normalize(Position - otherAttack.Position) * otherAttack.impulse * damage;
+                        return true;
+                    }
+                    return false;
                 case Category.Cat6:                         //Rock
                     damage += 0.05f;
                     LinearVelocity = LinearVelocity + Vector2.Normalize(fix1.Body.Position - Position) * 2 * (1 + damage);
@@ -150,9 +156,9 @@ namespace WindowsGame1
             // Call methods to get info from controller
             // Do Stuff (this will include methods to shoot attacks)
             Vector2 newv = new Vector2();
-            if (playerController.getLeftCharge())
+            if (playerController.getRightCharge())
             {
-                game.attacks.Add(new Water(playerController.getRotation(), Position, game));
+                game.attacks.Add(new Water(playerController.getRotation(), Position, game, this));
             }
             float rotation = playerController.getRotation();
             newv = playerController.getMovement();

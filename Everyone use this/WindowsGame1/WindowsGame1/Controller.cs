@@ -31,6 +31,8 @@ namespace WindowsGame1
         PlayerIndex controller;
         GamePadState prevState;
         float prevRotation = 0;
+        bool lastSentRightCharge = false;
+        bool lastSentLeftCharge = false;
 
         public Controller(PlayerIndex playerNum)
         {
@@ -95,7 +97,20 @@ namespace WindowsGame1
         public bool getLeftCharge()
         {
             // return true if the player should be charging his left shot
-            return GamePad.GetState(controller).Triggers.Left > 0.2;
+            if(lastSentLeftCharge){
+                if(GamePad.GetState(controller).Triggers.Left <= 0.2)
+                {
+                    lastSentLeftCharge = false;
+                }
+            }
+            else{
+                if(GamePad.GetState(controller).Triggers.Left > 0.2)
+                {
+                    lastSentLeftCharge = true;
+                    return true;
+                }
+            }
+            return false;
         }
 
         public bool getRightCharge()
