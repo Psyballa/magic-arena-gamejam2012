@@ -25,12 +25,13 @@ namespace WindowsGame1
         public GameState gameState = GameState.mainMenu;
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
-        public List<ParticleSystem> particleSystems = new List<ParticleSystem>();
-        public List<Attack> attacks = new List<Attack>();
+        public List<ParticleSystem> particleSystems;
+        public List<Attack> attacks;
         public Stage stage;
-        
+
 
         //Menu stuff
+        public bool lastPressed = false;
         public List<ParticleSystem> menuParticleSystems = new List<ParticleSystem>();
         public Texture2D ouru;
         public float ouruAngle = 0;
@@ -38,11 +39,15 @@ namespace WindowsGame1
         public Texture2D bg;
         public Vector2 ouruPos;
 
+        public Texture2D stars;
+
         public List<Player> players;
 
 
         public List<Button> buttons = new List<Button>();
         public int selected = 0;
+
+        public Random random;
 
         public KingsOfAlchemy()
         {
@@ -58,7 +63,6 @@ namespace WindowsGame1
         /// </summary>
         protected override void Initialize()
         {
-            world = new World(Vector2.Zero);
             //particleSystems.Add(new ParticleSystem(0, 2 * (float)Math.PI, new Vector2(Window.ClientBounds.Width/2, Window.ClientBounds.Height/2), new Vector2(0.5f, 0), new Vector2(), 5, Content.Load<Texture2D>("1"), -0.001f, 500, 600));
             base.Initialize();
 
@@ -70,18 +74,23 @@ namespace WindowsGame1
         /// </summary>
         protected override void LoadContent()
         {
+            random = new Random();
             // Create a new SpriteBatch, which can be used to draw textures.
             ouruPos = new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height/4);
             spriteBatch = new SpriteBatch(GraphicsDevice);
             ouru = Content.Load<Texture2D>("BgOuru");
             bg = Content.Load<Texture2D>("avatar-floating-hills");
             name = Content.Load<Texture2D>("KingsOfAlchemy");
+            stars = Content.Load<Texture2D>("Stars");
             buttons.Add(new startGameButton(this, 0, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height * 5 / 8)));
             buttons.Add(new exitButton(this, 1, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height*7 / 8)));
             restartGame();
         }
         public void restartGame()
         {
+            world = new World(Vector2.Zero);
+            particleSystems = new List<ParticleSystem>();
+            attacks = new List<Attack>();
             players = new List<Player>();
             Vector2 offset = new Vector2(150, 0);
 
@@ -196,6 +205,34 @@ namespace WindowsGame1
                 {
                     b.draw(gameTime, spriteBatch);
                 }
+               GamePadState state = GamePad.GetState(PlayerIndex.One);
+               if (state.DPad.Down == ButtonState.Pressed || state.DPad.Up == ButtonState.Pressed)
+               {
+                   if (!lastPressed && state.DPad.Down == ButtonState.Pressed)
+                   {
+                       selected += 1;
+                       if (selected > 1)
+                       {
+                           selected = 0;
+                       }
+                   }
+                   if (!lastPressed && state.DPad.Up == ButtonState.Pressed)
+                   {
+                       selected -= 1;
+                       if (selected < 0)
+                       {
+                           selected = 1;
+                       }
+                   }
+
+                   lastPressed = true;
+               }
+               else
+               {
+                   lastPressed = false;
+
+               }
+
             }
 
 

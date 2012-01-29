@@ -17,6 +17,7 @@ namespace WindowsGame1
     public abstract class Button
     {
         public Texture2D sprite;
+        public Texture2D highlight;
         public Vector2 position;
         public bool prevClicked = false;
         public bool selected;
@@ -42,6 +43,14 @@ namespace WindowsGame1
         }
         public void draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
+            if (game.selected == index)
+                spriteBatch.Draw(highlight,
+                    new Rectangle(
+                        (int)position.X - highlight.Width / 2,
+                        (int)position.Y - highlight.Height / 2,
+                        highlight.Width,
+                        highlight.Height),
+                        Color.White);
             spriteBatch.Draw(sprite,
                 new Rectangle(
                     (int)position.X - sprite.Width / 2,
@@ -60,6 +69,7 @@ namespace WindowsGame1
             this.game = game;
             this.selected = true;
             this.sprite = game.Content.Load<Texture2D>("Start");
+            this.highlight = game.Content.Load<Texture2D>("ButtonHighlight");
             this.index = index;
         }
         public override void click()
@@ -75,6 +85,7 @@ namespace WindowsGame1
             this.game = game;
             this.selected = false;
             this.sprite = game.Content.Load<Texture2D>("Exit");
+            this.highlight = game.Content.Load<Texture2D>("ButtonHighlight");
             this.index = index;
         }
         public override void click()

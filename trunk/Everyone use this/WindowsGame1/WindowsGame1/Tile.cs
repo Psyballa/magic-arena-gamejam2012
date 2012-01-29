@@ -34,6 +34,8 @@ namespace WindowsGame1
 
         KingsOfAlchemy game;
 
+        String contentName;
+
 
         public Tile(World gameWorld, Vector2 location, KingsOfAlchemy game, Vector2 offset) : base(gameWorld)
         {
@@ -43,8 +45,8 @@ namespace WindowsGame1
             maxhealth = health;
 
             this.game = game;
-
-            tileTex = game.Content.Load<Texture2D>("Tiles/MarbleTilesBreak0");
+            contentName = game.random.NextDouble() > 0.5 ? "Tiles/MarbleTilesBreak" : "Tiles/MarbleTiles1Break";
+            tileTex = game.Content.Load<Texture2D>(contentName + "0");
             breakSound = game.Content.Load<SoundEffect>("Tiles/FloorBreaking");
             location.X *= tileTex.Width;
             location.Y *= tileTex.Height;
@@ -99,7 +101,7 @@ namespace WindowsGame1
             }
             if (currstage > prevhealth)
             {
-                tileTex = game.Content.Load<Texture2D>("Tiles/MarbleTilesBreak" + currstage.ToString());
+                tileTex = game.Content.Load<Texture2D>(contentName + currstage.ToString());
             }
 
             prevhealth = currstage;
