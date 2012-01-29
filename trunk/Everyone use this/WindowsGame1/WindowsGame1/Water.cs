@@ -23,7 +23,7 @@ namespace WindowsGame1
         float lifetime = 140;
         float life = 0;
         public Water(float direction, Vector2 position, KingsOfAlchemy game, Player owner, float charge)
-            : base(game, direction, 5, 3*charge, 150*(charge/10), position, owner)
+            : base(game, direction, 5, 3*charge, 150*charge, position, owner)
         {
             damage = 1;
             attackFixture.CollisionCategories = Category.Cat5;

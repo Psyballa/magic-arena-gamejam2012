@@ -45,7 +45,15 @@ namespace WindowsGame1
         public bool airOnCollision(Fixture fix1, Fixture fix2, Contact con)
         {
             if (fix2.CollisionCategories == Category.Cat1)
-                return true;
+            {
+                Awake = false;
+                CollisionCategories = Category.None;
+                foreach (var a in particleSystem)
+                {
+                    a.destroy();
+                }
+                CollisionCategories = Category.None;
+            }
             return false;
         }
         public override void update(GameTime gameTime)

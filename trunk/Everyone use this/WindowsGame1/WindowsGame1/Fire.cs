@@ -24,10 +24,10 @@ namespace WindowsGame1
     {
         public const int MIN_FIRE_RANGE = 50;
         public const int MAX_FIRE_RANGE = 100;
-        public const float MIN_FIRE_SPREAD = (float) Math.PI / 2;
+        public const float MIN_FIRE_SPREAD = (float) Math.PI / 4;
         public const float MAX_FIRE_SPREAD = (float) Math.PI;// * 2;
         public const int MIN_FIRE_SHOTS = 2;
-        public const int MAX_FIRE_SHOTS = 36;
+        public const int MAX_FIRE_SHOTS = 12;
 
         int lifetime;
         int life;
@@ -56,7 +56,15 @@ namespace WindowsGame1
         public bool fireOnCollision(Fixture fix1, Fixture fix2, Contact con)
         {
             if (fix2.CollisionCategories == Category.Cat1)
-                return true;
+            {
+                Awake = false;
+                CollisionCategories = Category.None;
+                foreach (var a in particleSystem)
+                {
+                    a.destroy();
+                }
+                CollisionCategories = Category.None;
+            }
             return false;
         }
 
