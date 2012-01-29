@@ -26,5 +26,13 @@ Content\Walls\WallTileBreak4.xnb
 Content\Walls\WallTileBreak5.xnb
 Content\Walls\WallTileBreak6.xnb
 Content\Walls\WallTileBreak7.xnb
-Content\rock.xnb
+Content\ButtonHighlight.xnb
+Content\Tiles\MarbleTiles1Break0.xnb
+Content\Tiles\MarbleTiles1Break1.xnb
+Content\Tiles\MarbleTiles1Break2.xnb
+Content\Tiles\MarbleTiles1Break3.xnb
+Content\Tiles\MarbleTiles1Break4.xnb
+Content\Tiles\MarbleTiles1Break5.xnb
+Content\Tiles\MarbleTiles1Break6.xnb
 Content\Tiles\FloorBreaking.xnb
+Content\StarsBG.xnb

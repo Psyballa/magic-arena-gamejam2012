@@ -81,7 +81,7 @@ namespace WindowsGame1
             ouru = Content.Load<Texture2D>("BgOuru");
             bg = Content.Load<Texture2D>("avatar-floating-hills");
             name = Content.Load<Texture2D>("KingsOfAlchemy");
-            stars = Content.Load<Texture2D>("Stars");
+            stars = Content.Load<Texture2D>("StarsBG");
             buttons.Add(new startGameButton(this, 0, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height * 5 / 8)));
             buttons.Add(new exitButton(this, 1, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height*7 / 8)));
             restartGame();
@@ -177,6 +177,13 @@ namespace WindowsGame1
             spriteBatch.Begin();
             if (gameState == GameState.fight)
             {
+                for (int i = 0; i < Window.ClientBounds.Width; i += stars.Width)
+                {
+                    for (int j = 0; j < Window.ClientBounds.Width; j += stars.Height)
+                    {
+                        spriteBatch.Draw(stars, new Rectangle(i * stars.Width, j * stars.Height, stars.Width, stars.Height), Color.White);
+                    }
+                }
                 stage.draw(gameTime, spriteBatch);
                 foreach (ParticleSystem i in particleSystems)
                 {
