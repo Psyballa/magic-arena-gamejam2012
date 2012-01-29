@@ -20,14 +20,14 @@ namespace WindowsGame1
 {
     class Water : Attack
     {
-        float lifetime = 40;
+        float lifetime = 140;
         float life = 0;
-        public Water(float direction, Vector2 position, KingsOfAlchemy game, Player owner)
-            : base(game.world, direction, 1, 3, 1, position, owner)
+        public Water(float direction, Vector2 position, KingsOfAlchemy game, Player owner, float charge)
+            : base(game.world, direction, 5, 3*charge, 150*(charge/10), position, owner)
         {
             attackFixture.CollisionCategories = Category.Cat5;
-            attackFixture.CollidesWith = Category.Cat1 | Category.Cat3 | Category.Cat4 | Category.Cat5 | Category.Cat6 | Category.Cat8;
-            particleSystem.Add(new ParticleSystem(0, (float)Math.PI*2, Position, new Vector2(0.01f, 0), new Vector2(-0.003f, 0), 1, game.Content.Load<Texture2D>("Basicparticle"), -0.01f, 50, 80));
+            attackFixture.CollidesWith = Category.Cat1 | Category.Cat3 | Category.Cat4 | Category.Cat6 | Category.Cat8;
+            particleSystem.Add(new ParticleSystem(0, (float)Math.PI*2, Position, new Vector2(0.01f, 0), new Vector2(-0.003f, 0), 6, game.Content.Load<Texture2D>("Basicparticle"), -0.01f, 50, 80, Color.Aqua));
         }
         public bool waterOnCollision(Fixture fix1, Fixture fix2, Contact con)
         {
