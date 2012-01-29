@@ -94,6 +94,7 @@ namespace WindowsGame1
             font = Content.Load<SpriteFont>("SpriteFont1");
             buttons.Add(new startGameButton(this, 0, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height * 5 / 8)));
             buttons.Add(new exitButton(this, 1, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height*7 / 8)));
+            SoundManager.s.loadContent(this);
             //restartGame();
         }
         public void restartGame()
@@ -112,7 +113,17 @@ namespace WindowsGame1
             players = new List<Player>();
             for (int i = 0; i < 4; ++i)
             {
-                players.Add(new Player(world, i + 1, this, offset));
+                PlayerIndex j;
+                if(i == 0)
+                    j = PlayerIndex.One;
+                else if(i == 1)
+                    j = PlayerIndex.Two;
+                else if(i == 2)
+                    j = PlayerIndex.Three;
+                else
+                    j = PlayerIndex.Four;
+                if(GamePad.GetCapabilities(j).IsConnected)
+                    players.Add(new Player(world, i + 1, this, offset));
             }
 
 
@@ -177,6 +188,7 @@ namespace WindowsGame1
                 {
                     gameState = GameState.victoryScreen;
                     winner = alivePlayer;
+                    SoundManager.s.playWin(winner.index);
                     victoryScreenCounter = 0;
                 }
                 
@@ -202,6 +214,7 @@ namespace WindowsGame1
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            SoundManager.s.update();
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
             if (gameState == GameState.fight || gameState == GameState.victoryScreen)

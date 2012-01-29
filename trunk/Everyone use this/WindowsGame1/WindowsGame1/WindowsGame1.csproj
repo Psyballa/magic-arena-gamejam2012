@@ -114,6 +114,7 @@
     <Compile Include="Fire.cs" />
     <Compile Include="Particles.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="SoundManager.cs" />
     <Compile Include="Wall.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="Stage.cs" />
