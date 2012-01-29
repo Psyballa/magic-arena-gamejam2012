@@ -53,7 +53,6 @@ namespace WindowsGame1
         float maxhealth;
         Fixture tileFixture;
         Texture2D tileTex;
-        Vector2 location;
 
         float breakstages = 7;
 
@@ -76,23 +75,21 @@ namespace WindowsGame1
             location.X *= tileTex.Width;
             location.Y *= tileTex.Height;
             Position = location;
-
             tileFixture = FixtureFactory.AttachRectangle(tileTex.Width, tileTex.Height, 1, new Vector2(), this);
+            tileFixture.CollisionCategories = Category.Cat2;
+            tileFixture.CollidesWith = Category.Cat3 | Category.Cat4 | Category.Cat5 | Category.Cat6 | Category.Cat8;
+
             tileFixture.CollisionCategories = Category.Cat2;
             tileFixture.OnCollision += _OnCollision;
         }
 
         public bool _OnCollision(Fixture fix1, Fixture fix2, Contact con)
         {
-            if (fix2.CollisionCategories == Category.Cat1)
+            if (fix2.CollisionCategories == Category.Cat3)
             {
-                //Do thing that happens when player hits cat1
+                health -= 1;
             }
-            if (fix2.CollisionCategories == Category.Cat2)
-            {
-                //repeat this for every unique case
-            }
-            return true;
+            return false;
         }
 
         public void Update()

@@ -94,12 +94,12 @@ namespace WindowsGame1
             playerFixture.Body.BodyType = BodyType.Dynamic;
 
             playerFixture.CollisionCategories = Category.Cat3;
-            playerFixture.CollidesWith = Category.Cat4 | Category.Cat1 | Category.Cat5 | Category.Cat6 | Category.Cat8;
+            playerFixture.CollidesWith = Category.Cat1 | Category.Cat2 | Category.Cat3 | Category.Cat4 | Category.Cat5 | Category.Cat6 | Category.Cat8;
 
             playerFixture.OnCollision += playerOnCollision;
 
             playerFixture.Restitution = 0.9f;   //Energy Retained from bouncing
-            playerFixture.Friction = 0.1f;       //friction with other objects
+            playerFixture.Friction = 0.1f;      //friction with other objects
 
         }
 
@@ -111,6 +111,8 @@ namespace WindowsGame1
                 case Category.Cat2:                         //Floor
                     fallingFlag = false;
                     return false;
+                case Category.Cat3:                         //Player
+                    return true;
                 case Category.Cat4:                         //Fire spray
                     damage += 0.05f;
                     return false;
@@ -133,13 +135,30 @@ namespace WindowsGame1
             }
         }
 
-        public void UpdatePlayer()
+        public void Update(KeyboardState keyboardState)
         {
             goDoThis elementChange = playerController.getEquipChange();
             //if(elementChange = goDoThis.equipAir && 
             // Call methods to get info from controller
             // Do Stuff (this will include methods to shoot attacks)
-
+            Vector2 newv = new Vector2();
+            if (keyboardState.IsKeyDown(Keys.Down))
+            {
+                newv.Y += 1;
+            }
+            if (keyboardState.IsKeyDown(Keys.Up))
+            {
+                newv.Y -= 1;
+            }
+            if (keyboardState.IsKeyDown(Keys.Left))
+            {
+                newv.X -= 1;
+            }
+            if (keyboardState.IsKeyDown(Keys.Right))
+            {
+                newv.X += 1;
+            }
+            LinearVelocity = newv;
             //This is set to false in the collision detection if the player is safely standing on a tile, and set to false after each update
             if (fallingFlag)
             {
