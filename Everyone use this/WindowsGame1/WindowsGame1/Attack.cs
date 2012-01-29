@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using FarseerPhysics.Dynamics;
-using FarseerPhysics.Dynamics.Contacts;
 using FarseerPhysics.Factories;
 using FarseerPhysics.Collision;
-using FarseerPhysics.Collision.Shapes;
 using FarseerPhysics.Common;
 
 
@@ -15,22 +18,36 @@ namespace WindowsGame1
 {
     class Attack : Body
     {
-        List<ParticleSystem> particleSystem = new List<ParticleSystem>();
-        float damage, radius, impulse;
-        Vector2 velocity;
+        public List<ParticleSystem> particleSystem = new List<ParticleSystem>();
+        public float damage, radius, impulse;
         public Fixture attackFixture;
 
 
-        public Attack(World gameWorld, List<ParticleSystem> partSystem, float d, float r, float i)
+        public Attack(World gameWorld, float d, float r, float i, float speed, Vector2 p)
             : base(gameWorld)
         {
-            this.particleSystem = partSystem;
             this.damage = d;
             this.radius = r;
-            this.impulse = i;
-            attackFixture = FixtureFactory.AttachCircle(radius, 1, this);
+            this.Position = p;
+            attackFixture = FixtureFactory.AttachCircle(radius, i, this);
+            
+            LinearVelocity = new Vector2((float)(speed * Math.Sin(d)), (float)(speed * Math.Cos(d)));
         }
 
+        public void update(GameTime gameTime)
+        {
+            foreach (var p in particleSystem)
+            {
+                p.position = Position;
+            }
+        }
+        public void draw(GameTime gameTime, SpriteBatch spriteBatch)
+        {
+            foreach (var p in particleSystem)
+            {
+                p.draw(gameTime, spriteBatch);
+            }
+        }
 
     }
 }

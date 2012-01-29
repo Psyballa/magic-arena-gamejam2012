@@ -26,6 +26,7 @@ namespace WindowsGame1
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         List<ParticleSystem> particleSystems = new List<ParticleSystem>();
+        List<Attack> attacks = new List<Attack>();
         Stage stage;
         
 
