@@ -30,7 +30,6 @@ namespace WindowsGame1
         controls theControls;
         PlayerIndex controller;
         GamePadState prevState;
-        float prevRotation = 0;
 
         public Controller(PlayerIndex playerNum)
         {
@@ -81,15 +80,13 @@ namespace WindowsGame1
         public Vector2 getMovement()
         {
             //return the Vector2 that is the impulse to be applied to the player's body
-            return new Vector2(GamePad.GetState(controller).ThumbSticks.Left.X, GamePad.GetState(controller).ThumbSticks.Left.Y);
+            return new Vector2(GamePad.GetState(controller).ThumbSticks.Left.X, -GamePad.GetState(controller).ThumbSticks.Left.Y);
         }
 
         public float getRotation()
         {
             //Return which way the controller says the player should be facing
-            if (GamePad.GetState(controller).ThumbSticks.Right.Y == 0 && GamePad.GetState(controller).ThumbSticks.Right.X == 0) return prevRotation;
-            prevRotation = (float)Math.Atan2(GamePad.GetState(controller).ThumbSticks.Right.Y, GamePad.GetState(controller).ThumbSticks.Right.X);
-            return prevRotation;
+            return (float)-Math.Atan2(GamePad.GetState(controller).ThumbSticks.Right.Y, GamePad.GetState(controller).ThumbSticks.Right.X) + (float)Math.PI/2;
         }
 
         public bool getLeftCharge()
