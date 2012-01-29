@@ -31,6 +31,11 @@ namespace WindowsGame1
         earth, water, air, fire
     }
 
+    public enum WhichSprite
+    {
+        walk1, walk2, attack, fall
+    }
+
     /*Note on collision categories (Arbitrarily defined based on what was already in the code):
      * Category 1: Wall 
      * Category 2: Floor
@@ -52,8 +57,13 @@ namespace WindowsGame1
         Texture2D playerTex;
         Texture2D playerTex1;
         Texture2D playerTex2;
+        Texture2D playerTex3;
         Controller playerController;
         public Fixture playerFixture;
+        int walkTimer = 0;
+        int attackTimer = 0;
+        int fallTimer = 20;
+        WhichSprite currentSprite = WhichSprite.walk1;
 
         Player lastTouched;
 
@@ -125,22 +135,34 @@ namespace WindowsGame1
                 //Positions will likely need to be changed based on world size
                 case 1:
                     playerController = new Controller(PlayerIndex.One);
-                    playerTex = game.Content.Load<Texture2D>("Player1");
+                    playerTex = game.Content.Load<Texture2D>("PlayerSprites/play1.0");
+                    playerTex1 = game.Content.Load<Texture2D>("PlayerSprites/play1.1");
+                    playerTex2 = game.Content.Load<Texture2D>("PlayerSprites/play1.2");
+                    playerTex3 = game.Content.Load<Texture2D>("PlayerSprites/play1.fail");
                     Position = new Vector2(60, 60) + offset;
                     break;
                 case 2:
                     playerController = new Controller(PlayerIndex.Two);
-                    playerTex = game.Content.Load<Texture2D>("Player2");
+                    playerTex = game.Content.Load<Texture2D>("PlayerSprites/play2.0");
+                    playerTex1 = game.Content.Load<Texture2D>("PlayerSprites/play2.1");
+                    playerTex2 = game.Content.Load<Texture2D>("PlayerSprites/play2.2");
+                    playerTex3 = game.Content.Load<Texture2D>("PlayerSprites/play2.fail");
                     Position = new Vector2(400, 60) + offset;
                     break;
                 case 3:
                     playerController = new Controller(PlayerIndex.Three);
-                    playerTex = game.Content.Load<Texture2D>("Player3");
+                    playerTex = game.Content.Load<Texture2D>("PlayerSprites/play4.0");
+                    playerTex1 = game.Content.Load<Texture2D>("PlayerSprites/play4.1");
+                    playerTex2 = game.Content.Load<Texture2D>("PlayerSprites/play4.2");
+                    playerTex3 = game.Content.Load<Texture2D>("PlayerSprites/play4.fail");
                     Position = new Vector2(60, 400) + offset;
                     break;
                 case 4:
                     playerController = new Controller(PlayerIndex.Four);
-                    playerTex = game.Content.Load<Texture2D>("Player4");
+                    playerTex = game.Content.Load<Texture2D>("PlayerSprites/play5.0");
+                    playerTex1 = game.Content.Load<Texture2D>("PlayerSprites/play5.1");
+                    playerTex2 = game.Content.Load<Texture2D>("PlayerSprites/play5.2");
+                    playerTex3 = game.Content.Load<Texture2D>("PlayerSprites/play5.fail");
                     Position = new Vector2(400, 400) + offset;
                     break;
             }
@@ -322,6 +344,7 @@ namespace WindowsGame1
                             fire.Play();
                         }
                         rightcharge = 0;
+                        attackTimer = 10;
 
                         break;
                     case Element.water:
@@ -329,6 +352,7 @@ namespace WindowsGame1
                         rightcharge -= 20;
                         SoundManager.s.playWater(index);
                         water.Play();
+                        attackTimer = 10;
                         break;
                     case Element.earth:
                         if (rightcharge >= 150)
@@ -338,6 +362,7 @@ namespace WindowsGame1
                             earth.Play();
                         }
                         rightcharge = 0;
+                        attackTimer = 10;
                         break;
                     case Element.air:
                         if (rightcharge > 60)
@@ -347,6 +372,7 @@ namespace WindowsGame1
                             air.Play();
                         }
                         rightcharge = 0;
+                        attackTimer = 10;
                         break;
                 }
                 cooldown += 10;
@@ -355,11 +381,37 @@ namespace WindowsGame1
             newv = playerController.getMovement();
             ApplyLinearImpulse(newv*250);
             //This is set to false in the collision detection if the player is safely standing on a tile, and set to false after each update
-            if (fallingFlag)
+            if (fallingFlag || fallTimer < 20)
             {
-                CollisionCategories = Category.None;
-                dead = true;
-                SoundManager.s.playDeath(index);
+                fallTimer--;
+                currentSprite = WhichSprite.fall;
+                if (fallTimer <= 0)
+                {
+                    CollisionCategories = Category.None;
+                    dead = true;
+                    SoundManager.s.playDeath(index);
+                }
+            }
+            else if (attackTimer > 0)
+            {
+                attackTimer--;
+                currentSprite = WhichSprite.attack;
+            }
+            else if (walkTimer < 10)
+            {
+                walkTimer++;
+            }
+            else
+            {
+                walkTimer = 0;
+                if (currentSprite == WhichSprite.walk1)
+                {
+                    currentSprite = WhichSprite.walk2;
+                }
+                else
+                {
+                    currentSprite = WhichSprite.walk1;
+                }
             }
             fallingFlag = true;
         }
@@ -396,17 +448,66 @@ namespace WindowsGame1
             Vector2 playerOrigin;
             playerOrigin.X = playerTex.Width/2;
             playerOrigin.Y = playerTex.Height/2;
-          
 
-            spriteBatch.Draw(playerTex,
-                new Rectangle((int)Position.X + 10, (int)Position.Y + 10, 
-                playerTex.Width, playerTex.Height),
-                new Rectangle(0,0,playerTex.Width,playerTex.Height),
-                Color.White,
-                playerController.getRotation(), 
-                playerOrigin, 
-                SpriteEffects.None,
-                0f);
+
+            switch (currentSprite)
+            {
+                case WhichSprite.walk1:
+                    spriteBatch.Draw(playerTex,
+                    new Rectangle((int)Position.X + 10, (int)Position.Y + 10,
+                    playerTex.Width, playerTex.Height),
+                    new Rectangle(0, 0, playerTex.Width, playerTex.Height),
+                    Color.White,
+                    playerController.getRotation(),
+                    playerOrigin,
+                    SpriteEffects.None,
+                    0f);
+                    break;
+                case WhichSprite.walk2:
+                    spriteBatch.Draw(playerTex1,
+                    new Rectangle((int)Position.X + 10, (int)Position.Y + 10,
+                    playerTex.Width, playerTex.Height),
+                    new Rectangle(0, 0, playerTex.Width, playerTex.Height),
+                    Color.White,
+                    playerController.getRotation(),
+                    playerOrigin,
+                    SpriteEffects.None,
+                    0f);
+                    break;
+                case WhichSprite.attack:
+                    spriteBatch.Draw(playerTex2,
+                    new Rectangle((int)Position.X + 10, (int)Position.Y + 10,
+                    playerTex.Width, playerTex.Height),
+                    new Rectangle(0, 0, playerTex.Width, playerTex.Height),
+                    Color.White,
+                    playerController.getRotation(),
+                    playerOrigin,
+                    SpriteEffects.None,
+                    0f);
+                    break;
+                case WhichSprite.fall:
+                    spriteBatch.Draw(playerTex3,
+                    new Rectangle((int)Position.X + 10, (int)Position.Y + 10,
+                    playerTex.Width, playerTex.Height),
+                    new Rectangle(0, 0, playerTex.Width, playerTex.Height),
+                    Color.White,
+                    playerController.getRotation(),
+                    playerOrigin,
+                    SpriteEffects.None,
+                    0f);
+                    break;
+                default:
+                    spriteBatch.Draw(playerTex,
+                    new Rectangle((int)Position.X + 10, (int)Position.Y + 10,
+                    playerTex.Width, playerTex.Height),
+                    new Rectangle(0, 0, playerTex.Width, playerTex.Height),
+                    Color.White,
+                    playerController.getRotation(),
+                    playerOrigin,
+                    SpriteEffects.None,
+                    0f);
+                    break;
+            }
 
 
             //Charge particles (Heh)
