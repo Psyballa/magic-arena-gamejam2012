@@ -126,6 +126,7 @@ namespace WindowsGame1
 
         public bool playerOnCollision(Fixture fix1, Fixture fix2, Contact con)
         {
+            Attack otherAttack;
             switch(fix2.CollisionCategories){
                 case Category.Cat1:                         //Wall
                     return true;
@@ -138,7 +139,7 @@ namespace WindowsGame1
                     damage += 0.05f;
                     return false;
                 case Category.Cat5:                         //Water beam
-                    Attack otherAttack = (Attack)fix2.Body;
+                    otherAttack = (Attack)fix2.Body;
                     if (otherAttack.owner != this)
                     {
                         damage += otherAttack.damage;
@@ -151,6 +152,16 @@ namespace WindowsGame1
                     LinearVelocity = LinearVelocity + Vector2.Normalize(fix1.Body.Position - Position) * 2 * (1 + damage);
                     return false;
                 case Category.Cat8:                         //Tornado
+                    otherAttack = (Attack)fix2.Body;
+                    if (otherAttack.owner != this)
+                    {
+                        Vector2 acceleration = Position - fix2.Body.Position;
+                        float temp = acceleration.X;
+                        acceleration.X = acceleration.Y;
+                        acceleration.Y = temp;
+                        acceleration.Normalize();
+                        LinearVelocity += acceleration;
+                    }
                     return false;
                 default:
                     return false;

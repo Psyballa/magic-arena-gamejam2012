@@ -26,7 +26,6 @@ namespace WindowsGame1
         public float angle;
         public KingsOfAlchemy game;
 
-        // i is density,  Conrad is bad at variable naming
         public Attack(KingsOfAlchemy game, float angle, float radius, float impulse, float speed, Vector2 position, Player owner)
             : base(game.world)
         {
