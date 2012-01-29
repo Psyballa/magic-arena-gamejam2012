@@ -30,6 +30,8 @@ namespace WindowsGame1
             attackFixture.CollidesWith = Category.Cat1 | Category.Cat2 | Category.Cat3 | Category.Cat4 | Category.Cat6 | Category.Cat8;
             particleSystem.Add(new ParticleSystem(0, (float)Math.PI * 2, Position, new Vector2(0.01f, 0), new Vector2(-0.003f, 0), 6, game.Content.Load<Texture2D>("Basicparticle"), -0.001f, 50, 80, Color.DarkCyan * 0.4f));
             attackFixture.OnCollision += waterOnCollision;
+            base.Friction = 0;
+            base.LinearDamping = 0;
         }
 
         public bool waterOnCollision(Fixture fix1, Fixture fix2, Contact con)

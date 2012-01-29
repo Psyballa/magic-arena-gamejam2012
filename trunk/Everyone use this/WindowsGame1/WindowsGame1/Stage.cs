@@ -80,6 +80,7 @@ namespace WindowsGame1
                 {
                     for (int j = width * 3 / 8 - 3; j < width * 5 / 8 + 3; ++j)
                     {
+                        tiles[i, j].tileFixture.CollisionCategories = Category.None;
                         tiles[i, j] = null;
                     }
                 }

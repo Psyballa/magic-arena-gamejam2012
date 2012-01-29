@@ -23,7 +23,7 @@ namespace WindowsGame1
         float health;
         float prevhealth;
         float maxhealth;
-        Fixture tileFixture;
+        public Fixture tileFixture;
         Texture2D tileTex;
 
         float breakstages = 7;

@@ -289,32 +289,6 @@ namespace WindowsGame1
                 case goDoThis.equipWater:
                     currentEquip = Element.water;
                     break;
-                case goDoThis.rotateEquipLeft:
-                    if (currentEquip == Element.air)
-                        currentEquip = Element.fire;
-                    else if (currentEquip == Element.fire)
-                        currentEquip = Element.water;
-                    else if (currentEquip == Element.water)
-                    {
-                        currentEquip = Element.earth;
-                        rightcharge = 0;
-                    }
-                    else
-                        currentEquip = Element.air;
-                    break;
-                case goDoThis.rotateEquipRight:
-                    if (currentEquip == Element.air)
-                    {
-                        currentEquip = Element.earth;
-                        rightcharge = 0;
-                    }
-                    else if (currentEquip == Element.fire)
-                        currentEquip = Element.air;
-                    else if (currentEquip == Element.water)
-                        currentEquip = Element.fire;
-                    else
-                        currentEquip = Element.water;
-                    break;
 
             }
             //if(elementChange = goDoThis.equipAir && 
@@ -379,7 +353,7 @@ namespace WindowsGame1
             }
             float rotation = playerController.getRotation();
             newv = playerController.getMovement();
-            ApplyLinearImpulse(newv*250);
+            ApplyLinearImpulse(newv*100);
             //This is set to false in the collision detection if the player is safely standing on a tile, and set to false after each update
             if (fallingFlag || fallTimer < 20)
             {
