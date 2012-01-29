@@ -78,7 +78,7 @@ namespace WindowsGame1
             }
             if (fix2.CollisionCategories == Category.Cat6)
             {
-                health -= 10;
+                health -= 1;
             }
             if (fix2.CollisionCategories == Category.Cat8)
             {
