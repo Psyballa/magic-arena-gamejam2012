@@ -230,9 +230,9 @@ namespace WindowsGame1
                 switch (currentEquip)
                 {
                     case Element.fire:
+                        attackFire((int)rightcharge);
                         rightcharge = 0;
-                        for (int i = 0; i < rightcharge / 10 + 1; ++i)
-                            game.attacks.Add(new Water(playerController.getRotation2(), Position, game, this, rightcharge));
+
                         break;
                     case Element.water:
                         game.attacks.Add(new Water(playerController.getRotation2(), Position + new Vector2(10, 10), game, this, rightcharge));
@@ -283,21 +283,23 @@ namespace WindowsGame1
         }
 
 
-        public void attackFire(int chargeAmount)
+        public void attackFire(float chargeAmount)
         {
             // min charge = 10, max = 150
             float chargeFraction = chargeAmount / (float)(maxCharge - minCharge);
-            
-            int totalShots        = (int)( Fire.MIN_FIRE_SHOTS  + (Fire.MAX_FIRE_SHOTS  - Fire.MIN_FIRE_SHOTS ) * chargeFraction);
-            float totalFireSpread =        Fire.MIN_FIRE_SPREAD + (Fire.MAX_FIRE_SPREAD - Fire.MIN_FIRE_SPREAD) * chargeFraction ;
-            int totalLife         = (int)( Fire.MIN_FIRE_RANGE  + (Fire.MAX_FIRE_RANGE  - Fire.MIN_FIRE_RANGE ) * chargeFraction);
+
+            int totalShots = (int)(Fire.MIN_FIRE_SHOTS + (Fire.MAX_FIRE_SHOTS - Fire.MIN_FIRE_SHOTS) * chargeFraction);
+            float totalFireSpread = Fire.MIN_FIRE_SPREAD + (Fire.MAX_FIRE_SPREAD - Fire.MIN_FIRE_SPREAD) * chargeFraction;
+            int totalLife = (int)(Fire.MIN_FIRE_RANGE + (Fire.MAX_FIRE_RANGE - Fire.MIN_FIRE_RANGE) * chargeFraction);
             float anglePerShot = totalFireSpread / totalShots;
 
-            float currentAngle = 0 - totalFireSpread / 2;
+            float currentAngle = 0.0f - totalFireSpread / 2.0f;
+
             for (int i = 0; i < totalShots; i++)
             {
+                game.attacks.Add(new Fire(game, playerController.getRotation2() + currentAngle, 100, totalLife, Position, this));
                 currentAngle += anglePerShot;
-                //make a fire shot
+                //game.attacks.Add(new Fire(playerController.getRotation2()+currentAngle, Position, game, this, rightcharge));
             }
         }
 
