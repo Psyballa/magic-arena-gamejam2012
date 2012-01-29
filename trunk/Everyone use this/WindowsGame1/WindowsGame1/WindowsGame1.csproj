@@ -127,9 +127,6 @@
     <Compile Include="Water.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\x86\Debug\FarseerPhysicsXNA.dll" />
-    <Content Include="bin\x86\Debug\FarseerPhysicsXNA.pdb" />
-    <Content Include="bin\x86\Debug\FarseerPhysicsXNA.xml" />
     <Content Include="bin\x86\Debug\WindowsGame1.exe" />
     <Content Include="bin\x86\Debug\WindowsGame1.pdb" />
     <Content Include="Game.ico" />
@@ -182,27 +179,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\x86\Debug\Content\1.xnb" />
-    <None Include="bin\x86\Debug\Content\avatar-floating-hills.xnb" />
-    <None Include="bin\x86\Debug\Content\BgOuru.xnb" />
-    <None Include="bin\x86\Debug\Content\Exit.xnb" />
-    <None Include="bin\x86\Debug\Content\FloorTile.xnb" />
-    <None Include="bin\x86\Debug\Content\KingsOfAlchemy.xnb" />
-    <None Include="bin\x86\Debug\Content\Player1.xnb" />
-    <None Include="bin\x86\Debug\Content\Player2.xnb" />
-    <None Include="bin\x86\Debug\Content\Player3.xnb" />
-    <None Include="bin\x86\Debug\Content\Player4.xnb" />
-    <None Include="bin\x86\Debug\Content\Start.xnb" />
-    <None Include="bin\x86\Debug\Content\Tiles\FloorBreaking.xnb" />
-    <None Include="bin\x86\Debug\Content\Tiles\MarbleTilesBreak0.xnb" />
-    <None Include="bin\x86\Debug\Content\Tiles\MarbleTilesBreak1.xnb" />
-    <None Include="bin\x86\Debug\Content\Tiles\MarbleTilesBreak2.xnb" />
-    <None Include="bin\x86\Debug\Content\Tiles\MarbleTilesBreak3.xnb" />
-    <None Include="bin\x86\Debug\Content\Tiles\MarbleTilesBreak4.xnb" />
-    <None Include="bin\x86\Debug\Content\Tiles\MarbleTilesBreak5.xnb" />
-    <None Include="bin\x86\Debug\Content\Tiles\MarbleTilesBreak6.xnb" />
-    <None Include="bin\x86\Debug\Content\Tiles\MarbleTilesBreak7.xnb" />
-    <None Include="bin\x86\Debug\Content\WallTile.xnb" />
     <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\x86\Debug\ResolveAssemblyReference.cache" />
   </ItemGroup>
