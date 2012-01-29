@@ -77,7 +77,7 @@ namespace WindowsGame1
         //Flags
         public bool dead = false;
         bool fallingFlag = true;
-        int index;
+        public int index;
 
         KingsOfAlchemy game;
 
@@ -178,8 +178,8 @@ namespace WindowsGame1
                     return false;
                 case Category.Cat6:                         //Rock
                     otherAttack = (Attack)fix2.Body;
-                    damage += 0.05f;
-                    LinearVelocity = LinearVelocity + Vector2.Normalize(fix1.Body.Position - Position) * 2 * (damage);
+                    //damage += 0.05f;
+                    ApplyLinearImpulse(Vector2.Normalize(otherAttack.LinearVelocity) * otherAttack.impulse * (damage));
                     lastTouched = otherAttack.owner;
                     return false;
                 case Category.Cat8:                         //Tornado
@@ -214,6 +214,7 @@ namespace WindowsGame1
                     break;
                 case goDoThis.equipEarth:
                     currentEquip = Element.earth;
+                    rightcharge = 0;
                     break;
                 case goDoThis.equipFire:
                     currentEquip = Element.fire;
@@ -227,13 +228,19 @@ namespace WindowsGame1
                     else if (currentEquip == Element.fire)
                         currentEquip = Element.water;
                     else if (currentEquip == Element.water)
+                    {
                         currentEquip = Element.earth;
+                        rightcharge = 0;
+                    }
                     else
                         currentEquip = Element.air;
                     break;
                 case goDoThis.rotateEquipRight:
                     if (currentEquip == Element.air)
+                    {
                         currentEquip = Element.earth;
+                        rightcharge = 0;
+                    }
                     else if (currentEquip == Element.fire)
                         currentEquip = Element.air;
                     else if (currentEquip == Element.water)
@@ -250,7 +257,7 @@ namespace WindowsGame1
             if (playerController.getRightCharge())
             {
                 if(rightcharge < maxCharge)
-                    rightcharge += 1;
+                    rightcharge += currentEquip == Element.earth? 0.5f : 1;
             }
             if (playerController.getLeftCharge())
             {
@@ -275,7 +282,10 @@ namespace WindowsGame1
                         rightcharge -= 20;
                         break;
                     case Element.earth:
-                        game.attacks.Add(new Earth(playerController.getRotation2(), Position + new Vector2(10, 10), game, this, rightcharge));
+                        if (rightcharge >= 150)
+                        {
+                            game.attacks.Add(new Earth(playerController.getRotation2(), Position + new Vector2(10, 10), game, this, rightcharge));
+                        }
                         rightcharge = 0;
                         break;
                     case Element.air:

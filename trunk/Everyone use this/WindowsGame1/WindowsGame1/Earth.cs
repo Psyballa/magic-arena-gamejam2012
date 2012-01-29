@@ -26,7 +26,7 @@ namespace WindowsGame1
         float rotation;
 
         public Earth(float direction, Vector2 position, KingsOfAlchemy game, Player owner, float charge)
-            : base(game, direction, 5, 500 * charge, 500 * (charge / 10), position, owner)
+            : base(game, direction, 10, 500 * charge, 500 * (charge / 10), position, owner)
         {
             damage = 1;
             rotation = direction;
@@ -39,12 +39,12 @@ namespace WindowsGame1
                 Position,
                 new Vector2(0, 0.05f),
                 new Vector2(0, 0.0000f),
-                1,
+                0,
                 game.Content.Load<Texture2D>("Basicparticle"),
                 -0.0001f,
                 500,
                 1000,
-                Color.Brown));
+                Color.Gray));
             attackFixture.OnCollision += earthOnCollision;
         }
         public bool earthOnCollision(Fixture fix1, Fixture fix2, Contact con)
@@ -55,6 +55,7 @@ namespace WindowsGame1
                 {
                     life = 1 + (3 * lifetime / 4);
                 }
+                particleSystem[0].add = 1;
             }
             return false;
         }
@@ -83,20 +84,22 @@ namespace WindowsGame1
         {
             if (!Awake) return;
             Vector2 Origin;
-            Origin.X = earthTex.Width / 2;
-            Origin.Y = earthTex.Height / 2;
+            Origin.X = earthTex.Width;
+            Origin.Y = earthTex.Height/2;
 
+
+            base.draw(gameTime, spriteBatch);
 
             spriteBatch.Draw(earthTex,
                 new Rectangle((int)Position.X + 10, (int)Position.Y + 10,
-                50, 50),
+                attackFixture.CollisionCategories == Category.Cat7 ? earthTex.Width : (int)(earthTex.Width*0.7f),
+                attackFixture.CollisionCategories == Category.Cat7 ? earthTex.Height : (int)(earthTex.Height * 0.7f)),
                 new Rectangle(0, 0, earthTex.Width, earthTex.Height),
                 Color.White,
                 rotation,
                 Origin,
                 SpriteEffects.None,
                 0f);
-            base.draw(gameTime, spriteBatch);
         }
     }
 }
