@@ -66,6 +66,8 @@ namespace WindowsGame1
         const int minCharge = 10;
         const int maxCharge = 150;
 
+        ParticleSystem partSystem;
+
         //Player Stats
         private const float playerMass = 10f;
         private const float playerRotate = 0.15f;
@@ -99,6 +101,7 @@ namespace WindowsGame1
             manaBarAir = game.Content.Load<Texture2D>("HealthBars/Teal");
             font = game.Content.Load<SpriteFont>("Font");
             font2 = game.Content.Load<SpriteFont>("Font2");
+            partSystem = new ParticleSystem(0, (float)Math.PI * 2, Position, new Vector2(0, 0.03f), Vector2.Zero, 0, game.Content.Load<Texture2D>("BasicParticle"), 0, 100, 1000);
             switch (playerNum)
             {
                 //Positions will likely need to be changed based on world size
@@ -340,6 +343,27 @@ namespace WindowsGame1
                 playerOrigin, 
                 SpriteEffects.None,
                 0f);
+
+
+            //Charge particles (Heh)
+            partSystem.position = Position + new Vector2(15, 15) ;
+            partSystem.add = (int)rightcharge / 30;
+            switch (currentEquip)
+            {
+                case Element.water:
+                    partSystem.color = Color.Teal;
+                    break;
+                case Element.air:
+                    partSystem.color = Color.White;
+                    break;
+                case Element.fire:
+                    partSystem.color = Color.OrangeRed;
+                    break;
+                case Element.earth:
+                    partSystem.color = Color.Green;
+                    break;
+            }
+            partSystem.draw(gameTime, spriteBatch);
         }
 
 
