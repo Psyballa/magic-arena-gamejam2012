@@ -21,21 +21,28 @@ namespace WindowsGame1
         public List<ParticleSystem> particleSystem = new List<ParticleSystem>();
         public float damage, radius, impulse;
         public Fixture attackFixture;
+        public Player owner;
+        public float speed;
+        public float angle;
 
 
-
-        public Attack(World gameWorld, float d, float r, float i, float speed, Vector2 p)
+        public Attack(World gameWorld, float d, float r, float i, float speed, Vector2 p, Player owner)
             : base(gameWorld)
         {
             this.damage = d;
             this.radius = r;
             this.Position = p;
+            this.owner = owner;
+            this.speed = speed;
+            this.angle = d;
+            IsStatic = false;
             attackFixture = FixtureFactory.AttachCircle(radius, i, this);
+            LinearVelocity = new Vector2((float)(speed * Math.Sin(angle)), (float)(speed * Math.Cos(angle)));
+
             
-            LinearVelocity = new Vector2((float)(speed * Math.Sin(d)), (float)(speed * Math.Cos(d)));
         }
 
-        public void update(GameTime gameTime)
+        public virtual void update(GameTime gameTime)
         {
             foreach (var p in particleSystem)
             {
