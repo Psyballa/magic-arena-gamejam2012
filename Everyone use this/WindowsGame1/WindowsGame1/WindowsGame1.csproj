@@ -109,6 +109,7 @@
   <ItemGroup>
     <Compile Include="Air.cs" />
     <Compile Include="Attack.cs" />
+    <Compile Include="SoundManager.cs" />
     <Compile Include="DebugView.cs" />
     <Compile Include="Earth.cs" />
     <Compile Include="Fire.cs" />

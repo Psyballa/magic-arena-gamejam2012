@@ -136,7 +136,13 @@ namespace WindowsGame1
                 case Category.Cat3:                         //Player
                     return true;
                 case Category.Cat4:                         //Fire spray
-                    damage += 0.05f;
+                    otherAttack = (Attack)fix2.Body;
+                    if (otherAttack.owner != this)
+                    {
+                        damage += otherAttack.damage;
+                        ApplyLinearImpulse(Vector2.Normalize(Position - otherAttack.Position) * otherAttack.impulse * damage);
+                        return true;
+                    }
                     return false;
                 case Category.Cat5:                         //Water beam
                     otherAttack = (Attack)fix2.Body;
@@ -290,11 +296,12 @@ namespace WindowsGame1
             int totalLife         = (int)( Fire.MIN_FIRE_RANGE  + (Fire.MAX_FIRE_RANGE  - Fire.MIN_FIRE_RANGE ) * chargeFraction);
             float anglePerShot = totalFireSpread / totalShots;
 
-            float currentAngle = 0 - totalFireSpread / 2;
+            float currentAngle = 0.0f - totalFireSpread / 2.0f;
+
             for (int i = 0; i < totalShots; i++)
-            {
+            {   
+                game.attacks.Add(new Fire(game, playerController.getRotation2() + currentAngle, 100, totalLife, Position, this));
                 currentAngle += anglePerShot;
-                game.attacks.Add(new Fire(game, playerController.getRotation2() + currentAngle, 100, Position, this));
                 //game.attacks.Add(new Fire(playerController.getRotation2()+currentAngle, Position, game, this, rightcharge));
             }
         }

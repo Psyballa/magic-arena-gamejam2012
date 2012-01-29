@@ -123,3 +123,4 @@ C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use
 C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
 C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
+C:\Users\Logan\Desktop\Magic Arena\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\rock.xnb
