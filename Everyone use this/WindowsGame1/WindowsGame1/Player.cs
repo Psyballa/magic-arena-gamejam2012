@@ -104,7 +104,6 @@ namespace WindowsGame1
                     Position = new Vector2(400, 400) + offset;
                     break;
             }
-            damage = 0;
 
             // load player sprite
             Vector2 playerOrigin;
@@ -120,7 +119,7 @@ namespace WindowsGame1
             playerFixture.OnCollision += playerOnCollision;
 
             playerFixture.Restitution = 0.9f;   //Energy Retained from bouncing
-            playerFixture.Friction = 0.5f;      //friction with other objects
+            playerFixture.Friction = 0.01f;      //friction with other objects
 
         }
 
@@ -136,26 +135,20 @@ namespace WindowsGame1
                 case Category.Cat3:                         //Player
                     return true;
                 case Category.Cat4:                         //Fire spray
-                    otherAttack = (Attack)fix2.Body;
-                    if (otherAttack.owner != this)
-                    {
-                        damage += otherAttack.damage;
-                        ApplyLinearImpulse(Vector2.Normalize(Position - otherAttack.Position) * otherAttack.impulse * damage);
-                        return true;
-                    }
+                    damage += 0.05f;
                     return false;
                 case Category.Cat5:                         //Water beam
                     otherAttack = (Attack)fix2.Body;
                     if (otherAttack.owner != this)
                     {
                         damage += otherAttack.damage;
-                        ApplyLinearImpulse(Vector2.Normalize(Position - otherAttack.Position) * otherAttack.impulse * damage);
+                        ApplyLinearImpulse(Vector2.Normalize(otherAttack.LinearVelocity) * otherAttack.impulse * damage);
                         return true;
                     }
                     return false;
                 case Category.Cat6:                         //Rock
                     damage += 0.05f;
-                    LinearVelocity = LinearVelocity + Vector2.Normalize(fix1.Body.Position - Position) * 2 * (1 + damage);
+                    LinearVelocity = LinearVelocity + Vector2.Normalize(fix1.Body.Position - Position) * 2 * (damage);
                     return false;
                 case Category.Cat8:                         //Tornado
                     otherAttack = (Attack)fix2.Body;
@@ -178,6 +171,7 @@ namespace WindowsGame1
         public void Update()
         {
             AngularVelocity = 0;
+            LinearVelocity = LinearVelocity * 0.9f;
             if (dead) return;
             goDoThis elementChange = playerController.getEquipChange();
             switch (elementChange)
@@ -230,33 +224,37 @@ namespace WindowsGame1
                 if(leftcharge < 150)
                     leftcharge += 1;
             }
-            if (cooldown > 0) cooldown -= 2;
+            if (cooldown > 0) cooldown -= 1;
             if (!playerController.getRightCharge() && rightcharge > 10 && cooldown == 0)
             {
                 switch (currentEquip)
                 {
                     case Element.fire:
-                        attackFire(rightcharge);
                         rightcharge = 0;
+                        for (int i = 0; i < rightcharge / 10 + 1; ++i)
+                            game.attacks.Add(new Water(playerController.getRotation2(), Position, game, this, rightcharge));
                         break;
                     case Element.water:
-                        game.attacks.Add(new Water(playerController.getRotation2(), Position, game, this, rightcharge));
+                        game.attacks.Add(new Water(playerController.getRotation2(), Position + new Vector2(10, 10), game, this, rightcharge));
                         rightcharge -= 10;
                         break;
                     case Element.earth:
+                        game.attacks.Add(new Water(playerController.getRotation2(), Position, game, this, rightcharge));
                         rightcharge = 0;
-                        game.attacks.Add(new Earth(playerController.getRotation2(), Position, game, this, rightcharge));
                         break;
                     case Element.air:
-                        game.attacks.Add(new Air(playerController.getRotation2(), Position, game, this, rightcharge));
-                        rightcharge = 0;
+                        if (rightcharge > 100)
+                        {
+                            game.attacks.Add(new Air(playerController.getRotation2(), Position, game, this, rightcharge));
+                            rightcharge = 0;
+                        }
                         break;
                 }
                 cooldown += 10;
             }
             float rotation = playerController.getRotation();
             newv = playerController.getMovement();
-            LinearVelocity = newv;
+            ApplyLinearImpulse(newv*100);
             //This is set to false in the collision detection if the player is safely standing on a tile, and set to false after each update
             if (fallingFlag)
             {
@@ -265,7 +263,6 @@ namespace WindowsGame1
             }
             fallingFlag = true;
         }
-
         public void draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             if (dead) return;
@@ -286,7 +283,7 @@ namespace WindowsGame1
         }
 
 
-        public void attackFire(float chargeAmount)
+        public void attackFire(int chargeAmount)
         {
             // min charge = 10, max = 150
             float chargeFraction = chargeAmount / (float)(maxCharge - minCharge);
@@ -296,13 +293,11 @@ namespace WindowsGame1
             int totalLife         = (int)( Fire.MIN_FIRE_RANGE  + (Fire.MAX_FIRE_RANGE  - Fire.MIN_FIRE_RANGE ) * chargeFraction);
             float anglePerShot = totalFireSpread / totalShots;
 
-            float currentAngle = 0.0f - totalFireSpread / 2.0f;
-
+            float currentAngle = 0 - totalFireSpread / 2;
             for (int i = 0; i < totalShots; i++)
-            {   
-                game.attacks.Add(new Fire(game, playerController.getRotation2() + currentAngle, 100, totalLife, Position, this));
+            {
                 currentAngle += anglePerShot;
-                //game.attacks.Add(new Fire(playerController.getRotation2()+currentAngle, Position, game, this, rightcharge));
+                //make a fire shot
             }
         }
 
