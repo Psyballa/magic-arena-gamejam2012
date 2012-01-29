@@ -22,6 +22,12 @@ namespace WindowsGame1
     };
     public class KingsOfAlchemy : Microsoft.Xna.Framework.Game
     {
+        SoundEffect menuSong;
+        SoundEffect fightSong;
+
+        SoundEffectInstance menuSongInstance;
+        SoundEffectInstance fightSongInstance;
+
         int victoryScreenCounter = 0;
         int victoryScreenMaxCounter = 600;
         Player winner;
@@ -92,6 +98,14 @@ namespace WindowsGame1
             stars = Content.Load<Texture2D>("StarsBG");
             shield = Content.Load<Texture2D>("Shield");
             font = Content.Load<SpriteFont>("SpriteFont1");
+            menuSong = Content.Load<SoundEffect>("sounds/408038_orchestra");
+            fightSong = Content.Load<SoundEffect>("sounds/432898_Beat_project_2");
+            menuSongInstance = menuSong.CreateInstance();
+            fightSongInstance = fightSong.CreateInstance();
+            menuSongInstance.IsLooped = true;
+            fightSongInstance.IsLooped = true;
+            menuSongInstance.Play();
+
             buttons.Add(new startGameButton(this, 0, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height * 5 / 8)));
             buttons.Add(new exitButton(this, 1, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height*7 / 8)));
             SoundManager.s.loadContent(this);
@@ -219,6 +233,12 @@ namespace WindowsGame1
             spriteBatch.Begin();
             if (gameState == GameState.fight || gameState == GameState.victoryScreen)
             {
+
+                if (fightSongInstance.State != SoundState.Playing)
+                {
+                    fightSongInstance.Play();
+                    menuSongInstance.Pause();
+                }
                 for (int i = 0; i < Window.ClientBounds.Width; i += stars.Width)
                 {
                     for (int j = 0; j < Window.ClientBounds.Width; j += stars.Height)
@@ -256,6 +276,10 @@ namespace WindowsGame1
             }
             if (gameState == GameState.mainMenu)
             {
+                if(fightSongInstance.State == SoundState.Playing){
+                    fightSongInstance.Pause();
+                    menuSongInstance.Play();
+                }
                 foreach (ParticleSystem i in menuParticleSystems)
                 {
                     i.draw(gameTime, spriteBatch);

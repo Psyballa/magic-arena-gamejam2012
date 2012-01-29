@@ -89,6 +89,12 @@ namespace WindowsGame1
         SpriteFont font;
         SpriteFont font2;
 
+        SoundEffect fire;
+        SoundEffect water;
+        SoundEffect earth;
+        SoundEffect air;
+
+
         //HUD
         Texture2D manaBarFire;
         Texture2D manaBarWater;
@@ -105,6 +111,12 @@ namespace WindowsGame1
             manaBarWater = game.Content.Load<Texture2D>("HealthBars/Blue");
             manaBarEarth = game.Content.Load<Texture2D>("HealthBars/Green");
             manaBarAir = game.Content.Load<Texture2D>("HealthBars/Teal");
+
+            fire = game.Content.Load<SoundEffect>("sounds/fire");
+            water = game.Content.Load<SoundEffect>("sounds/water");
+            earth = game.Content.Load<SoundEffect>("sounds/rock");
+            air = game.Content.Load<SoundEffect>("sounds/tornado");
+
             font = game.Content.Load<SpriteFont>("Font");
             font2 = game.Content.Load<SpriteFont>("Font2");
             partSystem = new ParticleSystem(0, (float)Math.PI * 2, Position, new Vector2(0, 0.03f), Vector2.Zero, 0, game.Content.Load<Texture2D>("BasicParticle"), 0, 100, 1000);
@@ -307,6 +319,7 @@ namespace WindowsGame1
                         {
                             attackFire((int)rightcharge);
                             SoundManager.s.playFire(index);
+                            fire.Play();
                         }
                         rightcharge = 0;
 
@@ -315,12 +328,14 @@ namespace WindowsGame1
                         game.attacks.Add(new Water(playerController.getRotation2(), Position + new Vector2(10, 10), game, this, rightcharge));
                         rightcharge -= 20;
                         SoundManager.s.playWater(index);
+                        water.Play();
                         break;
                     case Element.earth:
                         if (rightcharge >= 150)
                         {
                             game.attacks.Add(new Earth(playerController.getRotation2(), Position + new Vector2(10, 10), game, this, rightcharge));
                             SoundManager.s.playEarth(index);
+                            earth.Play();
                         }
                         rightcharge = 0;
                         break;
@@ -329,6 +344,7 @@ namespace WindowsGame1
                         {
                             game.attacks.Add(new Air(playerController.getRotation2(), Position, game, this, rightcharge));
                             SoundManager.s.playAir(index);
+                            air.Play();
                         }
                         rightcharge = 0;
                         break;
