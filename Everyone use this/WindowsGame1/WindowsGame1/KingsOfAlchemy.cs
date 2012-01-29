@@ -23,25 +23,25 @@ namespace WindowsGame1
     {
         public World world;
         public GameState gameState = GameState.mainMenu;
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-        List<ParticleSystem> particleSystems = new List<ParticleSystem>();
-        List<Attack> attacks = new List<Attack>();
-        Stage stage;
+        public GraphicsDeviceManager graphics;
+        public SpriteBatch spriteBatch;
+        public List<ParticleSystem> particleSystems = new List<ParticleSystem>();
+        public List<Attack> attacks = new List<Attack>();
+        public Stage stage;
         
 
         //Menu stuff
-        List<ParticleSystem> menuParticleSystems = new List<ParticleSystem>();
-        Texture2D ouru;
-        float ouruAngle = 0;
-        Texture2D name;
-        Texture2D bg;
-        Vector2 ouruPos;
+        public List<ParticleSystem> menuParticleSystems = new List<ParticleSystem>();
+        public Texture2D ouru;
+        public float ouruAngle = 0;
+        public Texture2D name;
+        public Texture2D bg;
+        public Vector2 ouruPos;
 
-        List<Player> players;
-        
+        public List<Player> players;
 
-        List<Button> buttons = new List<Button>();
+
+        public List<Button> buttons = new List<Button>();
         public int selected = 0;
 
         public KingsOfAlchemy()
@@ -96,7 +96,6 @@ namespace WindowsGame1
         /// </summary>
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
         }
 
         /// <summary>
@@ -128,6 +127,10 @@ namespace WindowsGame1
                 foreach (Player p in players)
                 {
                     p.Update();
+                }
+                foreach (Attack a in attacks)
+                {
+                    a.update(gameTime);
                 }
                 stage.update(gameTime);
             }
@@ -164,6 +167,10 @@ namespace WindowsGame1
                 foreach (Player p in players)
                 {
                     p.draw(gameTime, spriteBatch);
+                }
+                foreach (Attack a in attacks)
+                {
+                    a.draw(gameTime, spriteBatch);
                 }
             }
             if (gameState == GameState.mainMenu)

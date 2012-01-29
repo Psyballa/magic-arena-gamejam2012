@@ -13,7 +13,7 @@ using FarseerPhysics.Factories;
 
 namespace WindowsGame1
 {
-    class Particle
+    public class Particle
     {
         public Texture2D sprite;
         public Vector2 velocity;
@@ -65,7 +65,7 @@ namespace WindowsGame1
         }
     }
 
-    class ParticleSystem
+    public class ParticleSystem
     {
         Random random;
         float maxRot;

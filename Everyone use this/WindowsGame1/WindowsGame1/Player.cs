@@ -35,7 +35,7 @@ namespace WindowsGame1
      */
 
 
-    class Player : Body
+    public class Player : Body
     {
         public float damage;
         float playerSize = 5;
@@ -59,10 +59,12 @@ namespace WindowsGame1
         public bool dead = false;
         bool fallingFlag = false;
 
-        public Player(World gameWorld, int playerNum, Game game) : base(gameWorld)
+        KingsOfAlchemy game;
+
+        public Player(World gameWorld, int playerNum, KingsOfAlchemy game) : base(gameWorld)
         {
             //Merged this with loadContent for simplicity
-
+            this.game = game;
             switch (playerNum)
             {
                 //Positions will likely need to be changed based on world size
@@ -94,7 +96,7 @@ namespace WindowsGame1
             playerOrigin.X = playerTex.Width / 2;
             playerOrigin.Y = playerTex.Height / 2;
 
-            playerFixture = FixtureFactory.AttachCircle(playerSize, 1, this);
+            playerFixture = FixtureFactory.AttachCircle(playerSize, 1, this, new Vector2(-playerTex.Width/2, -playerTex.Height/2));
             playerFixture.Body.BodyType = BodyType.Dynamic;
 
             playerFixture.CollisionCategories = Category.Cat3;
@@ -148,7 +150,10 @@ namespace WindowsGame1
             // Call methods to get info from controller
             // Do Stuff (this will include methods to shoot attacks)
             Vector2 newv = new Vector2();
-           
+            if (playerController.getLeftCharge())
+            {
+                game.attacks.Add(new Water(playerController.getRotation(), Position, game));
+            }
             float rotation = playerController.getRotation();
             newv = playerController.getMovement();
             LinearVelocity = newv;

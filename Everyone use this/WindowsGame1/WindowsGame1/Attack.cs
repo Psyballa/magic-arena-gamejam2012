@@ -16,7 +16,7 @@ using FarseerPhysics.Common;
 
 namespace WindowsGame1
 {
-    class Attack : Body
+    public class Attack : Body
     {
         public List<ParticleSystem> particleSystem = new List<ParticleSystem>();
         public float damage, radius, impulse;
