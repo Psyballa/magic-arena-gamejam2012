@@ -46,22 +46,22 @@ namespace WindowsGame1
         {
             // logic to return what the controller says to do given the control scheme
             GamePadState state = GamePad.GetState(controller);
-            if (state.IsButtonDown(Buttons.A))
+            if (state.IsButtonDown(Buttons.Y))
             {
                 prevState = state;
                 return goDoThis.equipAir;
             }
-            if (state.IsButtonDown(Buttons.B))
+            if (state.IsButtonDown(Buttons.X))
             {
                 prevState = state;
                 return goDoThis.equipWater;
             }
-            if (state.IsButtonDown(Buttons.X))
+            if (state.IsButtonDown(Buttons.B))
             {
                 prevState = state;
                 return goDoThis.equipFire;
             }
-            if (state.IsButtonDown(Buttons.Y))
+            if (state.IsButtonDown(Buttons.A))
             {
                 prevState = state;
                 return goDoThis.equipEarth;

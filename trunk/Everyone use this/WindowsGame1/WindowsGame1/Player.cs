@@ -230,9 +230,8 @@ namespace WindowsGame1
                 switch (currentEquip)
                 {
                     case Element.fire:
+                        attackFire(rightcharge);
                         rightcharge = 0;
-                        for (int i = 0; i < rightcharge / 10 + 1; ++i)
-                            game.attacks.Add(new Water(playerController.getRotation2(), Position, game, this, rightcharge));
                         break;
                     case Element.water:
                         game.attacks.Add(new Water(playerController.getRotation2(), Position, game, this, rightcharge));
@@ -280,7 +279,7 @@ namespace WindowsGame1
         }
 
 
-        public void attackFire(int chargeAmount)
+        public void attackFire(float chargeAmount)
         {
             // min charge = 10, max = 150
             float chargeFraction = chargeAmount / (float)(maxCharge - minCharge);
@@ -294,7 +293,8 @@ namespace WindowsGame1
             for (int i = 0; i < totalShots; i++)
             {
                 currentAngle += anglePerShot;
-                //make a fire shot
+                game.attacks.Add(new Fire(game, playerController.getRotation2() + currentAngle, 100, Position, this));
+                //game.attacks.Add(new Fire(playerController.getRotation2()+currentAngle, Position, game, this, rightcharge));
             }
         }
 
