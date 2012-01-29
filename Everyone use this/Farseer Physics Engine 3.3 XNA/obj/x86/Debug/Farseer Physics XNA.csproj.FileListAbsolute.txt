@@ -10,3 +10,9 @@ C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use t
 C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\Farseer Physics Engine 3.3 XNA\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\Farseer Physics Engine 3.3 XNA\obj\x86\Debug\FarseerPhysicsXNA.dll
 C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\Farseer Physics Engine 3.3 XNA\obj\x86\Debug\FarseerPhysicsXNA.pdb
+C:\Users\Logan\Desktop\Magic Arena\Everyone use this\Farseer Physics Engine 3.3 XNA\bin\x86\Debug\FarseerPhysicsXNA.dll
+C:\Users\Logan\Desktop\Magic Arena\Everyone use this\Farseer Physics Engine 3.3 XNA\bin\x86\Debug\FarseerPhysicsXNA.pdb
+C:\Users\Logan\Desktop\Magic Arena\Everyone use this\Farseer Physics Engine 3.3 XNA\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Logan\Desktop\Magic Arena\Everyone use this\Farseer Physics Engine 3.3 XNA\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Logan\Desktop\Magic Arena\Everyone use this\Farseer Physics Engine 3.3 XNA\obj\x86\Debug\FarseerPhysicsXNA.dll
+C:\Users\Logan\Desktop\Magic Arena\Everyone use this\Farseer Physics Engine 3.3 XNA\obj\x86\Debug\FarseerPhysicsXNA.pdb
