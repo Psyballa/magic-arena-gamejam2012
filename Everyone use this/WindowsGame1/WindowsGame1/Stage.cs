@@ -19,6 +19,7 @@ namespace WindowsGame1
     {
         Tile[,] tiles;
         List<Wall> walls;
+        Vector2 offset;
 
         public int height
         {
@@ -37,7 +38,7 @@ namespace WindowsGame1
 
         // have arrays work with stuff, just need to handle creating and updating the arrays of them.
 
-        public Stage(int width, int height, KingsOfAlchemy game){
+        public Stage(int width, int height, KingsOfAlchemy game, Vector2 offset){
 
             //Populate arrays
             tiles = new Tile[width,height];
@@ -45,10 +46,10 @@ namespace WindowsGame1
             for(int i = 0; i < width; ++i){
                 for(int j = 0; j < height; ++j){
                     if(i == 0 || j == 0 || i == width - 1 || j == height-1){
-                        walls.Add(new Wall(game.world, new Microsoft.Xna.Framework.Vector2(i, j), game));
+                        walls.Add(new Wall(game.world, new Microsoft.Xna.Framework.Vector2(i, j), game, offset));
                     }
                     else{
-                        tiles[i,j] = new Tile(game.world, new Microsoft.Xna.Framework.Vector2(i, j), game);
+                        tiles[i,j] = new Tile(game.world, new Microsoft.Xna.Framework.Vector2(i, j), game, offset);
                     }
                 }
             }

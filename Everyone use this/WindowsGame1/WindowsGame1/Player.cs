@@ -76,7 +76,7 @@ namespace WindowsGame1
 
         KingsOfAlchemy game;
 
-        public Player(World gameWorld, int playerNum, KingsOfAlchemy game) : base(gameWorld)
+        public Player(World gameWorld, int playerNum, KingsOfAlchemy game, Vector2 offset) : base(gameWorld)
         {
             //Merged this with loadContent for simplicity
             this.game = game;
@@ -86,22 +86,22 @@ namespace WindowsGame1
                 case 1:
                     playerController = new Controller(PlayerIndex.One);
                     playerTex = game.Content.Load<Texture2D>("Player1");
-                    Position = new Vector2(60, 60);
+                    Position = new Vector2(60, 60) + offset;
                     break;
                 case 2:
                     playerController = new Controller(PlayerIndex.Two);
                     playerTex = game.Content.Load<Texture2D>("Player2");
-                    Position = new Vector2(400, 60);
+                    Position = new Vector2(400, 60) + offset;
                     break;
                 case 3:
                     playerController = new Controller(PlayerIndex.Three);
                     playerTex = game.Content.Load<Texture2D>("Player3");
-                    Position = new Vector2(60, 400);
+                    Position = new Vector2(60, 400) + offset;
                     break;
                 case 4:
                     playerController = new Controller(PlayerIndex.Four);
                     playerTex = game.Content.Load<Texture2D>("Player4");
-                    Position = new Vector2(400, 400);
+                    Position = new Vector2(400, 400) + offset;
                     break;
             }
             damage = 0;
@@ -230,13 +230,11 @@ namespace WindowsGame1
                         break;
                     case Element.earth:
                         rightcharge = 0;
-                        for (int i = 0; i < rightcharge / 10; ++i)
-                            game.attacks.Add(new Water(playerController.getRotation(), Position, game, this, rightcharge));
+                        game.attacks.Add(new Water(playerController.getRotation(), Position, game, this, rightcharge));
                         break;
                     case Element.air:
                         rightcharge = 0;
-                        for (int i = 0; i < rightcharge / 10; ++i)
-                            game.attacks.Add(new Water(playerController.getRotation(), Position, game, this, rightcharge));
+                        game.attacks.Add(new Air(playerController.getRotation(), Position, game, this, rightcharge));
                         break;
                 }
                 cooldown += 10;
