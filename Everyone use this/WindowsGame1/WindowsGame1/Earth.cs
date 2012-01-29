@@ -26,7 +26,7 @@ namespace WindowsGame1
         float rotation;
 
         public Earth(float direction, Vector2 position, KingsOfAlchemy game, Player owner, float charge)
-            : base(game, direction, 5, 30 * charge, 150 * (charge / 10), position, owner)
+            : base(game, direction, 5, 500 * charge, 500 * (charge / 10), position, owner)
         {
             damage = 1;
             rotation = direction;
@@ -49,6 +49,13 @@ namespace WindowsGame1
         }
         public bool earthOnCollision(Fixture fix1, Fixture fix2, Contact con)
         {
+            if (fix2.CollisionCategories == Category.Cat1)
+            {
+                if (life < (3 * lifetime / 4))
+                {
+                    life = 1 + (3 * lifetime / 4);
+                }
+            }
             return false;
         }
         public override void update(GameTime gameTime)
@@ -82,7 +89,7 @@ namespace WindowsGame1
 
             spriteBatch.Draw(earthTex,
                 new Rectangle((int)Position.X + 10, (int)Position.Y + 10,
-                earthTex.Width, earthTex.Height),
+                50, 50),
                 new Rectangle(0, 0, earthTex.Width, earthTex.Height),
                 Color.White,
                 rotation,
