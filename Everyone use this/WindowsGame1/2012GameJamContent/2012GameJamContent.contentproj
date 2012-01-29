@@ -85,8 +85,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="WallTile.png">
-      <Name>WallTile</Name>
+    <Compile Include="Walls\WallTileBreak0.png">
+      <Name>WallTileBreak0</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -156,6 +156,13 @@
     </Compile>
     <Compile Include="Tiles\MarbleTilesBreak7.png">
       <Name>MarbleTilesBreak7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Basicparticle.png">
+      <Name>Basicparticle</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

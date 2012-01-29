@@ -65,15 +65,6 @@
       <Time>2012-01-28T12:22:35.6725642-08:00</Time>
     </Item>
     <Item>
-      <Source>WallTile.png</Source>
-      <Name>WallTile</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\WallTile.xnb</Output>
-      <Time>2012-01-28T12:25:39.9611049-08:00</Time>
-    </Item>
-    <Item>
       <Source>Player1.png</Source>
       <Name>Player1</Name>
       <Importer>TextureImporter</Importer>
@@ -189,6 +180,24 @@
       <Options>None</Options>
       <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Tiles\MarbleTilesBreak0.xnb</Output>
       <Time>2012-01-28T14:34:38.5066739-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Walls\WallTileBreak0.png</Source>
+      <Name>Walls\WallTileBreak0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Walls\WallTileBreak0.xnb</Output>
+      <Time>2012-01-28T12:25:39.9611049-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Basicparticle.png</Source>
+      <Name>Basicparticle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Basicparticle.xnb</Output>
+      <Time>2012-01-28T19:04:01.9999004-08:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
