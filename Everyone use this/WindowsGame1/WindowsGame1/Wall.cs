@@ -22,33 +22,13 @@ namespace WindowsGame1
     {
         /*Note on collision categories (Arbitrarily defined based on what was already in the code):
          * Category 1: Wall 
-         *      collides with 4 to take constant damage and stop the cone
-         *      collides with 5 to take constant damage and stop the beam
-         *      collides with 6&7 to take instantaneous damage
-         *      collides with 8 to take instantaneous damage
          * Category 2: Floor
-         *      Collides with 4 to take constant damage
-         *      Collides with 5 to take much less constant damage
-         *      Collides with 6 to take instantaneous damage and destroy it
-         *      Collides with 8 to take constant damage
          * Category 3: Player
-         *      Collides with 1 to bounce off
-         *      Collides with 4 to take constant damage
-         *      Collides with 5 to take damage and stop the beam
-         *      collides with 6 to take immediate damage (floor destroys it)
-         *      collides with 8 to take constant damage
          * Category 4: Fire Cone
-         *      Collision handled elsewhere
          * Category 5: Water Beam
-         *      Collision handled elsewhere
          * Category 6: Rock
-         *      Collides with 1 to disperse
-         *      Collides with 2 to disperse
-         *      Collides with 3 to disperse
          * Category 7: Midair Rock
-         *      Collides with 1 to disperse
          * Category 8: Tornado
-         *      Collides with 1 to disperse
          */
         int health;
         Fixture wallFixture;
