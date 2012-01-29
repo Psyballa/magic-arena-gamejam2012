@@ -34,5 +34,5 @@ Content\Tiles\MarbleTiles1Break3.xnb
 Content\Tiles\MarbleTiles1Break4.xnb
 Content\Tiles\MarbleTiles1Break5.xnb
 Content\Tiles\MarbleTiles1Break6.xnb
-Content\Tiles\FloorBreaking.xnb
 Content\StarsBG.xnb
+Content\Tiles\FloorBreaking.xnb
