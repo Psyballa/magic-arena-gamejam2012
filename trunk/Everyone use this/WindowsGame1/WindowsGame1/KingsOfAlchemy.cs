@@ -122,6 +122,10 @@ namespace WindowsGame1
                         particleSystems.RemoveAt(i);
                     }
                 }
+                foreach (Player p in players)
+                {
+                    p.Update(Keyboard.GetState());
+                }
                 stage.update(gameTime);
             }
             if (gameState == GameState.mainMenu)
