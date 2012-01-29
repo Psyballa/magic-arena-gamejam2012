@@ -259,6 +259,7 @@ namespace WindowsGame1
             }
             fallingFlag = true;
         }
+
         public void draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             if (dead) return;
