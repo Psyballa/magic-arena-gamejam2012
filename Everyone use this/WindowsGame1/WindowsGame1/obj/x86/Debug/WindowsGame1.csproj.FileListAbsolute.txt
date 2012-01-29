@@ -39,3 +39,10 @@ C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use t
 C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Tiles\MarbleTilesBreak0.xnb
 C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Walls\WallTileBreak0.xnb
 C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Basicparticle.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Walls\WallTileBreak1.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Walls\WallTileBreak2.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Walls\WallTileBreak3.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Walls\WallTileBreak4.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Walls\WallTileBreak5.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Walls\WallTileBreak6.xnb
+C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Walls\WallTileBreak7.xnb

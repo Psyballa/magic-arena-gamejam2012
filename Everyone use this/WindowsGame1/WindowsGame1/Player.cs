@@ -48,7 +48,7 @@ namespace WindowsGame1
     public class Player : Body
     {
         public float damage = 1;
-        float playerSize = 5;
+        float playerSize = 20;
         Texture2D playerTex;
         Controller playerController;
         public Fixture playerFixture;
@@ -111,7 +111,7 @@ namespace WindowsGame1
             playerOrigin.X = playerTex.Width / 2;
             playerOrigin.Y = playerTex.Height / 2;
 
-            playerFixture = FixtureFactory.AttachCircle(playerSize, 1, this, new Vector2(-playerTex.Width/2, -playerTex.Height/2));
+            playerFixture = FixtureFactory.AttachCircle(playerSize, 1, this);
             playerFixture.Body.BodyType = BodyType.Dynamic;
 
             playerFixture.CollisionCategories = Category.Cat3;
@@ -257,7 +257,7 @@ namespace WindowsGame1
           
 
             spriteBatch.Draw(playerTex,
-                new Rectangle((int)Position.X - playerTex.Width / 2, (int)Position.Y - playerTex.Height / 2, 
+                new Rectangle((int)Position.X, (int)Position.Y, 
                 playerTex.Width, playerTex.Height),
                 new Rectangle(0,0,playerTex.Width,playerTex.Height),
                 Color.White,

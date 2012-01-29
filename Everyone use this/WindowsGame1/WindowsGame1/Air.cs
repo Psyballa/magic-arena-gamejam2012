@@ -53,6 +53,7 @@ namespace WindowsGame1
             if (life > lifetime)
             {
                 Awake = false;
+                CollisionCategories = Category.None;
                 foreach (var a in particleSystem)
                 {
                     a.destroy();

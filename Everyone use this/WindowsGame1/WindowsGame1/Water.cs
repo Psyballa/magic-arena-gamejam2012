@@ -32,6 +32,8 @@ namespace WindowsGame1
         }
         public bool waterOnCollision(Fixture fix1, Fixture fix2, Contact con)
         {
+            if (fix2.CollisionCategories == Category.Cat1)
+                return true;
             return false;
         }
         public override void update(GameTime gameTime)
@@ -41,10 +43,10 @@ namespace WindowsGame1
             if (life > lifetime)
             {
                 Awake = false;
+                CollisionCategories = Category.None;
                 foreach (var a in particleSystem)
                 {
                     a.destroy();
-                    
                 }
             }
             base.update(gameTime);
