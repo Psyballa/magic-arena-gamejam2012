@@ -65,7 +65,9 @@ namespace WindowsGame1
 
         public KingsOfAlchemy()
         {
+            
             graphics = new GraphicsDeviceManager(this);
+            graphics.ToggleFullScreen();
             Content.RootDirectory = "Content";
         }
 
@@ -118,7 +120,7 @@ namespace WindowsGame1
             particleSystems = new List<ParticleSystem>();
             attacks = new List<Attack>();
             players = new List<Player>();
-            Vector2 offset = new Vector2(150, 0);
+            Vector2 offset = new Vector2(Window.ClientBounds.Width / 2 - (16 * 15), Window.ClientBounds.Height / 2 - (16 * 15));
 
             //Initialize stage
             stage = new Stage(30, 30, this, offset);
@@ -241,9 +243,9 @@ namespace WindowsGame1
                 }
                 for (int i = 0; i < Window.ClientBounds.Width; i += stars.Width)
                 {
-                    for (int j = 0; j < Window.ClientBounds.Width; j += stars.Height)
+                    for (int j = 0; j < Window.ClientBounds.Height; j += stars.Height)
                     {
-                        spriteBatch.Draw(stars, new Rectangle(i * stars.Width, j * stars.Height, stars.Width, stars.Height), Color.White);
+                        spriteBatch.Draw(stars, new Rectangle(i, j, stars.Width, stars.Height), Color.White);
                     }
                 }
                 stage.draw(gameTime, spriteBatch);

@@ -117,7 +117,7 @@ namespace WindowsGame1
         }
         public void playWin(int player)
         {
-            attemptPlaySound(5 + (int)(2 * (random.NextDouble())), player);
+            queueSound(5 + (int)(2 * (random.NextDouble())), player);
         }
         public void playHit(int player)
         {
