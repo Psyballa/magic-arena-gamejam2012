@@ -24,11 +24,12 @@ namespace WindowsGame1
         float life = 0;
         Texture2D earthTex;
         float rotation;
-        Vector2 location;
 
         public Earth(float direction, Vector2 position, KingsOfAlchemy game, Player owner, float charge)
-            : base(game, direction, 5, 3 * charge, 150 * (charge / 10), position, owner)
+            : base(game, direction, 5, 30 * charge, 150 * (charge / 10), position, owner)
         {
+            damage = 1;
+            rotation = direction;
             earthTex = game.Content.Load<Texture2D>("rock");
             attackFixture.CollisionCategories = Category.Cat7;
             attackFixture.CollidesWith = Category.Cat1 | Category.Cat7;
@@ -41,12 +42,10 @@ namespace WindowsGame1
                 1,
                 game.Content.Load<Texture2D>("Basicparticle"),
                 -0.0001f,
-                1000,
+                500,
                 1000,
                 Color.Brown));
             attackFixture.OnCollision += earthOnCollision;
-            location = attackFixture.Body.Position;
-            rotation = direction;
         }
         public bool earthOnCollision(Fixture fix1, Fixture fix2, Contact con)
         {
@@ -55,7 +54,6 @@ namespace WindowsGame1
         public override void update(GameTime gameTime)
         {
             if (!Awake) return;
-            location = attackFixture.Body.Position;
             life += 1;
             if (life > 3 * lifetime / 4)
             {
@@ -76,13 +74,14 @@ namespace WindowsGame1
 
         public override void draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
+            if (!Awake) return;
             Vector2 Origin;
             Origin.X = earthTex.Width / 2;
             Origin.Y = earthTex.Height / 2;
 
 
             spriteBatch.Draw(earthTex,
-                new Rectangle((int)location.X + 10, (int)location.Y + 10,
+                new Rectangle((int)Position.X + 10, (int)Position.Y + 10,
                 earthTex.Width, earthTex.Height),
                 new Rectangle(0, 0, earthTex.Width, earthTex.Height),
                 Color.White,
