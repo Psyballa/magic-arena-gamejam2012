@@ -25,7 +25,7 @@ namespace WindowsGame1
         public float speed;
         public float angle;
 
-
+        // i is density,  Conrad is bad at variable naming
         public Attack(World gameWorld, float d, float r, float i, float speed, Vector2 p, Player owner)
             : base(gameWorld)
         {
@@ -37,7 +37,7 @@ namespace WindowsGame1
             this.angle = d;
             this.impulse = i;
             IsStatic = false;
-            attackFixture = FixtureFactory.AttachCircle(radius, i, this);
+            //attackFixture = FixtureFactory.AttachCircle(radius, i, this);
             LinearVelocity = new Vector2((float)(speed * Math.Sin(angle)), (float)(speed * Math.Cos(angle)));
 
             
