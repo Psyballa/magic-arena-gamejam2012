@@ -24,7 +24,7 @@ namespace WindowsGame1
         float lifetime = 140;
         float life = 0;
         public Air(float direction, Vector2 position, KingsOfAlchemy game, Player owner, float charge)
-            : base(game, direction, 5, 8 * charge, 150 * (charge / 10), position, owner)
+            : base(game, direction, 25, 8 * charge, 150 * (charge / 10), position, owner)
         {
             attackFixture.CollisionCategories = Category.Cat8;
             attackFixture.CollidesWith = Category.Cat1 | Category.Cat2 | Category.Cat3 | Category.Cat4 | Category.Cat5 | Category.Cat6;
