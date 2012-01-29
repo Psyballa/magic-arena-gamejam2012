@@ -27,19 +27,17 @@ namespace WindowsGame1
         public KingsOfAlchemy game;
 
         // i is density,  Conrad is bad at variable naming
-        public Attack(KingsOfAlchemy game, float d, float r, float i, float speed, Vector2 p, Player owner)
+        public Attack(KingsOfAlchemy game, float angle, float radius, float impulse, float speed, Vector2 position, Player owner)
             : base(game.world)
         {
-            this.damage = d;
-            this.radius = r;
-            this.Position = p;
+            this.radius = radius;
+            this.Position = position;
             this.owner = owner;
             this.speed = speed;
-            this.angle = d;
-            this.impulse = i;
+            this.impulse = impulse;
             IsStatic = false;
             this.game = game;
-            attackFixture = FixtureFactory.AttachCircle(radius, i, this, new Vector2(-radius, -radius));
+            attackFixture = FixtureFactory.AttachCircle(radius, impulse, this, new Vector2(-radius, -radius));
             LinearVelocity = new Vector2((float)(speed * Math.Sin(angle)), (float)(speed * Math.Cos(angle)));
 
             attackFixture.Restitution = 1.0f;
