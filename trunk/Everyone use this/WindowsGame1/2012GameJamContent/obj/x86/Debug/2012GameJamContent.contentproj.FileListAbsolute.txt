@@ -1,2 +1,1 @@
-C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\2012GameJamContent\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\2012GameJamContent\obj\x86\Debug\ResolveAssemblyReference.cache

@@ -3,9 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+using FarseerPhysics.Dynamics;
+using FarseerPhysics.Factories;
+using FarseerPhysics.Collision;
+using FarseerPhysics.Common;
 
 namespace WindowsGame1
 {
+    enum whoTalk
+    {
+        player1, player2, player3, player4, none
+    }
     class SoundManager
     {
         public static SoundManager s = new SoundManager();
@@ -14,6 +28,9 @@ namespace WindowsGame1
         public List<SoundEffect> p2soundEffects;
         public List<SoundEffect> p3soundEffects;
         public List<SoundEffect> p4soundEffects;
+        public whoTalk who = whoTalk.none;
+        public Texture2D play1, play2, play3, play4;
+        int talkTimer = 0;
 
         public List<SoundEffect> soundEffectQueue;
 
@@ -49,7 +66,10 @@ namespace WindowsGame1
         }
         public void loadContent(KingsOfAlchemy game)
         {
-
+            play1 = game.Content.Load<Texture2D>("PlayerSprites/player1.x1");
+            play2 = game.Content.Load<Texture2D>("PlayerSprites/player2.x1");
+            play3 = game.Content.Load<Texture2D>("PlayerSprites/player4.x1");
+            play4 = game.Content.Load<Texture2D>("PlayerSprites/player5.x1");
             p1soundEffects = new List<SoundEffect>();
             p2soundEffects = new List<SoundEffect>();
             p3soundEffects = new List<SoundEffect>();
@@ -68,14 +88,28 @@ namespace WindowsGame1
             if (currVoice.State != SoundState.Playing && soundEffectQueue.Count == 0 && counter > 40)
             {
                 SoundEffect s;
-                if(player == 1)
+                if(player == 1){
                     s = p1soundEffects[index];
-                else if(player == 2)
+                    who = whoTalk.player1;
+                    talkTimer = 30;
+                }
+                else if(player == 2){
                     s = p2soundEffects[index];
-                else if(player == 3)
+                    who = whoTalk.player2;
+                    talkTimer = 30;
+                }
+                else if (player == 3)
+                {
                     s = p3soundEffects[index];
+                    who = whoTalk.player3;
+                    talkTimer = 30;
+                }
                 else
+                {
                     s = p4soundEffects[index];
+                    who = whoTalk.player4;
+                    talkTimer = 30;
+                }
                 
                 currVoice = s.CreateInstance();
                 currVoice.Play();
@@ -84,14 +118,28 @@ namespace WindowsGame1
         public void queueSound(int index, int player)
         {
             SoundEffect s;
-            if (player == 1)
+            if (player == 1){
                 s = p1soundEffects[index];
-            else if (player == 2)
+                who = whoTalk.player1;
+                talkTimer = 30;
+            }
+            else if (player == 2){
                 s = p2soundEffects[index];
+                who = whoTalk.player2;
+                talkTimer = 30;
+            }
             else if (player == 3)
+            {
                 s = p3soundEffects[index];
+                who = whoTalk.player3;
+                talkTimer = 30;
+            }
             else
+            {
                 s = p4soundEffects[index];
+                who = whoTalk.player4;
+                talkTimer = 30;
+            }
             soundEffectQueue.Add(s);
         }
 
@@ -141,7 +189,7 @@ namespace WindowsGame1
         }
 
 
-        public void update()
+        public void update(GameTime gametime, SpriteBatch spriteBatch)
         {
             counter += 1;
             if (soundEffectQueue.Count > 0 && currVoice.State != SoundState.Playing && counter > 35)
@@ -156,6 +204,63 @@ namespace WindowsGame1
             {
                 counter = 0;
                 wasPlaying = false;
+            }
+            if (who != whoTalk.none)
+            {
+                talkTimer--;
+                if (talkTimer <= 0)
+                {
+                    who = whoTalk.none;
+                }
+            }
+            switch (who)
+            {
+                case whoTalk.player1:
+                    spriteBatch.Draw(play1,
+                    new Rectangle((int)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - play1.Width, (GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 2) - play1.Height/2,
+                    play1.Width, play1.Height),
+                    new Rectangle(0, 0, play1.Width, play1.Height),
+                    Color.White,
+                    0,
+                    Vector2.Zero,
+                    SpriteEffects.None,
+                    0f);
+                    break;
+                case whoTalk.player2:
+                    spriteBatch.Draw(play2,
+                    new Rectangle((int)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - play2.Width, (GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 2) - play1.Height / 2,
+                    play1.Width, play1.Height),
+                    new Rectangle(0, 0, play1.Width, play1.Height),
+                    Color.White,
+                    0,
+                    Vector2.Zero,
+                    SpriteEffects.None,
+                    0f);
+                    break;
+                case whoTalk.player3:
+                    spriteBatch.Draw(play3,
+                    new Rectangle((int)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - play1.Width, (GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 2) - play1.Height / 2,
+                    play1.Width, play1.Height),
+                    new Rectangle(0, 0, play1.Width, play1.Height),
+                    Color.White,
+                    0,
+                    Vector2.Zero,
+                    SpriteEffects.None,
+                    0f);
+                    break;
+                case whoTalk.player4:
+                    spriteBatch.Draw(play4,
+                    new Rectangle((int)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - play1.Width, (GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 2) - play1.Height / 2,
+                    play1.Width, play1.Height),
+                    new Rectangle(0, 0, play1.Width, play1.Height),
+                    Color.White,
+                    0,
+                    Vector2.Zero,
+                    SpriteEffects.None,
+                    0f);
+                    break;
+                default:
+                    break;
             }
         }
     }

@@ -90,14 +90,14 @@ namespace WindowsGame1
         public float getRotation()
         {
             //Return which way the controller says the player should be facing
-            if (GamePad.GetState(controller).ThumbSticks.Right.Y == 0 && GamePad.GetState(controller).ThumbSticks.Right.X == 0) return prevRotation;
+            if (GamePad.GetState(controller).ThumbSticks.Right.Y < .2 && GamePad.GetState(controller).ThumbSticks.Right.Y > -.2 && GamePad.GetState(controller).ThumbSticks.Right.X < .2 && GamePad.GetState(controller).ThumbSticks.Right.X > -.2) return prevRotation;
             prevRotation = (float)-Math.Atan2(GamePad.GetState(controller).ThumbSticks.Right.Y, GamePad.GetState(controller).ThumbSticks.Right.X) + (float)Math.PI / 2;
             return prevRotation;
         }
         public float getRotation2()
         {
             //Return which way the controller says the player should be facing for the purposes of projectiles (this is different for some reason)
-            if (GamePad.GetState(controller).ThumbSticks.Right.Y == 0 && GamePad.GetState(controller).ThumbSticks.Right.X == 0) return prevRotation2;
+            if (GamePad.GetState(controller).ThumbSticks.Right.Y < .2 && GamePad.GetState(controller).ThumbSticks.Right.Y > -.2 && GamePad.GetState(controller).ThumbSticks.Right.X < .2 && GamePad.GetState(controller).ThumbSticks.Right.X > -.2) return prevRotation;
             prevRotation2 = (float)Math.Atan2(GamePad.GetState(controller).ThumbSticks.Right.Y, GamePad.GetState(controller).ThumbSticks.Right.X) + (float)Math.PI / 2;
             return prevRotation2;
         }

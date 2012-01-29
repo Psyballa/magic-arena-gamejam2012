@@ -284,3 +284,7 @@ C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use
 C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\damaged3.xnb
 C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\rock.xnb
 C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\tornado.xnb
+C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\player1.x1.xnb
+C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\player2.x1.xnb
+C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\player4.x1.xnb
+C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\player5.x1.xnb
