@@ -78,6 +78,11 @@ namespace WindowsGame1
             name = Content.Load<Texture2D>("KingsOfAlchemy");
             buttons.Add(new startGameButton(this, 0, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height * 5 / 8)));
             buttons.Add(new exitButton(this, 1, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height*7 / 8)));
+            restartGame();
+        }
+        public void restartGame()
+        {
+            players = new List<Player>();
             Vector2 offset = new Vector2(150, 0);
 
             //Initialize stage
@@ -89,6 +94,8 @@ namespace WindowsGame1
             {
                 players.Add(new Player(world, i + 1, this, offset));
             }
+
+
         }
 
         /// <summary>
@@ -145,6 +152,7 @@ namespace WindowsGame1
             if (GamePad.GetState(PlayerIndex.One).Buttons.Start == ButtonState.Pressed)
             {
                 gameState = GameState.mainMenu;
+                restartGame();
             }
 
             base.Update(gameTime);

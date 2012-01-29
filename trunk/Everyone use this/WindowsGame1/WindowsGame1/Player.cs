@@ -48,7 +48,7 @@ namespace WindowsGame1
     public class Player : Body
     {
         public float damage = 1;
-        float playerSize = 20;
+        float playerSize = 10;
         Texture2D playerTex;
         Controller playerController;
         public Fixture playerFixture;
@@ -72,7 +72,7 @@ namespace WindowsGame1
 
         //Flags
         public bool dead = false;
-        bool fallingFlag = false;
+        bool fallingFlag = true;
 
         KingsOfAlchemy game;
 
@@ -153,7 +153,6 @@ namespace WindowsGame1
                 case Category.Cat8:                         //Tornado
                     return false;
                 default:
-                    fallingFlag = true;
                     return false;
 
             }
@@ -245,8 +244,10 @@ namespace WindowsGame1
             //This is set to false in the collision detection if the player is safely standing on a tile, and set to false after each update
             if (fallingFlag)
             {
+                CollisionCategories = Category.None;
                 dead = true;
             }
+            fallingFlag = true;
         }
         public void draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -257,7 +258,7 @@ namespace WindowsGame1
           
 
             spriteBatch.Draw(playerTex,
-                new Rectangle((int)Position.X, (int)Position.Y, 
+                new Rectangle((int)Position.X + 10, (int)Position.Y + 10, 
                 playerTex.Width, playerTex.Height),
                 new Rectangle(0,0,playerTex.Width,playerTex.Height),
                 Color.White,

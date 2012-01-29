@@ -60,6 +60,12 @@ namespace WindowsGame1
 
         public bool _OnCollision(Fixture fix1, Fixture fix2, Contact con)
         {
+            if (fix2.CollisionCategories == Category.Cat3)
+            {
+                //UNCOMMENT TO TEST COLLISION BOXES
+                //health -= 1;
+            }
+
             if (fix2.CollisionCategories == Category.Cat4)
             {
                 health -= 1;
