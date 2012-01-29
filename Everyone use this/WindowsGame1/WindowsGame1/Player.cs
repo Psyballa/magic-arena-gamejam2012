@@ -50,11 +50,16 @@ namespace WindowsGame1
         public float damage = 1;
         float playerSize = 10;
         Texture2D playerTex;
+        Texture2D playerTex1;
+        Texture2D playerTex2;
         Controller playerController;
         public Fixture playerFixture;
 
         Player lastTouched;
-        
+
+        bool lastTaunted = false;
+        bool lastJoked = false;
+
 
         //Attack stuff
         Element currentEquip = Element.fire;
@@ -92,6 +97,7 @@ namespace WindowsGame1
 
         public Player(World gameWorld, int playerNum, KingsOfAlchemy game, Vector2 offset) : base(gameWorld)
         {
+            SoundManager.s.playIntro(playerNum);
             //Merged this with loadContent for simplicity
             this.game = game;
             this.index = playerNum;
@@ -164,6 +170,8 @@ namespace WindowsGame1
                     {
                         damage += 0.05f;
                         lastTouched = otherAttack.owner;
+                        SoundManager.s.playDamaged(index);
+                        SoundManager.s.playHit(otherAttack.owner.index);
                     }
                     return false;
                 case Category.Cat5:                         //Water beam
@@ -173,11 +181,15 @@ namespace WindowsGame1
                         damage += otherAttack.damage/100;
                         ApplyLinearImpulse(Vector2.Normalize(otherAttack.LinearVelocity) * otherAttack.impulse * damage);
                         lastTouched = otherAttack.owner;
+                        SoundManager.s.playDamaged(index);
+                        SoundManager.s.playHit(otherAttack.owner.index);
                         return true;
                     }
                     return false;
                 case Category.Cat6:                         //Rock
                     otherAttack = (Attack)fix2.Body;
+                    SoundManager.s.playDamaged(index);
+                    SoundManager.s.playHit(otherAttack.owner.index);
                     //damage += 0.05f;
                     ApplyLinearImpulse(Vector2.Normalize(otherAttack.LinearVelocity) * otherAttack.impulse * (damage));
                     lastTouched = otherAttack.owner;
@@ -186,6 +198,8 @@ namespace WindowsGame1
                     otherAttack = (Attack)fix2.Body;
                     if (otherAttack.owner != this)
                     {
+                        SoundManager.s.playDamaged(index);
+                        SoundManager.s.playHit(otherAttack.owner.index);
                         Vector2 acceleration = Position - fix2.Body.Position;
                         float temp = acceleration.X;
                         acceleration.X = acceleration.Y;
@@ -203,6 +217,25 @@ namespace WindowsGame1
 
         public void Update()
         {
+
+            if (!lastTaunted)
+                if (playerController.getLeftCharge())
+                {
+                    lastTaunted = true;
+                    SoundManager.s.playTaunt(index);
+                }
+                else
+                    lastTaunted = false;
+            if (!lastJoked)
+                if (playerController.getLeftBumper())
+                {
+                    lastJoked = true;
+                    SoundManager.s.playJoke(index);
+                }
+                else
+                    lastJoked = false;
+
+
             AngularVelocity = 0;
             LinearVelocity = LinearVelocity * 0.9f;
             if (dead) return;
@@ -273,6 +306,7 @@ namespace WindowsGame1
                         if (rightcharge > 60)
                         {
                             attackFire((int)rightcharge);
+                            SoundManager.s.playFire(index);
                         }
                         rightcharge = 0;
 
@@ -280,11 +314,13 @@ namespace WindowsGame1
                     case Element.water:
                         game.attacks.Add(new Water(playerController.getRotation2(), Position + new Vector2(10, 10), game, this, rightcharge));
                         rightcharge -= 20;
+                        SoundManager.s.playWater(index);
                         break;
                     case Element.earth:
                         if (rightcharge >= 150)
                         {
                             game.attacks.Add(new Earth(playerController.getRotation2(), Position + new Vector2(10, 10), game, this, rightcharge));
+                            SoundManager.s.playEarth(index);
                         }
                         rightcharge = 0;
                         break;
@@ -292,6 +328,7 @@ namespace WindowsGame1
                         if (rightcharge > 60)
                         {
                             game.attacks.Add(new Air(playerController.getRotation2(), Position, game, this, rightcharge));
+                            SoundManager.s.playAir(index);
                         }
                         rightcharge = 0;
                         break;
@@ -306,6 +343,7 @@ namespace WindowsGame1
             {
                 CollisionCategories = Category.None;
                 dead = true;
+                SoundManager.s.playDeath(index);
             }
             fallingFlag = true;
         }

@@ -120,6 +120,10 @@ namespace WindowsGame1
             }
             return false;
         }
+        public bool getLeftBumper()
+        {
+            return GamePad.GetState(controller).Buttons.LeftShoulder == ButtonState.Pressed;
+        }
 
         public bool getRightCharge()
         {

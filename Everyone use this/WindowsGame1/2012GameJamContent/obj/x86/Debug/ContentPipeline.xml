@@ -442,6 +442,632 @@
       <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
       <Time>2012-01-29T07:43:23.9916567-08:00</Time>
     </Item>
+    <Item>
+      <Source>sounds\P1\avalanche.wav</Source>
+      <Name>sounds\P1\avalanche</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P1\avalanche.xnb</Output>
+      <Time>2012-01-29T09:05:01.8838001-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P1\damage1.wav</Source>
+      <Name>sounds\P1\damage1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P1\damage1.xnb</Output>
+      <Time>2012-01-29T09:05:01.6037841-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P1\damage2.wav</Source>
+      <Name>sounds\P1\damage2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P1\damage2.xnb</Output>
+      <Time>2012-01-29T09:05:01.6167848-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P1\damage3.wav</Source>
+      <Name>sounds\P1\damage3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P1\damage3.xnb</Output>
+      <Time>2012-01-29T09:05:01.6297856-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P1\death.wav</Source>
+      <Name>sounds\P1\death</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P1\death.xnb</Output>
+      <Time>2012-01-29T09:05:01.549781-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P1\fire.wav</Source>
+      <Name>sounds\P1\fire</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P1\fire.xnb</Output>
+      <Time>2012-01-29T09:05:01.5347801-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P1\hit1.wav</Source>
+      <Name>sounds\P1\hit1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P1\hit1.xnb</Output>
+      <Time>2012-01-29T09:05:01.6387861-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P1\hit2.wav</Source>
+      <Name>sounds\P1\hit2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P1\hit2.xnb</Output>
+      <Time>2012-01-29T09:05:01.7997953-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P1\hit3.wav</Source>
+      <Name>sounds\P1\hit3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P1\hit3.xnb</Output>
+      <Time>2012-01-29T09:05:01.8107959-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P1\intro.wav</Source>
+      <Name>sounds\P1\intro</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P1\intro.xnb</Output>
+      <Time>2012-01-29T09:05:01.5737824-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P1\joke.wav</Source>
+      <Name>sounds\P1\joke</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P1\joke.xnb</Output>
+      <Time>2012-01-29T09:05:01.5617817-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P1\taunt.wav</Source>
+      <Name>sounds\P1\taunt</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P1\taunt.xnb</Output>
+      <Time>2012-01-29T09:05:01.5877832-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P1\tornado.wav</Source>
+      <Name>sounds\P1\tornado</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P1\tornado.xnb</Output>
+      <Time>2012-01-29T09:05:01.6567871-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P1\water.wav</Source>
+      <Name>sounds\P1\water</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P1\water.xnb</Output>
+      <Time>2012-01-29T09:05:01.9388032-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P1\win1.wav</Source>
+      <Name>sounds\P1\win1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P1\win1.xnb</Output>
+      <Time>2012-01-29T09:05:01.8187964-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P1\win2.wav</Source>
+      <Name>sounds\P1\win2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P1\win2.xnb</Output>
+      <Time>2012-01-29T09:05:01.8507982-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P2\avalanche.wav</Source>
+      <Name>sounds\P2\avalanche</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\avalanche.xnb</Output>
+      <Time>2012-01-29T09:05:10.0382665-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P2\death.wav</Source>
+      <Name>sounds\P2\death</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\death.xnb</Output>
+      <Time>2012-01-29T09:05:09.8272544-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P2\fire.wav</Source>
+      <Name>sounds\P2\fire</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\fire.xnb</Output>
+      <Time>2012-01-29T09:05:09.7462498-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P2\hit1.wav</Source>
+      <Name>sounds\P2\hit1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\hit1.xnb</Output>
+      <Time>2012-01-29T09:05:09.9262601-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P2\hit2.wav</Source>
+      <Name>sounds\P2\hit2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\hit2.xnb</Output>
+      <Time>2012-01-29T09:05:09.9792631-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P2\hit3.wav</Source>
+      <Name>sounds\P2\hit3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\hit3.xnb</Output>
+      <Time>2012-01-29T09:05:09.9912638-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P2\intro.wav</Source>
+      <Name>sounds\P2\intro</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\intro.xnb</Output>
+      <Time>2012-01-29T09:05:09.8922582-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P2\joke.wav</Source>
+      <Name>sounds\P2\joke</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\joke.xnb</Output>
+      <Time>2012-01-29T09:05:09.8492557-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P2\taunt.wav</Source>
+      <Name>sounds\P2\taunt</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\taunt.xnb</Output>
+      <Time>2012-01-29T09:05:09.9012587-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P2\tornado.wav</Source>
+      <Name>sounds\P2\tornado</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\tornado.xnb</Output>
+      <Time>2012-01-29T09:05:09.9432611-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P2\water.wav</Source>
+      <Name>sounds\P2\water</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\water.xnb</Output>
+      <Time>2012-01-29T09:05:10.0482671-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P2\win1.wav</Source>
+      <Name>sounds\P2\win1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\win1.xnb</Output>
+      <Time>2012-01-29T09:05:10.0002643-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P2\win2.wav</Source>
+      <Name>sounds\P2\win2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\win2.xnb</Output>
+      <Time>2012-01-29T09:05:10.0302661-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P3\avalanche.wav</Source>
+      <Name>sounds\P3\avalanche</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P3\avalanche.xnb</Output>
+      <Time>2012-01-29T09:05:14.0084936-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P3\damage1.wav</Source>
+      <Name>sounds\P3\damage1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P3\damage1.xnb</Output>
+      <Time>2012-01-29T09:05:13.8334836-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P3\damage2.wav</Source>
+      <Name>sounds\P3\damage2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P3\damage2.xnb</Output>
+      <Time>2012-01-29T09:05:13.841484-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P3\damage3.wav</Source>
+      <Name>sounds\P3\damage3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P3\damage3.xnb</Output>
+      <Time>2012-01-29T09:05:13.9004874-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P3\death.wav</Source>
+      <Name>sounds\P3\death</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P3\death.xnb</Output>
+      <Time>2012-01-29T09:05:13.7914812-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P3\fire.wav</Source>
+      <Name>sounds\P3\fire</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P3\fire.xnb</Output>
+      <Time>2012-01-29T09:05:13.7834807-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P3\hit1.wav</Source>
+      <Name>sounds\P3\hit1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P3\hit1.xnb</Output>
+      <Time>2012-01-29T09:05:13.9174884-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P3\hit2.wav</Source>
+      <Name>sounds\P3\hit2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P3\hit2.xnb</Output>
+      <Time>2012-01-29T09:05:13.9424898-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P3\hit3.wav</Source>
+      <Name>sounds\P3\hit3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P3\hit3.xnb</Output>
+      <Time>2012-01-29T09:05:13.9534905-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P3\intro.wav</Source>
+      <Name>sounds\P3\intro</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P3\intro.xnb</Output>
+      <Time>2012-01-29T09:05:13.8154826-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P3\joke.wav</Source>
+      <Name>sounds\P3\joke</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P3\joke.xnb</Output>
+      <Time>2012-01-29T09:05:13.8044819-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P3\taunt.wav</Source>
+      <Name>sounds\P3\taunt</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P3\taunt.xnb</Output>
+      <Time>2012-01-29T09:05:13.8244831-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P3\tornado.wav</Source>
+      <Name>sounds\P3\tornado</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P3\tornado.xnb</Output>
+      <Time>2012-01-29T09:05:13.9294891-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P3\water.wav</Source>
+      <Name>sounds\P3\water</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P3\water.xnb</Output>
+      <Time>2012-01-29T09:05:14.0164941-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P3\win1.wav</Source>
+      <Name>sounds\P3\win1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P3\win1.xnb</Output>
+      <Time>2012-01-29T09:05:13.9664912-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P3\win2.wav</Source>
+      <Name>sounds\P3\win2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P3\win2.xnb</Output>
+      <Time>2012-01-29T09:05:13.9794919-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P4\avalanche.wav</Source>
+      <Name>sounds\P4\avalanche</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P4\avalanche.xnb</Output>
+      <Time>2012-01-29T09:05:18.281738-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P4\damage1.wav</Source>
+      <Name>sounds\P4\damage1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P4\damage1.xnb</Output>
+      <Time>2012-01-29T09:05:18.1297293-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P4\damage2.wav</Source>
+      <Name>sounds\P4\damage2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P4\damage2.xnb</Output>
+      <Time>2012-01-29T09:05:18.1387298-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P4\damage3.wav</Source>
+      <Name>sounds\P4\damage3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P4\damage3.xnb</Output>
+      <Time>2012-01-29T09:05:18.1557308-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P4\death.wav</Source>
+      <Name>sounds\P4\death</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P4\death.xnb</Output>
+      <Time>2012-01-29T09:05:18.0747262-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P4\fire.wav</Source>
+      <Name>sounds\P4\fire</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P4\fire.xnb</Output>
+      <Time>2012-01-29T09:05:18.0637255-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P4\hit1.wav</Source>
+      <Name>sounds\P4\hit1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P4\hit1.xnb</Output>
+      <Time>2012-01-29T09:05:18.1677315-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P4\hit2.wav</Source>
+      <Name>sounds\P4\hit2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P4\hit2.xnb</Output>
+      <Time>2012-01-29T09:05:18.1927329-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P4\hit3.wav</Source>
+      <Name>sounds\P4\hit3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P4\hit3.xnb</Output>
+      <Time>2012-01-29T09:05:18.245736-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P4\intro.wav</Source>
+      <Name>sounds\P4\intro</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P4\intro.xnb</Output>
+      <Time>2012-01-29T09:05:18.1027278-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P4\joke.wav</Source>
+      <Name>sounds\P4\joke</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P4\joke.xnb</Output>
+      <Time>2012-01-29T09:05:18.0877269-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P4\taunt.wav</Source>
+      <Name>sounds\P4\taunt</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P4\taunt.xnb</Output>
+      <Time>2012-01-29T09:05:18.1187287-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P4\tornado.wav</Source>
+      <Name>sounds\P4\tornado</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P4\tornado.xnb</Output>
+      <Time>2012-01-29T09:05:18.1787321-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P4\water.wav</Source>
+      <Name>sounds\P4\water</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P4\water.xnb</Output>
+      <Time>2012-01-29T09:05:18.2917386-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P4\win1.wav</Source>
+      <Name>sounds\P4\win1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P4\win1.xnb</Output>
+      <Time>2012-01-29T09:05:18.2607368-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P4\win2.wav</Source>
+      <Name>sounds\P4\win2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P4\win2.xnb</Output>
+      <Time>2012-01-29T09:05:18.2687373-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\408038_orchestra.mp3</Source>
+      <Name>sounds\408038_orchestra</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\408038_orchestra.xnb</Output>
+      <Extra>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\408038_orchestra.wma</Extra>
+      <Time>2012-01-29T09:05:19.1637885-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\432898_Beat_project_2.mp3</Source>
+      <Name>sounds\432898_Beat_project_2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\432898_Beat_project_2.xnb</Output>
+      <Extra>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\432898_Beat_project_2.wma</Extra>
+      <Time>2012-01-29T09:05:09.6492443-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P2\damage1.wav</Source>
+      <Name>sounds\P2\damage1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\damage1.xnb</Output>
+      <Time>2012-01-29T09:05:09.9082591-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P2\damage2.wav</Source>
+      <Name>sounds\P2\damage2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\damage2.xnb</Output>
+      <Time>2012-01-29T09:05:09.9182596-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\P2\damage3.wav</Source>
+      <Name>sounds\P2\damage3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\damage3.xnb</Output>
+      <Time>2012-01-29T09:05:09.9342606-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\fire.mp3</Source>
+      <Name>sounds\fire</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\fire.xnb</Output>
+      <Extra>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\fire.wma</Extra>
+      <Time>2012-01-29T09:28:52.2386117-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\avalanche.mp3</Source>
+      <Name>sounds\avalanche</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\avalanche.xnb</Output>
+      <Extra>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\avalanche.wma</Extra>
+      <Time>2012-01-29T09:28:52.2136103-08:00</Time>
+    </Item>
+    <Item>
+      <Source>sounds\water.mp3</Source>
+      <Name>sounds\water</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\water.xnb</Output>
+      <Extra>C:\Users\Conrad\Documents\Visual Studio 2010\Projects\2012GameJam\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\water.wma</Extra>
+      <Time>2012-01-29T09:28:52.1996095-08:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
