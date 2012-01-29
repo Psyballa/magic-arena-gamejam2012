@@ -182,6 +182,7 @@ namespace WindowsGame1
             spriteBatch.Draw(playerTex,
                 new Rectangle((int)Position.X - playerTex.Width / 2, (int)Position.Y - playerTex.Height / 2, 
                 playerTex.Width, playerTex.Height),
+                new Rectangle(0,0,playerTex.Width,playerTex.Height),
                 Color.White,
                 playerController.getRotation(), 
                 playerOrigin, 

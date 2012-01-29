@@ -30,6 +30,7 @@ namespace WindowsGame1
         controls theControls;
         PlayerIndex controller;
         GamePadState prevState;
+        float prevRotation = 0;
 
         public Controller(PlayerIndex playerNum)
         {
@@ -86,7 +87,9 @@ namespace WindowsGame1
         public float getRotation()
         {
             //Return which way the controller says the player should be facing
-            return (float)-Math.Atan2(GamePad.GetState(controller).ThumbSticks.Right.Y, GamePad.GetState(controller).ThumbSticks.Right.X) + (float)Math.PI/2;
+            if (GamePad.GetState(controller).ThumbSticks.Right.Y == 0 && GamePad.GetState(controller).ThumbSticks.Right.X == 0) return prevRotation;
+            prevRotation = (float)-Math.Atan2(GamePad.GetState(controller).ThumbSticks.Right.Y, GamePad.GetState(controller).ThumbSticks.Right.X) + (float)Math.PI / 2;
+            return prevRotation;
         }
 
         public bool getLeftCharge()

@@ -19,6 +19,7 @@ namespace WindowsGame1
         public Texture2D sprite;
         public Vector2 position;
         public bool prevClicked = false;
+        public bool selected;
         public KingsOfAlchemy game;
 
         public int index;
@@ -57,6 +58,7 @@ namespace WindowsGame1
         {
             this.position = position;
             this.game = game;
+            this.selected = true;
             this.sprite = game.Content.Load<Texture2D>("Start");
             this.index = index;
         }
@@ -71,6 +73,7 @@ namespace WindowsGame1
         {
             this.position = position;
             this.game = game;
+            this.selected = false;
             this.sprite = game.Content.Load<Texture2D>("Exit");
             this.index = index;
         }
