@@ -275,7 +275,7 @@ namespace WindowsGame1
                         rightcharge -= 20;
                         break;
                     case Element.earth:
-                        game.attacks.Add(new Water(playerController.getRotation2(), Position, game, this, rightcharge));
+                        game.attacks.Add(new Earth(playerController.getRotation2(), Position + new Vector2(10, 10), game, this, rightcharge));
                         rightcharge = 0;
                         break;
                     case Element.air:
