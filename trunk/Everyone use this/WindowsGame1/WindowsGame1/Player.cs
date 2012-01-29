@@ -89,6 +89,9 @@ namespace WindowsGame1
             damage = 0;
 
             // load player sprite
+            Vector2 playerOrigin;
+            playerOrigin.X = playerTex.Width / 2;
+            playerOrigin.Y = playerTex.Height / 2;
 
             playerFixture = FixtureFactory.AttachCircle(playerSize, 1, this);
             playerFixture.Body.BodyType = BodyType.Dynamic;
@@ -135,14 +138,17 @@ namespace WindowsGame1
             }
         }
 
-        public void Update(KeyboardState keyboardState)
+        public void Update()
         {
             goDoThis elementChange = playerController.getEquipChange();
             //if(elementChange = goDoThis.equipAir && 
             // Call methods to get info from controller
             // Do Stuff (this will include methods to shoot attacks)
             Vector2 newv = new Vector2();
-            if (keyboardState.IsKeyDown(Keys.Down))
+           
+            float rotation = playerController.getRotation();
+            newv = playerController.getMovement();
+            /*if (keyboardState.IsKeyDown(Keys.Down))
             {
                 newv.Y += 1;
             }
@@ -158,6 +164,7 @@ namespace WindowsGame1
             {
                 newv.X += 1;
             }
+             * */
             LinearVelocity = newv;
             //This is set to false in the collision detection if the player is safely standing on a tile, and set to false after each update
             if (fallingFlag)
@@ -169,7 +176,17 @@ namespace WindowsGame1
         }
         public void draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(playerTex, new Rectangle((int)Position.X - playerTex.Width / 2, (int)Position.Y - playerTex.Height / 2, playerTex.Width, playerTex.Height), Color.White);
+            Vector2 playerOrigin;
+            playerOrigin.X = playerTex.Width/2;
+            playerOrigin.Y = playerTex.Height/2;
+            spriteBatch.Draw(playerTex,
+                new Rectangle((int)Position.X - playerTex.Width / 2, (int)Position.Y - playerTex.Height / 2, 
+                playerTex.Width, playerTex.Height),
+                Color.White,
+                playerController.getRotation(), 
+                playerOrigin, 
+                SpriteEffects.None,
+                0f);
         }
 
 
