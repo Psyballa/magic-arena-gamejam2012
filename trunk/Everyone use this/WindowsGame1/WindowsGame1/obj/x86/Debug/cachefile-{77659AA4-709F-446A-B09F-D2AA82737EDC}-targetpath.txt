@@ -26,4 +26,5 @@ Content\Walls\WallTileBreak4.xnb
 Content\Walls\WallTileBreak5.xnb
 Content\Walls\WallTileBreak6.xnb
 Content\Walls\WallTileBreak7.xnb
+Content\rock.xnb
 Content\Tiles\FloorBreaking.xnb
