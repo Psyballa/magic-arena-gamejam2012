@@ -249,12 +249,12 @@ namespace WindowsGame1
             Vector2 newv = new Vector2();
             if (playerController.getRightCharge())
             {
-                if(rightcharge < 150)
+                if(rightcharge < maxCharge)
                     rightcharge += 1;
             }
             if (playerController.getLeftCharge())
             {
-                if(leftcharge < 150)
+                if(leftcharge < maxCharge)
                     leftcharge += 1;
             }
             if (cooldown > 0) cooldown -= 1;
