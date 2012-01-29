@@ -42,6 +42,7 @@ namespace WindowsGame1
         Texture2D playerTex;
         Controller playerController;
         public Fixture playerFixture;
+        
 
         //Attack stuff
         Element currentEquip = Element.fire;
@@ -133,6 +134,7 @@ namespace WindowsGame1
                         Matrix.CreateRotationZ((float)Math.Max(0, 30 - Vector2.Distance(fix1.Body.Position, fix2.Body.Position)) * 1 + damage));
                     return false;
                 default:
+                    fallingFlag = true;
                     return false;
 
             }
@@ -140,6 +142,7 @@ namespace WindowsGame1
 
         public void Update()
         {
+            if (dead) return;
             goDoThis elementChange = playerController.getEquipChange();
             //if(elementChange = goDoThis.equipAir && 
             // Call methods to get info from controller
@@ -148,37 +151,22 @@ namespace WindowsGame1
            
             float rotation = playerController.getRotation();
             newv = playerController.getMovement();
-            /*if (keyboardState.IsKeyDown(Keys.Down))
-            {
-                newv.Y += 1;
-            }
-            if (keyboardState.IsKeyDown(Keys.Up))
-            {
-                newv.Y -= 1;
-            }
-            if (keyboardState.IsKeyDown(Keys.Left))
-            {
-                newv.X -= 1;
-            }
-            if (keyboardState.IsKeyDown(Keys.Right))
-            {
-                newv.X += 1;
-            }
-             * */
             LinearVelocity = newv;
             //This is set to false in the collision detection if the player is safely standing on a tile, and set to false after each update
             if (fallingFlag)
             {
                 dead = true;
             }
-            fallingFlag = true;
-
+           
         }
         public void draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
+            if (dead) return;
             Vector2 playerOrigin;
             playerOrigin.X = playerTex.Width/2;
             playerOrigin.Y = playerTex.Height/2;
+          
+
             spriteBatch.Draw(playerTex,
                 new Rectangle((int)Position.X - playerTex.Width / 2, (int)Position.Y - playerTex.Height / 2, 
                 playerTex.Width, playerTex.Height),
