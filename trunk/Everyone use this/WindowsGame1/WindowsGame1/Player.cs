@@ -239,7 +239,7 @@ namespace WindowsGame1
                         break;
                     case Element.earth:
                         rightcharge = 0;
-                        game.attacks.Add(new Water(playerController.getRotation2(), Position, game, this, rightcharge));
+                        game.attacks.Add(new Earth(playerController.getRotation2(), Position, game, this, rightcharge));
                         break;
                     case Element.air:
                         game.attacks.Add(new Air(playerController.getRotation2(), Position, game, this, rightcharge));
