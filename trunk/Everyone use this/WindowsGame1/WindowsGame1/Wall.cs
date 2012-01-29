@@ -30,18 +30,18 @@ namespace WindowsGame1
          * Category 7: Midair Rock
          * Category 8: Tornado
          */
-        int health;
+        float health;
         float maxhealth;
         float prevhealth;
         Fixture wallFixture;
         Texture2D wallTex;
         SoundEffect breakSound;
-        float breakstages = 1;
+        float breakstages = 7;
         KingsOfAlchemy game;
 
         bool dead = false;
 
-        public Wall(World gameWorld, Vector2 location, KingsOfAlchemy game) : base(gameWorld)
+        public Wall(World gameWorld, Vector2 location, KingsOfAlchemy game, Vector2 offset) : base(gameWorld)
         {
             //Loading content in the constructor for simplicity's sake because the content manager is initialized by the time the stage is created
             health = 100;
@@ -51,6 +51,7 @@ namespace WindowsGame1
             wallTex = game.Content.Load<Texture2D>("Walls/WallTileBreak0");
             location.X *= wallTex.Width;
             location.Y *= wallTex.Height;
+            location += offset;
             Position = location;
 
             wallFixture = FixtureFactory.AttachRectangle(wallTex.Width, wallTex.Height, 1, new Vector2(), this);
@@ -64,9 +65,21 @@ namespace WindowsGame1
 
         public bool _OnCollision(Fixture fix1, Fixture fix2, Contact con)
         {
-            if (fix2.CollisionCategories == Category.Cat3)
+            if (fix2.CollisionCategories == Category.Cat4)
+            {
+                health -= 1;
+            }
+            if (fix2.CollisionCategories == Category.Cat5)
+            {
+                health -= 0.5f;
+            }
+            if (fix2.CollisionCategories == Category.Cat6)
             {
                 health -= 10;
+            }
+            if (fix2.CollisionCategories == Category.Cat8)
+            {
+                health -= 0.5f;
             }
             return false;
         }
@@ -84,7 +97,7 @@ namespace WindowsGame1
             }
             if (currstage > prevhealth)
             {
-                wallTex = game.Content.Load<Texture2D>("Tiles/MarbleTilesBreak" + currstage.ToString());
+                wallTex = game.Content.Load<Texture2D>("Walls/WallTileBreak" + currstage.ToString());
             }
 
             prevhealth = currstage;
@@ -94,7 +107,7 @@ namespace WindowsGame1
             {
                 dead = true;
                 wallFixture.CollisionCategories = Category.None;
-                breakSound.Play();
+                //breakSound.Play();
             }
         }
         public void draw(GameTime gameTime, SpriteBatch spriteBatch)

@@ -78,15 +78,16 @@ namespace WindowsGame1
             name = Content.Load<Texture2D>("KingsOfAlchemy");
             buttons.Add(new startGameButton(this, 0, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height * 5 / 8)));
             buttons.Add(new exitButton(this, 1, new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height*7 / 8)));
+            Vector2 offset = new Vector2(150, 0);
 
             //Initialize stage
-            stage = new Stage(30, 30, this);
+            stage = new Stage(30, 30, this, offset);
 
             //Initialize players
             players = new List<Player>();
             for (int i = 0; i < 4; ++i)
             {
-                players.Add(new Player(world, i + 1, this));
+                players.Add(new Player(world, i + 1, this, offset));
             }
         }
 

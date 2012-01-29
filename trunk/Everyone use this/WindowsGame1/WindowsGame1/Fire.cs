@@ -26,7 +26,7 @@ namespace WindowsGame1
 
 
 
-        public Fire(World gameWorld, float dmg, float rot, float density, float speed, Vector2 p, Player owner)
+        public Fire(KingsOfAlchemy gameWorld, float dmg, float rot, float density, float speed, Vector2 p, Player owner)
             :base(gameWorld, dmg, 2 ,density, speed, p, owner)
         {
             attackFixture = FixtureFactory.AttachRectangle(radius, 3.0f, density, new Vector2(0,0), this);

@@ -20,8 +20,8 @@ namespace WindowsGame1
 {
     class Tile : Body
     {
-        int health;
-        int prevhealth;
+        float health;
+        float prevhealth;
         float maxhealth;
         Fixture tileFixture;
         Texture2D tileTex;
@@ -35,7 +35,7 @@ namespace WindowsGame1
         KingsOfAlchemy game;
 
 
-        public Tile(World gameWorld, Vector2 location, KingsOfAlchemy game) : base(gameWorld)
+        public Tile(World gameWorld, Vector2 location, KingsOfAlchemy game, Vector2 offset) : base(gameWorld)
         {
             //Loading content in the constructor for simplicity's sake because the content manager is initialized by the time the stage is created
             health = 100;
@@ -48,6 +48,7 @@ namespace WindowsGame1
             breakSound = game.Content.Load<SoundEffect>("Tiles/FloorBreaking");
             location.X *= tileTex.Width;
             location.Y *= tileTex.Height;
+            location += offset;
             Position = location;
             tileFixture = FixtureFactory.AttachRectangle(tileTex.Width, tileTex.Height, 1, new Vector2(), this);
             tileFixture.CollisionCategories = Category.Cat2;
@@ -59,10 +60,23 @@ namespace WindowsGame1
 
         public bool _OnCollision(Fixture fix1, Fixture fix2, Contact con)
         {
-            if (fix2.CollisionCategories == Category.Cat3)
+            if (fix2.CollisionCategories == Category.Cat4)
             {
                 health -= 1;
             }
+            if (fix2.CollisionCategories == Category.Cat5)
+            {
+                health -= 0.5f;
+            }
+            if (fix2.CollisionCategories == Category.Cat6)
+            {
+                health -= 10;
+            }
+            if (fix2.CollisionCategories == Category.Cat8)
+            {
+                health -= 0.5f;
+            }
+
             return false;
         }
 
@@ -89,7 +103,7 @@ namespace WindowsGame1
             {
                 dead = true;
                 tileFixture.CollisionCategories = Category.None;
-                breakSound.Play();
+                //breakSound.Play();
             }
         }
         public void draw(GameTime gameTime, SpriteBatch spriteBatch)
