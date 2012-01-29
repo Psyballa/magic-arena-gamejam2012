@@ -284,3 +284,12 @@ C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use
 C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\play5.1.xnb
 C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\play5.2.xnb
 C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\PlayerSprites\play5.fail.xnb
+C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\damaged1.xnb
+C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\damaged2.xnb
+C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\P2\damaged3.xnb
+C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\fireball.xnb
+C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\rock.xnb
+C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\thunder.xnb
+C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\fireball.wma
+C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\rock.wma
+C:\Users\Ultimatemuffin\Desktop\Gamejam2012\magic-arena-gamejam2012\Everyone use this\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\sounds\thunder.wma
